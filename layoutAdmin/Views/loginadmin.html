@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập Admin</title>
+    <link rel="stylesheet" href="css/loginadmin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>Trang Quản Trị</h1>
+        </div>
+    </header>
+
+    <!-- Nội dung đăng nhập -->
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Đăng Nhập Admin</h2>
+            <form id="loginForm" action="#" method="POST" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                    <span class="error" id="passwordError"></span>
+                </div>
+                <button type="submit" class="btn-login">Đăng Nhập</button>
+            </form>
+            <div class="footer">
+                <p>Quên mật khẩu? <a href="#">Khôi phục mật khẩu</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Trang Quản Trị. Tất cả quyền được bảo lưu.</p>
+    </footer>
+    <script defer src="loginadmin.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+/* chi tiết sản phẩm */
+#container #row{
+    padding-top: 20px;
+    width: 80%;
+    height: 130vh;
+    margin: 0 auto;
+}
+/* img bên trái */
+#row .row-left{
+    float: left;
+    width: 67%;
+    height: 110vh;
+}
+.row-left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+}
+/* contents bên phải */
+#row .row-right{
+    float: left;
+    width: 30%;
+    height: 110vh;
+    margin-left: 30px;
+}
+.row-right h1{
+    width: 100%;
+    font-size: 22px;
+    border-bottom: 1px #000 solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+/* giá */
+.row-right .price-product{
+    width: 100%;
+    margin-top: 10px;
+ 
+}
+.price-product span{
+    margin: 10px 10px 10px 0;
+    font-size: 25px;
+    color: red;
+}
+.price-product .price-sale{
+    color: #999999;
+    font-size: 20px;
+    text-decoration:line-through;
+}
+/* cam kết */
+.row-right .policy{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+}
+.policy img{
+    width: 15px;
+    height: 15px;
+    transform: translateY(2px);
+    margin-right: 6px;
+}
+/* top bán chạy */
+.row-right .top{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #99999940;
+}
+.top .top-ban img{
+    float: left;
+    width: 20px;
+    margin: 0 6px;
+}
+.top .top-ban h2{
+    float: left;
+    font-size: 15px;
+    color: red;
+    font-weight: 900;
+}
+.top .top-hot p{
+    color: red;
+    font-size: 13px;
+    margin-right: 3px;
+}
+/* thông tin sản phẩm */
+.row-right .contents{
+    line-height: 30px;
+    margin-top: 10px;
+}
+/* size */
+.row-right .size{
+    width: 100%;
+    height: 70px;
+}
+.size .img-size{
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #999999;
+    text-align: center;
+    line-height: 25px;
+}
+.active-size{
+    background-color: #000;
+    color: white;
+    border: 1px solid black;
+}
+/* số lượng */
+.row-right .quantity .button-quantity{
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+}
+.quantity .button-quantity .down{
+    width: 30px;
+    float: left;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #999999;
+    cursor: pointer;
+
+}
+.button-quantity input{
+    width: 100px;
+    float: left;
+    display: block;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #999999;
+}
+.button-quantity .up{
+    cursor: pointer;
+    width: 30px;
+    float: left;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #999999;
+}
+.row-right .btn-mua{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+
+}
+.btn-mua button{
+    float: left;
+    height: 40px;
+    width: 170px;
+    margin-right: 10px;
+    border: none;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+}
+.btn-mua button:hover{
+    background-color: #000000d8;
+}
+/* mini ảnh sản phẩm */
+#row .wrapper{
+    width: 67%;
+    height: 15vh;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper .mini-box{
+    width: 80px;
+    height: 80px;
+    margin: 10px;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .mini-box i{
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 5px;
+
+
+}
+.wrapper .mini-box i:hover{
+    background-color:#9999998d;
+
+}
+.mini-box img{
+    cursor: pointer;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* mô tả sản phẩm */
+#describe-product{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+#describe-product .all-describe{
+    width: 67%;
+    height: auto;
+}
+/* nút chuyển đổi  */
+.all-describe .button-describe{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.button-describe button{
+    cursor: pointer;
+    width: 48%;
+    height: 80%;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid #999999;
+}
+/* cmt */
+.cmt-user{
+    display: none;
+    height: 100vh;
+    width: 100%;
+}
+/* phần bình luận của người dùng */
+
+.all-describe .comments-describe{
+    margin-top: 20px;
+    width: 100%;
+    height: 12vh;
+    margin-bottom: 20px;
+}
+.comments-describe .comments-user{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0 10px;
+    float: left;
+    background-color: red;
+  
+}
+.comments-user img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.comments-describe .text-submit{
+    float: left;
+    width: 90%;
+    height: 100%;
+}
+.text-submit .text{
+    width: 100%;
+    height: 50%;
+
+}
+.text>input{
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #999999;
+
+}
+
+.text-submit .submit{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 5px;
+}
+.submit p{
+    cursor: pointer;
+}
+.submit button{
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+.submit button:hover{
+    background-color: #000000d8;
+}
+/* phần bình luận của người khác */
+.all-describe .comments-describe-user{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.comments-describe-user .comments-user{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0 10px;
+    float: left;
+}
+.comments-describe-user .comments-text{
+    width: 90%;
+    height: 100%;
+    float: left;
+}
+.comments-text .name-user {
+    display: flex; 
+    align-items: center;
+    width: 90%;
+  
+}
+.comments-text .name-user h4 {
+    font-weight: 600;
+    margin-right: 10px;
+}
+.comments-text .name-user p {
+    font-size: 12px;
+}
+.comments-text .vote{
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;  
+    margin-bottom: 20px; 
+}
+.vote i{
+    margin-right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.vote button{
+    width: 80px;
+    height: 30px;
+    border-radius: 14px;
+    cursor: pointer;
+    background: none;
+}
+.vote button:hover{
+    background-color: #00000093;
+    color: #fff;
+}
+
+/* phần mô tả sản phẩm */
+.all-describe .img-describe{
+   display: flex;
+   gap: 10px;
+   width: 100%;
+}
+.img-describe img{
+    width: 30%;
+    height: auto;
+    margin: 10px 0;
+}
+.img-describe img:nth-child(1):only-child {
+    flex: 1 1 100%;
+}
+.img-describe img:nth-child(1):nth-last-child(2),
+.img-describe img:nth-child(2):nth-last-child(1) {
+    flex: 1 1 50%;
+}
+
+.img-describe img:nth-child(1):nth-last-child(3),
+.img-describe img:nth-child(2):nth-last-child(2),
+.img-describe img:nth-child(3):nth-last-child(1) {
+    flex: 1 1 33.33%;
+}
+#sptt{
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+
+}
