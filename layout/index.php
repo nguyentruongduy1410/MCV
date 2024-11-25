@@ -4,7 +4,6 @@ $page = isset($_GET['trang']) ? $_GET['trang'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] :'';
 $iddb = isset($_GET['iddb']) ? $_GET['iddb'] :'';
 $iddm = isset($_GET['iddm']) ? $_GET['iddm'] :'';
-$id_sp = isset($_GET['id_sp']) ? $_GET['id_sp'] : '';
 $chuyen = isset($_GET['chuyen']) ? $_GET['chuyen'] : '1';
 switch ($page) { 
     case 'home':

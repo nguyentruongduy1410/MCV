@@ -63,7 +63,7 @@
             <div class="wrapper" id="minis">
                 <?php 
                     $ch = '';
-                    foreach($productdetailmodel -> chitiethinhanh as $value){
+                    foreach($productdetailmodel -> chitiethinhanh as $key =>$value){
                         $ch.='
                             <div class="mini-box">
                                 <img src="./Public/img/'.$value['hinh_url'].'" alt="">
