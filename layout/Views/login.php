@@ -1,12 +1,4 @@
-<?php
-    session_start();
-    ob_start();
-    include("../Model/");
-    if(isset($_POST['dangnhap']) && $_POST['dangnhap']){
-        $user = $_POST['email'];
-        $pass = $_POST['mk'];
-    }
-?>
+
 <div id="loginModal">
         <div class="modal-content">
             <div class="modal-content-left">

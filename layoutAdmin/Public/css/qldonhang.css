@@ -1,0 +1,59 @@
+/* Tổng quan */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+/* Nội dung */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+.content h1 {
+    margin-top: 0;
+}
+
+/* Bảng */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.order-table th, .order-table td {
+    border: 1px solid #bdc3c7;
+    padding: 12px;
+    text-align: center; /* Căn giữa nội dung */
+    vertical-align: middle; /* Căn giữa dọc */
+}
+
+.order-table th {
+    background-color: #34495e;
+    color: white;
+}
+
+.order-table td img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto; /* Căn giữa hình ảnh */
+}
+
+.admin-note {
+    width: 100%;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}

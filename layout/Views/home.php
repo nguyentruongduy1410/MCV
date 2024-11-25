@@ -1,5 +1,4 @@
 <!-- banner -->
-
 <div id="banner">
     <div class="list-img">
         <div class="img-banner"><img src="./Public/img/baner1.png" alt=""></div>
@@ -62,8 +61,8 @@
                     <div class="text-sp">
                         <h3>' . $value['ten_sp'] . '</h3>
                         <div class="price-sp">
-                            <p>' . $value['gia_sp'] . '</p>
-                            <p class="sale-sp">' . $value['giamgia_sp'] . '</p>
+                            <p>' . number_format($value['gia_sp'],0, ',','.') .' đ</p>
+                            <p class="sale-sp">' . number_format($value['giamgia_sp'],0,',','.') . ' đ</p>
                         </div>
                     </div>
                 </div>
@@ -107,8 +106,8 @@
                         <div class="text-sale">
                             <h4>' . $value['ten_sp'] . '</h4>
                             <div class="price-sale">
-                                <h4>' . $value['gia_sp'] . '</h4>
-                                <h3>' . $value['giamgia_sp'] . '</h3>
+                                <h4>' . number_format($value['gia_sp'],0, ',','.') . '</h4>
+                                <h3>' .number_format( $value['giamgia_sp'],0,',','.') . '</h3>
                             </div>
                             <p>' . $value['thong_tin_sp'] . '</p>
                             <button>Mua ngay</button>
@@ -166,8 +165,8 @@
                             <div class="text-sp">
                                 <h3>' . $product['ten_sp'] . '</h3>
                                 <div class="price-sp">
-                                    <p>' . $product['gia_sp'] . 'đ</p>
-                                    <p class="sale-sp">' . $product['giamgia_sp'] . 'đ</p>
+                                    <p>' . number_format( $product['gia_sp'],0,',','.') . 'đ</p>
+                                    <p class="sale-sp">' . number_format($product['giamgia_sp'],0,',','.') . 'đ</p>
                                 </div>
                             </div>
                         </div>
@@ -230,8 +229,8 @@
                                 <div class="text-sp">
                                     <h3>' . $product['ten_sp'] . '</h3>
                                     <div class="price-sp">
-                                        <p>' . $product['gia_sp'] . 'đ</p>
-                                        <p class="sale-sp">' . $product['giamgia_sp'] . 'đ</p>
+                                        <p>' . number_format( $product['gia_sp'], 0, ',', '.') . 'đ</p>
+                                        <p class="sale-sp">' . number_format( $product['giamgia_sp'], 0, ',', '.') . 'đ</p>
                                     </div>
                                 </div>
                             </div>        

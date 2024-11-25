@@ -13,8 +13,8 @@
             <div class="row-right">
                 <h1 id="name">'.$value['ten_sp'].'</h1>
                 <div class="price-product">
-                    <span id="gia">'.$value['gia_sp'].'đ</span>
-                    <span class="price-sale">'.$value['giamgia_sp'].'</span>
+                    <span id="gia">'.number_format($value['gia_sp'],0, ',', '.').'đ</span>
+                    <span class="price-sale">'.number_format($value['giamgia_sp'],0,',', '.').' đ</span>
                 </div>
                 <div class="policy">
                     <div class="item">
@@ -61,25 +61,17 @@
             </div>
             <!-- mini ảnh sản phẩm -->
             <div class="wrapper" id="minis">
-                <div class="mini-box">
-                    <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                </div>
-                <div class="mini-box">
-                    <img src="img/796678bc-cfc5-4342-8b83-1c1aa0cf1a17.webp" alt="">
-                </div>
-                <div class="mini-box">
-                    <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                </div>
-                <div class="mini-box">
-                    <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                </div>
-                <div class="mini-box">
-                    <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                </div>
-                <div class="mini-box">
-                    <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                </div>
-            </div>
+                <?php 
+                    $ch = '';
+                    foreach($productdetailmodel -> chitiethinhanh as $value){
+                        $ch.='
+                            <div class="mini-box">
+                                <img src="./Public/img/'.$value['hinh_url'].'" alt="">
+                            </div>
+                        ';
+                    }
+                    echo $ch;
+                ?>
         </div>
                
         <div id="describe-product">

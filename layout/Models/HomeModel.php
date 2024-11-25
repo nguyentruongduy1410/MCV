@@ -16,8 +16,6 @@
             $data = new ConnectModel();
             $sql = 'SELECT * FROM san_pham WHERE id=:id';
             $this->chitiet = $data->selectone($sql, $id);
-
-
         }
         public function spdb($iddb){
             include_once 'Models/connectmodel.php';

@@ -37,7 +37,7 @@ switch ($page) {
         break;
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
-        $ProductdetailController = new ProductdetailController();
+        $ProductdetailController = new ProductdetailController(id: $id);
         break;
 }
 include_once './Views/footer.php';
