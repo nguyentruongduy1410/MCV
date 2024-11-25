@@ -8,27 +8,28 @@ switch ($page){
         include_once'Views/home.php';
         break;
     case 'sanpham':
-        include_once'Views/sanpham.php';
+        include_once('Controller/SanphamController.php');
+        $SanphamController = new SanphamController();
         break;
-        case 'danhmuc':
+    case 'danhmuc':
             include_once'Views/danhmuc.php';
             break;  
-            case 'qlbaiviet':
+    case 'qlbaiviet':
                 include_once'Views/qlbaiviet.php';
                 break;  
-                case 'qlbinhluan':
+    case 'qlbinhluan':
                     include_once'Views/qlbinhluan.php';
                     break;  
-                    case 'qluser':
+    case 'qluser':
                         include_once'Views/qluser.php';
                         break; 
-                         case 'qlvoucher':
+    case 'qlvoucher':
                             include_once'Views/qlvoucher.php';
                             break;
-                            case 'qldonhang':
+    case 'qldonhang':
                                 include_once'Views/qldonhang.php';
                                 break;
-                                case 'loginadmin':
+    case 'loginadmin':
                                     include_once'Views/loginadmin.php';
                                     break;
 }

@@ -20,6 +20,7 @@
                     <th>ID</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Danh Mục</th>
+                    <th>Giá</th>
                     <th>Ảnh</th>
                     <th>Mô Tả</th>
                     <th>Hành Động</th>
@@ -27,361 +28,35 @@
             </thead>
             <tbody>
                 <!-- Sample product rows -->
-                <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                   
-                     <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td> 
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
+                 <?php
+                 $ch = '';
+                 foreach ($sanphamModel -> tcsp as $key =>$value ){
+                    $ch.='
+                    <tr>
+                    <td>'.$value['id'].'</td>
+                    <td>'.$value['ten_sp'].'</td>
+                    <td>'.$value['id_dm'].'</td>
+                    <td>'.$value['gia_sp'].'</td> 
+                    <td><img src="./Public/img/'.$value['hinh_sp'].'" alt="Đàn Tranh" class="product-image"></td>
+                    <td>'.$value['mo_ta'].'</td>
                     <td class="gom">
                         <button class="btn edit">Sửa</button>
                         <button class="btn delete">Xóa</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>  <tr>
-                    <td>1</td>
-                    <td>Đàn Tranh</td>
-                    <td>
-                        <select>
-                            <option value="dan">Đàn</option>
-                            <option value="trong">Trống</option>
-                            <option value="sao">Sáo</option>
-                        </select>
-                    </td>
-                    <td><img src="https://via.placeholder.com/100" alt="Đàn Tranh" class="product-image"></td>
-                    <td>Đàn Tranh là một nhạc cụ truyền thống của Việt Nam, thường được sử dụng trong các buổi biểu diễn âm nhạc dân tộc.</td>
-                    <td class="gom">
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
+                    ';
+                 }
+                 echo $ch;
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 ?>
+                
+              
                 <!-- Repeat sample rows as needed -->
             </tbody>
         </table>

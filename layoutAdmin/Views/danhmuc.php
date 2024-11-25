@@ -104,7 +104,7 @@
                 <input type="text" id="editCategory" name="editCategory" required>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn secondary" onclick="closeModal('editModal')">Hủy</button>
+                
                 <button type="submit" class="btn">Lưu</button>
             </div>
         </form>
