@@ -1,7 +1,7 @@
-
 .box-all-news {
     width: 80%;
     margin: 0 auto;
+    margin-top: 90px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
@@ -11,12 +11,14 @@
     width: 400px;
     height: auto;
 }
-h1 {
-    font-size: 24px;
-    color: #333;
+.box-all-news h1 {
+    color: #00796b;
+    font-size: 26px;
+    margin-bottom: 20px;
     text-align: center;
+    text-transform: uppercase;
 }
-p {
+.box-all-news p {
     margin: 15px 0;
 }
 .related-products {
@@ -41,3 +43,23 @@ p {
     object-fit: cover;
     border-radius: 5px;
 }
+.new-detail-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-detail-img img {
+    height: 300px;
+    width: 100%;
+    max-height: 100%; /* Hình ảnh không vượt quá chiều cao của thẻ div */
+    max-width: 100%; /* Hình ảnh không vượt quá chiều rộng của thẻ div */
+    object-fit: contain; /* Đảm bảo hình ảnh giữ tỷ lệ */
+}
+.news-detail-date{
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+

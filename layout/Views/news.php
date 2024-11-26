@@ -1,6 +1,5 @@
-
-        <!-- tin tức -->
-        <div class="box-all-news">
+<!-- tin tức -->
+<div class="box-all-news">
             <h2>Bài viết lưu trữ</h2>
 
             <div class="news-item">
@@ -9,9 +8,10 @@
                 </div>
                 <div class="news-content">
                     <h3>Bán trống trường học tphcm</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Bán trống trường học tphcm Các sản phẩm trống trường học tại cơ sở Phong Vân đang được rất nhiều
                         khách hàng tin tưởng lựa chọn và hài lòng...</p>
-                    <a href="index.php?trang=newsdetail" class="see-more">Xem chi tiết »</a>
+                    <a href="newsdetail.php" class="see-more">Xem chi tiết »</a>
                 </div>
             </div>
 
@@ -21,6 +21,7 @@
                 </div>
                 <div class="news-content">
                     <h3>Nơi bán cồng chiêng ở Hà Nội</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Nơi bán cồng chiêng ở Hà Nội Cồng chiêng là loại nhạc khí bằng đồng rất phổ biến và gần gũi với
                         người dân Tây Nguyên...</p>
                     <a href="#" class="see-more">Xem chi tiết »</a>
@@ -33,6 +34,7 @@
                 </div>
                 <div class="news-content">
                     <h3>Bán kèn saxophone tại Đà Nẵng</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Bán kèn saxophone tại Đà Nẵng Kèn Saxophone là một trong số những loại nhạc cụ hiện đại được
                         nhiều người yêu thích...</p>
                     <a href="#" class="see-more">Xem chi tiết »</a>
@@ -45,6 +47,7 @@
                 </div>
                 <div class="news-content">
                     <h3>Cửa hàng bán đàn guitar gần nhất</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Cửa hàng bán đàn guitar gần nhất Tìm được cửa hàng bán đàn guitar gần nhất sẽ hỗ trợ rất nhiều
                         cho bạn trong quá trình...</p>
                     <a href="#" class="see-more">Xem chi tiết »</a>
@@ -56,6 +59,7 @@
                 </div>
                 <div class="news-content">
                     <h3>Cửa hàng bán đàn guitar gần nhất</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Cửa hàng bán đàn guitar gần nhất Tìm được cửa hàng bán đàn guitar gần nhất sẽ hỗ trợ rất nhiều
                         cho bạn trong quá trình...</p>
                     <a href="#" class="see-more">Xem chi tiết »</a>
@@ -67,6 +71,7 @@
                 </div>
                 <div class="news-content">
                     <h3>Cửa hàng bán đàn guitar gần nhất</h3>
+                    <p class="news-date">Ngày xuất bản: 20/11/2024</p>
                     <p>Cửa hàng bán đàn guitar gần nhất Tìm được cửa hàng bán đàn guitar gần nhất sẽ hỗ trợ rất nhiều
                         cho bạn trong quá trình...</p>
                     <a href="#" class="see-more">Xem chi tiết »</a>
