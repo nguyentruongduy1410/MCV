@@ -50,7 +50,7 @@
                         phần của văn hóa và lịch sử dân gian.</p>
                 </div>
                 <div class="about-image">
-                    <img src="img/gioi_thieu.jpg.crdownload" alt="Nhạc Cụ Dân Tộc">
+                    <img src="./Public/img/gioi_thieu.jpg" alt="Nhạc Cụ Dân Tộc">
                 </div>
             </div>
         </section>
@@ -58,7 +58,7 @@
         <!-- Các Dịch Vụ -->
         <section class="services">
             <div class="service-item">
-                <img src="img/chat_luong.png" alt="Chất Lượng">
+                <img src="./Public/img/chat_luong.png" alt="Chất Lượng">
                 <h3>Chất Lượng Đảm Bảo</h3>
                 <p>Chất lượng của từng sản phẩm luôn là ưu tiên hàng đầu. Mỗi nhạc cụ đều được làm thủ công bởi các nghệ
                     nhân lành nghề, từ khâu lựa chọn nguyên liệu đến khi hoàn thiện sản phẩm. Chúng tôi không ngừng kiểm
@@ -69,7 +69,7 @@
                 </p>
             </div>
             <div class="service-item">
-                <img src="img/da_dang.png" alt="Đa Dạng">
+                <img src="./Public/img/da_dang.png" alt="Đa Dạng">
                 <h3>Sản Phẩm Đa Dạng</h3>
                 <p>Cửa hàng tự hào cung cấp đa dạng các nhạc cụ dân tộc như đàn tranh, đàn bầu, sáo trúc, đàn tỳ bà và
                     cồng chiêng. Mỗi loại nhạc cụ đều mang ý nghĩa văn hóa riêng biệt và được đi kèm với mô tả ngắn gọn
@@ -77,7 +77,7 @@
                     cách âm nhạc của mình.</p>
             </div>
             <div class="service-item">
-                <img src="img/ho_tro.png" alt="Hỗ Trợ Khách Hàng">
+                <img src="./Public/img/ho_tro.png" alt="Hỗ Trợ Khách Hàng">
                 <h3>Hỗ Trợ Khách Hàng</h3>
                 <p>Chúng tôi luôn sẵn sàng hỗ trợ khách hàng trong việc lựa chọn nhạc cụ phù hợp, dù bạn là người mới
                     bắt đầu hay là nghệ sĩ chuyên nghiệp. Ngoài ra, cửa hàng còn cung cấp hướng dẫn bảo quản và bảo trì
@@ -85,7 +85,7 @@
                     vụ tận tâm và chu đáo.</p>
             </div>
             <div class="service-item">
-                <img src="img/giao_hang.png" alt="Giao Hàng">
+                <img src="./Public/img/giao_hang.png" alt="Giao Hàng">
                 <h3>Giao Hàng Toàn Quốc</h3>
                 <p>Cửa hàng chúng tôi hỗ trợ giao hàng đến mọi tỉnh thành trên khắp cả nước, đảm bảo khách hàng ở bất kỳ
                     đâu cũng có thể dễ dàng sở hữu các nhạc cụ dân tộc chất lượng. Mỗi đơn hàng đều được đóng gói cẩn
@@ -93,7 +93,7 @@
                     thời gian cam kết, giúp khách hàng yên tâm khi mua sắm.</p>
             </div>
             <div class="service-item">
-                <img src="img/gia_tot.png" alt="Giá Tốt">
+                <img src="./Public/img/gia_tot.png" alt="Giá Tốt">
                 <h3>Giá Tốt Nhất</h3>
                 <p>Chúng tôi cam kết cung cấp sản phẩm với giá cả cạnh tranh nhất trên thị trường. Nhờ vào mối quan hệ
                     trực tiếp với các nghệ nhân và nhà sản xuất, cửa hàng có thể đưa ra các mức giá hợp lý mà vẫn đảm
@@ -101,7 +101,7 @@
                     những ưu đãi và khuyến mãi thường xuyên dành cho các loại nhạc cụ khác nhau.</p>
             </div>
             <div class="service-item">
-                <img src="img/uy_tin.png" alt="Uy Tín">
+                <img src="./Public/img/uy_tin.png" alt="Uy Tín">
                 <h3>Uy Tín Và Minh Bạch</h3>
                 <p>Chúng tôi luôn minh bạch về nguồn gốc và chất lượng của từng sản phẩm. Mỗi nhạc cụ đều có thông tin
                     rõ ràng về quy trình sản xuất và các nghệ nhân chế tác. Uy tín là nền tảng quan trọng trong hoạt

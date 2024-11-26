@@ -61,17 +61,25 @@
             </div>
             <!-- mini ảnh sản phẩm -->
             <div class="wrapper" id="minis">
-                <?php 
-                    $ch = '';
-                    foreach($productdetailmodel -> chitiethinhanh as $key =>$value){
-                        $ch.='
-                            <div class="mini-box">
-                                <img src="./Public/img/'.$value['hinh_url'].'" alt="">
-                            </div>
-                        ';
-                    }
-                    echo $ch;
-                ?>
+            <?php 
+if (isset($chitiethinhanh) && is_array($chitiethinhanh)) {
+    if (!empty($chitiethinhanh)) {
+        foreach ($chitiethinhanh as $key => $value) {
+            echo '
+                <div class="mini-box">
+                    <img src="./Public/img/' . htmlspecialchars($value['id_sp']) . '" alt="">
+                </div>
+            ';
+        }
+    } else {
+        echo "Không có hình ảnh chi tiết cho sản phẩm này.";
+    }
+} else {
+    echo "Dữ liệu không được truyền đúng.";
+}
+?>
+
+    
         </div>
                
         <div id="describe-product">
@@ -97,7 +105,7 @@
                 <div class="cmt-user">
                     <div class="comments-describe">
                         <div class="comments-user">
-                            <img src="./Public/img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
+                            <img src="./Public/img/sp1.2.jpg" alt="">
                         </div>
                         <div class="text-submit">
                             <div class="text">
@@ -111,7 +119,7 @@
                     <!-- bình luận của người khác -->
                     <div class="comments-describe-user">
                         <div class="comments-user">
-                            <img src="./Public/img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
+                            <img src="./Public/img/sp1.2.jpg" alt="">
                         </div>
                         <div class="comments-text">
                             <div class="name-user">
@@ -128,45 +136,10 @@
 
                     </div>
 
-                    <div class="comments-describe-user">
-                        <div class="comments-user">
-                            <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                        </div>
-                        <div class="comments-text">
-                            <div class="name-user">
-                                <h4>Nguyễn Trường Duy</h4>
-                                <p>14/10/2005</p>
-                            </div>
-                            <p>Web ai làm mà đẹp vãi</p>
-                            <div class="vote">
-                                <i class='bx bx-like'></i>
-                                <i class='bx bx-dislike'></i>
-                            </div>
-                        </div>
-                        
-
-                    </div>
+                   
 
 
-                    <div class="comments-describe-user">
-                        <div class="comments-user">
-                            <img src="img/a0f17430-5141-49b9-8f7e-85fb25b97f92.jpg" alt="">
-                        </div>
-                        <div class="comments-text">
-                            <div class="name-user">
-                                <h4>Nguyễn Trường Duy</h4>
-                                <p>14/10/2005</p>
-                            </div>
-                            <p>Web ai làm mà đẹp vãi</p>
-                            <div class="vote">
-                                <i class='bx bx-like'></i>
-                                <i class='bx bx-dislike'></i>
-                            </div>
-                        </div>
-
-                        
-
-                    </div>
+                    
                 </div>
 
 

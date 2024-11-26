@@ -184,7 +184,7 @@ nav .login .bx-menu{
 
 }
 
-.login a {
+.login>a{
     margin-left: 10px;
     color: #000;
     font-size: 18px;
@@ -195,14 +195,14 @@ nav .login .bx-menu{
     transition: 0.8s;
 }
 
-.login a:hover {
+.login>a:hover {
     background-color: #7e85c818;
     border-radius: 30px;
 }
 
 .login a i {
     font-size: 25px;
-    color: #fff;
+    color: #333;
 }
 
 .login .cart:hover {
@@ -211,6 +211,10 @@ nav .login .bx-menu{
 
 .login .cart {
     position: relative;
+    
+}
+.cart .bx-cart{
+    color: #fff;
 }
 
 .login #number-cart {

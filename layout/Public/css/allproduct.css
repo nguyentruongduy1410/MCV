@@ -96,7 +96,7 @@
 #all-product .product-right {
     width: 77%;
     float: left;
-    height: 160vh;
+    height: auto;
     /* margin-left: 50vh; */
 }
 
@@ -183,12 +183,18 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-.box .box-sp {
+.box a{
     width: 24%;
     height: 400px;
+    margin: 10px 0;
+
+
+}
+
+.box .box-sp {
+    width: 100%;
     cursor: pointer;
-    margin-top: 10px;
+    color: #000;
 }
 
 .box .box-sp:hover {

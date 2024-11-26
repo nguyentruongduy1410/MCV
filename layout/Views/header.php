@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./Public/css/newsdetail.css">
     <link rel="stylesheet" href="./Public/css/productdetails.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
 </head>
 
 <body>
@@ -24,7 +25,8 @@
         <header>
             <!--menu -->
             <nav>
-                <div class="logo"><a href="index.php?trang=home"><img src="./Public/img/Untitled image.png" alt=""></a></div>
+                <div class="logo"><a href="index.php?trang=home"><img src="./Public/img/Untitled image.png" alt=""></a>
+                </div>
                 <ul class="menu">
                     <li><a href="index.php?trang=allproduct">TẤT CẢ</a></li>
                     <li><a href="index.php?trang=about">GIỚI THIỆU</a></li>
@@ -33,10 +35,24 @@
                     <li id="explore"><a href="index.php?trang=contact">LIÊN HỆ</a></li>
                 </ul>
                 <div class="login">
-                    <form action="index.php?trang=productdetail" class="search" method="post">
-                        <input type="text" name="kyw">
-                        <i class='bx bx-search'></i>
+                    <form action="index.php?trang=allproduct" method="post" class="search">
+                        <input type="text" name="kyw" placeholder="Tìm kiếm sản phẩm">
+                        <button type="submit" name="tim" value="tim"><i class='bx bx-search'></i></button>
                     </form>
+
+                    <?php
+                    if (isset($_POST['tim'])) {
+                        if (isset($_POST['kyw'])) {
+                            $kyw = $_POST['kyw'];
+                            header("Location: index.php?trang=allproduct&kyw=" . urlencode($kyw));
+                            exit();
+                        }
+                    }
+                    ?>
+
+
+
+
                     <a class="cart" href="index.php?trang=cart"><i class='bx bx-cart'></i>
                         <span id="number-cart">0</span>
                     </a>

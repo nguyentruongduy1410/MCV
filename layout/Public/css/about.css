@@ -1,6 +1,6 @@
 /* Header */
 .header-content {
-    background-image: url('../img/nen.png');
+    background-image: url('http://localhost/php/github/MCV/layout/Public/img/nen.jpg');
     background-size: cover;
     background-position: center;
     color: #537cb3;

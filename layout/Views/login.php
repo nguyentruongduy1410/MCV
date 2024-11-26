@@ -117,6 +117,7 @@
     <script src="./Public/js/cart.js"></script>
     <script src="./Public/js/productdetail.js"></script>
     
+    
 
 </body>
 

@@ -5,6 +5,7 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
 $iddb = isset($_GET['iddb']) ? $_GET['iddb'] :'';
 $iddm = isset($_GET['iddm']) ? $_GET['iddm'] :'';
 $chuyen = isset($_GET['chuyen']) ? $_GET['chuyen'] : '1';
+$kyw = isset($_GET['kyw']) ? $_GET['kyw'] : '';
 switch ($page) { 
     case 'home':
         include_once 'Controllers/HomeController.php';
@@ -16,7 +17,7 @@ switch ($page) {
         break;
     case 'allproduct':
         include_once 'Controllers/AllproductController.php';
-        $AllproductController = new AllproductController(id: $id,iddm: $iddm, chuyen :$chuyen);
+        $AllproductController = new AllproductController(id: $id,iddm: $iddm, chuyen :$chuyen, kyw: $kyw);
         break;
     case 'cart':
         include_once 'Controllers/CartController.php';
@@ -36,7 +37,7 @@ switch ($page) {
         break;
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
-        $ProductdetailController = new ProductdetailController(id: $id);
+        $ProductdetailController = new ProductdetailController(id_sp: $id);
         break;
 }
 include_once './Views/footer.php';
