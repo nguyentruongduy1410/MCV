@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,8 +66,14 @@
                     <a class="cart" href="index.php?trang=cart"><i class='bx bx-cart'></i>
                         <span id="number-cart">0</span>
                     </a>
-
-                    <a class="log-in" href="#">Log in</a>
+                    <?php
+                    if (isset($_SESSION['email'])) {
+                        echo '<a class="log-in" href="#">' . $_SESSION['email'] . '</a>';
+                        echo '<a style="color: white;" class="log-out" href="?logout=true">Đăng xuất</a>';
+                    } else {
+                        echo '<a class="log-in" href="#">Log in</a>';
+                    }
+                    ?>
                     <i id="mm" class='bx bx-menu'></i>
                 </div>
 
