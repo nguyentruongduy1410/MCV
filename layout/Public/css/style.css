@@ -173,6 +173,10 @@ nav .login .bx-menu{
     padding-left: 10px;
 }
 
+.search button{
+    border-radius: 10px;
+}
+
 .search i {
     cursor: pointer;
     padding: 10px;
