@@ -1,0 +1,74 @@
+
+/* address */
+.address-main{
+
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center;
+}
+.full{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.customer-address {
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+.customer-address h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #444;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.address-card p {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.address-card p strong {
+    color: #000;
+    font-weight: bold;
+}
+
+.change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    height: 30px;
+    font-size: 13px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 10px;
+}
+
+.change:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 10px rgba(0, 86, 179, 0.5);
+    transform: translateY(-3px);
+}
+
+
+
