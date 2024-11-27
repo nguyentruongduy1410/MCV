@@ -53,6 +53,10 @@ switch ($page) {
         include_once 'Controllers/HistoryController.php';
         $HistoryController = new HistoryController();
         break;
+        case 'thanhtoan':
+            include_once '../Controllers/thanhtoanControllers.php';
+            $thanhtoanController = new thanhtoanController();
+            break;
 }
 include_once './Views/footer.php';
 include_once './Views/login.php';
