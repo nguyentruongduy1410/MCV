@@ -23,6 +23,9 @@ if (isset($_GET['logout'])) {
     <link rel="stylesheet" href="./Public/css/news.css">
     <link rel="stylesheet" href="./Public/css/newsdetail.css">
     <link rel="stylesheet" href="./Public/css/productdetails.css">
+    <link rel="stylesheet" href="./Public/css/user.css">
+    <link rel="stylesheet" href="./Public/css/history.css">
+    <link rel="stylesheet" href="./Public/css/address.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     
 </head>
