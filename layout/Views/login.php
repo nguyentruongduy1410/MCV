@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     // Đăng ký
-    if (isset($_POST['sEmail'])) {
+    if (isset($_POST['signup'])) {
         $sEmail = $_POST['sEmail'];
         $sPassword = $_POST['sPassword'];
         $sRPassword = $_POST['sRPassword'];
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p>Hoặt đăng ký với</p>
                     <div class="line"></div>
                 </div>
-                <form action="" method="post">
+                <form action="" method="post" >
                     <div class="box-input">
                         <img src="./Public/img/email-4ddcb32a.svg" alt="">
                         <input name="sEmail" id="signup-email" type="email" placeholder="Nhập Email" required>
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 width="20px"></span>
                     </div>
                     <p class="repair" id="repairpassword-signup2"></p>
-                    <button class="log-in">Đăng ký</button>
+                    <button class="log-in" name="signup">Đăng ký</button>
                     <div class="forgot">
                         <p>Bạn đã có tài khoản?
                         <p id="signup2">Đăng nhập</p>

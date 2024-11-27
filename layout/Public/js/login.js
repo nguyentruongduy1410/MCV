@@ -53,38 +53,47 @@ var login = document.querySelector('.log-in');
 
     //check signup
     function signuppage(event) {
-        event.preventDefault();
+        event.preventDefault(); // Ngăn form submit mặc định
+    
         var email = document.getElementById('signup-email').value;
         var pass = document.getElementById('signup-pass1').value;
         var pass2 = document.getElementById('signup-pass2').value;
+    
+        var valid = true;
+    
         if (!email) {
             document.getElementById('repairemail-signup').innerText = 'Vui lòng nhập email';
-            return false;
+            valid = false;
+        } else if (!email.includes('@')) {
+            document.getElementById('repairemail-signup').innerText = 'Email phải chứa ký tự "@"';
+            valid = false;
         } else {
             document.getElementById('repairemail-signup').innerText = '';
         }
-        if (!email.includes('@')) { 
-            document.getElementById('repairemail-signup').innerText = 'Email phải chứa ký tự "@"';
-            return false;
-        }
+    
         if (!pass) {
             document.getElementById('repairpassword-signup1').innerText = 'Vui lòng nhập mật khẩu';
-            return false;
+            valid = false;
         } else {
-            document.getElementById('repairpassword-signup2').innerText = '';
+            document.getElementById('repairpassword-signup1').innerText = '';
         }
+    
         if (!pass2) {
-            document.getElementById('repairpassword-signup2').innerText = 'Vui lòng nhập mật khẩu';
-            return false;
+            document.getElementById('repairpassword-signup2').innerText = 'Vui lòng xác nhận mật khẩu';
+            valid = false;
+        } else if (pass !== pass2) {
+            document.getElementById('repairpassword-signup2').innerText = 'Xác nhận mật khẩu không đúng';
+            valid = false;
         } else {
             document.getElementById('repairpassword-signup2').innerText = '';
         }
-        if(pass2 != pass){
-            document.getElementById('repairpassword-signup2').innerText = 'Xác nhận mật khẩu không đúng'
-            return false
+    
+        if (valid) {
+            // Gửi form nếu không có lỗi
+            document.getElementById('signup-form').submit();
         }
-            alert('Đăng ký thành công')
     }
+    
 
 // show pass
 function togglePasswordVisibility(inputId, imgId, showSrc, hideSrc) {
