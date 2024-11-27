@@ -1,4 +1,4 @@
-<div class="box-all-news">
+<!-- <div class="box-all-news">
             <h1>Bán trống trường học TPHCM</h1>
             <p class="news-detail-date">Ngày xuất bản: 21/11/2024</p>
 
@@ -106,74 +106,40 @@
                 </div>
             </div>
         </div>
-        <div id="footer-end">
-            <div class="box-footer1 box0">
-                <ul>
-                    <li>
-                        <h4>Thông tin</h4>
-                    </li>
-                    <li><a href="">Giới thiệu công ty</a></li>
-                    <li><a href="">Chương trình Khách hàng thân thiết</a></li>
-                    <li><a href="">Điều khoản sử dụng website</a></li>
-                    <li><a href="">Tuyển dụng</a></li>
-                </ul>
-            </div>
-            <div class="box-footer2 box0">
-                <ul>
-                    <li>
-                        <h4>Chính sách</h4>
-                    </li>
-                    <li><a href="">Chính sách bảo hành</a></li>
-                    <li><a href="">Chính sách bảo mật</a></li>
-                    <li><a href="">Chính sách vận chuyển</a></li>
-                    <li><a href="">Quy định đổi trả</a></li>
-                    <li><a href="">Quy định và hình thức thanh toán</a></li>
-                    <li><a href="">Điều khoản và điều kiện giao dịch</a></li>
-                </ul>
-            </div>
-            <div class="box-footer3 box0">
-                <ul>
-                    <li>
-                        <h4>Giá cả</h4>
-                    </li>
-                    <li><a href="">Giá cả</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <h4>Thời gian</h4>
-                    </li>
-                    <li><a href="">Thời gian phục vụ: 8h-22h</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <h4>Khám phá</h4>
-                    </li>
-                    <li><a href="">Hướng dẫn mua hàng</a></li>
-                    <li><a href="">Giao hàng - Đổi trả</a></li>
-                    <li><a href="">Thanh toán và bảo mật</a></li>
-                    <li><a href="">Bảo trì nhạc cụ</a></li>
-                </ul>
-            </div>
-            <div class="box-footer4 ">
-                <ul>
-                    <li>
-                        <h4>Về chúng tôi</h4>
-                    </li>
-                    <li>support@mcv.com</li>
-                    <li class="mgtop">
-                        <h4>Địa chỉ</h4>
-                    </li>
-                    <li>Tô ký, Trung Mỹ Tây, Quận 12</li>
-                    <li class="mgtop">
-                        <h4>Facebook</h4>
-                    </li>
-                    <li>Facebook</li>
-                    <li class="mgtop">
-                        <h4>Sđt</h4>
-                    </li>
-                    <li>0962615032</li>
-                </ul>
 
-            </div>
+        </div> -->
 
-        </div>
+        
+<div class="box-all-news">
+    <h1><?php echo htmlspecialchars($newsDetail['ten_bv']); ?></h1>
+    <p class="news-detail-date">Ngày xuất bản: <?php echo htmlspecialchars($newsDetail['ngay_dang']); ?></p>
+    <div class="news-detail-content">
+        <p><?php echo nl2br(htmlspecialchars($newsDetail['noi_dung'])); ?></p>
+        <?php if (!empty($newsDetail['hinh_anh'])): ?>
+            <img src="./Public/img/<?php echo htmlspecialchars($newsDetail['hinh_anh']); ?>" alt="Hình ảnh bài viết">
+        <?php endif; ?>
+    </div>
+    <p><strong>PHONG VÂN – UY TÍN TẠO NÊN THƯƠNG HIỆU</strong></p>
+</div>
+
+
+<!-- <div class="box-all-news">
+<?php
+    $ch = '';
+    foreach ($newsList as $news => $value) {
+        $ch .= '
+        <h1>' . $value['ten_bv'] . '</h1>
+    <p class="news-detail-date">Ngày xuất bản:' . $value['ngay_dang'].'</p>
+    <div class="news-detail-content">
+        <p>' . $value['noi_dung'].'</p>
+            <img src="./Public/img/' . $value['hinh_anh'].'" alt="Hình ảnh bài viết">
+    </div>
+    <p><strong>PHONG VÂN – UY TÍN TẠO NÊN THƯƠNG HIỆU</strong></p>    
+            ';
+    }
+    echo $ch;
+    ?>
+    </div> -->
+
+
+

@@ -29,8 +29,8 @@ switch ($page) {
         break;
     case 'news':
         include_once 'Controllers/NewsController.php';
-        $NewsController = new NewsController();
-        break;
+        $NewsController = new NewsController($chuyen);
+        break;        
     case 'newsdetail':
         include_once 'Controllers/NewsdetailController.php';
         $NewsdetailController = new NewsdetailController();

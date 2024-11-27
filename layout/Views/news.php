@@ -1,4 +1,4 @@
-<!-- tin tức -->
+<!-- tin tức
 <div class="box-all-news">
             <h2>Bài viết lưu trữ</h2>
 
@@ -78,4 +78,60 @@
                 </div>
             </div>
 
+        </div> -->
+
+
+
+
+        <div class="box-all-news">
+    <h2>Bài viết lưu trữ</h2>
+    <?php
+    $ch = '';
+    foreach ($newsList as $news => $value) {
+        $ch .= '
+            <div class="news-item">
+            <div class="news-image">
+                <img src="./Public/img/' . $value['hinh_anh'] . '" alt="">
+            </div>
+            <div class="news-content">
+                <h3>' . $value['ten_bv'] . '</h3>
+                <p class="news-date">Ngày xuất bản: ' . $value['ngay_dang'] . '</p>
+                <p>' . $value['mo_ta'] . '</p>
+                <a href="index.php?trang=newsdetail&id=' . $value['id'] . '" class="see-more">Xem chi tiết »</a>
+            </div>
         </div>
+            ';
+    }
+    echo $ch;
+    ?>
+</div>
+
+
+
+<!-- Phân trang -->
+<ul class="pagination">
+    <?php if ($totalPages > 1): ?>
+        <!-- Nút "Trước" -->
+        <?php if ($page > 1): ?>
+            <a href="index.php?trang=news&chuyen=<?php echo $page - 1; ?>">
+                <li><i class="bx bxs-chevron-left"></i></li>
+            </a>
+        <?php endif; ?>
+
+        <!-- Các trang -->
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a href="index.php?trang=news&chuyen=<?php echo $i; ?>">
+                <li class="<?php echo ($i == $page) ? 'pagination_item_active' : ''; ?>">
+                    <?php echo $i; ?>
+                </li>
+            </a>
+        <?php endfor; ?>
+
+        <!-- Nút "Tiếp" -->
+        <?php if ($page < $totalPages): ?>
+            <a href="index.php?trang=news&chuyen=<?php echo $page + 1; ?>">
+                <li><i class="bx bx-chevron-right"></i></li>
+            </a>
+        <?php endif; ?>
+    <?php endif; ?>
+</ul>
