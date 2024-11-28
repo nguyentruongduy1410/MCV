@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="public/css/qlvoucher.css">
     <link rel="stylesheet" href="public/css/sanpham.css">
     <link rel="stylesheet" href="public/css/thongke.css">
+    <link rel="stylesheet" href="public/css/baivietsp.css">
+
     
 </head>
 <body>
@@ -35,6 +37,7 @@
         <a href="index.php?trang=qldonhang">Quản Lý Đơn Hàng</a>
         <a href="index.php?trang=qlbinhluan">Quản Lý Bình Luận</a>
         <a href="index.php?trang=qlvoucher">Quản Lý Khuyến Mãi</a>
+        <a href="index.php?trang=baivietsp">Bài viết sản phẩm</a>
         <a href="index.php?trang=loginadmin">Đăng Xuất</a> <br> <br> <br>
           
         </div>

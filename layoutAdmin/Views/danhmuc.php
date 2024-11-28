@@ -1,40 +1,39 @@
 
 
-    <div class="content">
-        <h1>Danh Mục Sản Phẩm</h1>
-        <button class="btn" onclick="openAddModal()">Thêm Danh Mục</button>
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên Danh Mục</th>
-                    <th>Hành Động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $ch = '';
-                    foreach ($danhmucmodel -> dsdm as $key => $value){
-                        $ch .='
-                             <tr>
-                                <td>'.$value['id'].'</td>
-                                <td>'.$value['ten_dm'].'</td>
-                                <td>
-                                    <a href="#" onclick="openEditModal("1", "Đàn Bầu")">Sửa</a> | 
-                                    <a href="#">Xóa</a>
-                                </td>
-                            </tr>
-                        
-                        ';
-                    }
-                    echo $ch;
-                ?>
-               
-               
-                <!-- Các hàng khác -->
-            </tbody>
-        </table>
-    </div>
+<div class="content">
+    <h1>Danh Mục Sản Phẩm</h1>
+    <button class="btn" onclick="openAddModal()">Thêm Danh Mục</button>
+    <table class="category-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Danh Mục</th>
+                <th>Hình Danh Mục</th>
+
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                $ch = '';
+                foreach ($danhmucmodel->dsdm as $key => $value) {
+                    $ch .= '
+                    <tr>
+                        <td>' . $value['id'] . '</td>
+                        <td>' . $value['ten_dm'] . '</td>
+                         <td>' . $value['hinh_dm'] . '</td>
+                        <td>
+                            <a href="#" onclick="openEditModal(' . $value['id'] . ', \'' . $value['ten_dm'] . '\')">Sửa</a> | 
+                            <a href="#">Xóa</a>
+                        </td>
+                    </tr>
+                    ';
+                }
+                echo $ch;
+            ?>
+            <!-- Các hàng khác -->
+        </tbody>
+    </table>
 </div>
 
 <!-- Modal Thêm Danh Mục -->
@@ -46,6 +45,8 @@
             <div class="form-group">
                 <label for="newCategory">Tên Danh Mục</label>
                 <input type="text" id="newCategory" name="newCategory" required>
+                <label for="editCategory">Hình Danh Mục</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn secondary" onclick="closeModal('addModal')">Hủy</button>
@@ -65,9 +66,10 @@
             <div class="form-group">
                 <label for="editCategory">Tên Danh Mục</label>
                 <input type="text" id="editCategory" name="editCategory" required>
+                <label for="editCategory">Hình Danh Mục</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
             </div>
             <div class="modal-footer">
-                
                 <button type="submit" class="btn">Lưu</button>
             </div>
         </form>
@@ -99,6 +101,52 @@
         if (event.target === addModal) addModal.style.display = 'none';
         if (event.target === editModal) editModal.style.display = 'none';
     };
+
+    // Handle form submission for adding a new category
+    document.getElementById('addForm').onsubmit = function(event) {
+        event.preventDefault();
+        
+        var formData = new FormData(this);
+
+        // Use AJAX to submit the form data to the server
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "path_to_your_server_endpoint_for_adding_category", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Successfully added the category
+                alert('Category added successfully!');
+                location.reload(); // Reload the page to reflect the new category
+            } else {
+                alert('Failed to add category.');
+            }
+        };
+        xhr.send(formData);
+
+        closeModal('addModal');
+    }
+
+    // Handle form submission for editing a category
+    document.getElementById('editForm').onsubmit = function(event) {
+        event.preventDefault();
+        
+        var formData = new FormData(this);
+
+        // Use AJAX to submit the form data to the server
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "path_to_your_server_endpoint_for_editing_category", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Successfully edited the category
+                alert('Category edited successfully!');
+                location.reload(); // Reload the page to reflect the changes
+            } else {
+                alert('Failed to edit category.');
+            }
+        };
+        xhr.send(formData);
+
+        closeModal('editModal');
+    }
 </script>
 
 </body>
