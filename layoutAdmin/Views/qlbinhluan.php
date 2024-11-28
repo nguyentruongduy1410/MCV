@@ -13,28 +13,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Bài viết rất hay và ý nghĩa!</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Đàn Tranh Việt Nam</td>
-                    <td>20/11/2024</td>
-                    <td>
-                        <button class="btn edit" onclick="openEditModal(1)">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Cảm ơn bạn đã chia sẻ!</td>
-                    <td>Trần Thị B</td>
-                    <td>Sáo Trúc Việt Nam</td>
-                    <td>21/11/2024</td>
-                    <td>
-                        <button class="btn edit" onclick="openEditModal(2)">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
+                <?php
+                    $ch = '';
+                    foreach( $qlbinhluanmodel -> dsbl as $key => $value){
+                        $ch .= '
+                            <tr>
+                                <td>'.$value['id'].'</td>
+                                <td>'.$value['noi_dung'].'</td>
+                                <td>'.$value['id'].'</td>
+                                <td>'.$value['id_user'].'</td>
+                                <td>'.$value['ngay_bl'].'</td>
+                                <td>
+                                    <button class="btn edit" onclick="openEditModal(1)">Sửa</button>
+                                    <button class="btn delete">Xóa</button>
+                                </td>
+                            </tr>
+                        ';
+                    }
+                    echo $ch;
+                ?>
+                
+                
             </tbody>
         </table>
     </div>

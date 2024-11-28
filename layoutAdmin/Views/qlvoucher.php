@@ -18,7 +18,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Mã Voucher</th>
-                    <th>Mô Tả</th>
                     <th>Giá Trị (%)</th>
                     <th>Ngày Bắt Đầu</th>
                     <th>Ngày Kết Thúc</th>
@@ -26,150 +25,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>SUMMER20</td>
-                    <td>Giảm giá 20% cho tất cả sản phẩm mùa hè</td>
-                    <td>20</td>
-                    <td>01-06-2024</td>
-                    <td>31-08-2024</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>WINTER10</td>
-                    <td>Giảm giá 10% cho tất cả sản phẩm mùa đông</td>
-                    <td>10</td>
-                    <td>01-12-2024</td>
-                    <td>28-02-2025</td>
-                    <td>
-                        <button class="btn edit">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
+                <?php
+                    $ch = '';
+                    foreach($qlvouchermodel -> dsvc as $key => $value){
+                        $ch .= '
+                            <tr>
+                                <td>'.$value['id_gg'].'</td>
+                                <td>'.$value['code_giam_gia'].'</td>
+                                <td>'.$value['so_tien_giam'].'</td>
+                                <td>01-06-2024</td>
+                                <td>31-08-2024</td>
+                                <td>
+                                    <button class="btn edit">Sửa</button>
+                                    <button class="btn delete">Xóa</button>
+                                </td>
+                            </tr>
+
+                        ';
+
+                    }
+                    echo $ch;
+                ?>
+               
+                
                 
                 <!-- Thêm nhiều dòng voucher hơn nếu cần -->
             </tbody>
