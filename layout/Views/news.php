@@ -109,7 +109,7 @@
 
 
 <!-- Phân trang -->
-<ul class="pagination">
+<ul class="pagination" style="display: flex;justify-content: center;margin-top: 15px;">
     <?php if ($totalPages > 1): ?>
         <!-- Nút "Trước" -->
         <?php if ($page > 1): ?>

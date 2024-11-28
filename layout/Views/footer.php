@@ -73,15 +73,15 @@
         <footer>
             <div class="foot-all">
                 <div class="foot-logo">
-                    <img src="img/Untitled image.png" alt="">
+                    <img src="./Public/img/Untitled image.png" alt="">
                     <p>© Copyright DuyNguyenAsm</p>
                 </div>
                 <div class="foot-mxh">
-                    <img src="img/ins.svg" alt="">
-                    <img src="img/p.svg" alt="">
-                    <img src="img/in.svg" alt="">
-                    <img src="img/tiktok.svg" alt="">
-                    <img src="img/youtubesvg.svg" alt="">
+                    <img src="./Public/img/ins.svg" alt="">
+                    <img src="./Public/img/p.svg" alt="">
+                    <img src="./Public/img/in.svg" alt="">
+                    <img src="./Public/img/tiktok.svg" alt="">
+                    <img src="./Public/img/youtubesvg.svg" alt="">
                 </div>
             </div>
         </footer>

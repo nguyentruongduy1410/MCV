@@ -86,17 +86,17 @@ if (isset($_GET['logout'])) {
             <div id="tools-menu">
                 <div class="tools-box-all">
                     <div class="tools-box">
-                        <img src="img/header-mockup.webp" alt="">
+                        <img src="./Public/img/dan.png" alt="">
                         <h4>ĐÀN DÂN TỘC</h4>
                         <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
                     <div class="tools-box">
-                        <img src="img/header-dieline.webp" alt="">
+                        <img src="./Public/img/sao.png" alt="">
                         <h4>SÁO DÂN TỘC</h4>
                         <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
                     <div class="tools-box">
-                        <img src="img/header-render.webp" alt="">
+                        <img src="./Public/img/trong.png" alt="">
                         <h4>PHỤ KIỆN DÂN TỘC KHÁC</h4>
                         <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
