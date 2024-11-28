@@ -65,4 +65,29 @@ function registerUser($email, $password) {
 
     return $stmt->execute();
 }
+function getCustomerInfo($email) {
+    $connect = new ConnectModel();
+    $conn = $connect->ketnoi();
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        $customerInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $customerInfo;
+    } else {
+        return false;
+    }
+}
+function updateUserInfo($email, $name, $phone, $address) {
+    $connect = new ConnectModel();
+    $conn = $connect->ketnoi();
+
+    $stmt = $conn->prepare("UPDATE users SET ten = :ten, sdt = :sdt, diachi = :diachi WHERE email = :email");
+    $stmt->bindParam(':ten', $name);
+    $stmt->bindParam(':sdt', $phone);
+    $stmt->bindParam(':diachi', $address);
+    $stmt->bindParam(':email', $email);
+
+    $stmt->execute();
+}
 ?>

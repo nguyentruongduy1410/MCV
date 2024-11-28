@@ -1,24 +1,33 @@
 <?php
     include_once 'Models/connectmodel.php';
     include_once 'Models/UserModel.php';
+// dang nhap
+if (isset($_POST["login"])) {
+    $user = $_POST['email'];
+    $pass = $_POST['password'];
+    $role = checkuser($user, $pass);
 
-    if (isset($_POST["login"])) {
-        $user = $_POST['email'];
-        $pass = $_POST['password'];
-        $role = checkuser($user, $pass);
-    
-        if ($role !== null) {
+    if ($role !== null) {
+        $user_info = getCustomerInfo($user);
+
+        if ($user_info) {
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $user;
-    
-            if ($role == 1) {
-                header('Location: ../layoutAdmin/index.php');
-            } else if ($role == 0) {
-                header('Location: index.php?trang=home');
-            }
-            exit();
+            $_SESSION['user_name'] = $user_info['ten']; 
+            $_SESSION['user_address'] = $user_info['diachi'];
+            $_SESSION['user_phone'] = $user_info['sdt'];
         }
+        if ($role == 1) {
+            header('Location: ../layoutAdmin/index.php');
+        } else if ($role == 0) {
+            header('Location: index.php?trang=home');
+        }
+        exit();
+    } else {
+        echo "Thông tin đăng nhập không chính xác!";
     }
+}
+
 
     //đăng ký
     $error_message = '';

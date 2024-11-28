@@ -1,37 +1,36 @@
-
-    <!-- user -->
-    <div class="container">
-        <div class="tab">
-            <h3>Tài Khoản</h3>
-            <ul>
-                <li><a href="index.php?trang=address">Danh sách địa chỉ</a></li>
-                <li><a href="index.php?trang=history">Lịch sử mua hàng</a></li>
-                <li><a href="index.php?trang=home">Đăng xuất</a></li>
-            </ul>
+<!-- user -->
+<div class="container">
+    <div class="tab">
+        <h3>Tài Khoản</h3>
+        <ul>
+            <li><a href="index.php?trang=address">Danh sách địa chỉ</a></li>
+            <li><a href="index.php?trang=history">Lịch sử mua hàng</a></li>
+            <li><a href="index.php?trang=home">Đăng xuất</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="user">
+            <?php
+            if (isset($_SESSION['email'])) {
+                $user_name = $_SESSION['user_name'];
+                echo '<h4>' . $user_name . '</h4>';
+            }
+            ?>
         </div>
-        <div class="main">
-            <div class="user">
-                <h4>Định Hình Phương Hướng</h4>
-            </div>
-            <div class="infor">
-                <p><span class="bold">Tên: </span>Định Hình Phương hướng</p>
-                <p><span class="bold">Địa chỉ: </span>Bến Tre</p>
-                <p><span class="bold">SĐT: </span>0276861267</p>
-            </div>
+        <div class="infor">
+        <?php
+        if (isset($_SESSION['email'])) {
+            $user_name = $_SESSION['user_name'];
+            $user_address = $_SESSION['user_address'];
+            $user_phone = $_SESSION['user_phone'];
+
+            echo '<p><span class="bold">Tên: </span>' . $user_name . '</p>';
+            echo '<p><span class="bold">Địa chỉ: </span>' . $user_address . '</p>';
+            echo '<p><span class="bold">SĐT: </span>' . $user_phone . '</p>';
+        } else {
+            echo '<p>Bạn chưa đăng nhập.</p>';
+        }
+        ?>
         </div>
     </div>
-    <?php
-if (!empty($users)) {
-    foreach ($users as $user) {
-        echo "<p>User ID: " . $user['id'] . "</p>";
-        echo "<p>User Name: " . $user['role'] . "</p>";
-        // Hiển thị các thông tin khác nếu có
-    }
-} else {
-    echo "<p>Không có người dùng nào để hiển thị.</p>";
-}
-?>
-
-
-
-    
+</div>
