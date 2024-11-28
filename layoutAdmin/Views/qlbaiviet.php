@@ -9,31 +9,34 @@
                     <th>Mã</th>
                     <th>Tiêu Đề</th>
                     <th>Ngày Viết</th>
-                    <th>Người Viết</th>
+                    <th>Mô tả</th>
+                    <th>Nội dung</th>
                     <th>Hành Động</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Lịch sử đàn tranh</td>
-                    <td>20/11/2024</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>
-                        <button class="btn edit" onclick="openEditModal(1)">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Cách chơi sáo trúc</td>
-                    <td>21/11/2024</td>
-                    <td>Trần Văn B</td>
-                    <td>
-                        <button class="btn edit" onclick="openEditModal(2)">Sửa</button>
-                        <button class="btn delete">Xóa</button>
-                    </td>
-                </tr>
+               <?php
+                    $ch = '';
+                    foreach ($qlbaivietmodel -> dsbv as $key => $value) {
+                        $ch .= '
+                             <tr>
+                                <td>'.$value['id'].'</td>
+                                <td>'.$value['ten_bv'].'</td>
+                                <td>'.$value['ngay_dang'].'</td>
+                                <td>'.$value['mo_ta'].'</td>
+                                <td>'.$value['noi_dung'].'</td>
+
+                                <td>
+                                    <button class="btn edit" onclick="openEditModal(1)">Sửa</button>
+                                    <button class="btn delete">Xóa</button>
+                                </td>
+                            </tr>
+                        ';
+                    }
+                    echo $ch;
+               ?>
+                
             </tbody>
         </table>
     </div>

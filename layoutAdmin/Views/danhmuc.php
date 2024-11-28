@@ -12,62 +12,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Đàn Bầu</td>
-                    <td>
-                        <a href="#" onclick="openEditModal('1', 'Đàn Bầu')">Sửa</a> | 
-                        <a href="#">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Sáo Trúc</td>
-                    <td>
-                        <a href="#" onclick="openEditModal('2', 'Sáo Trúc')">Sửa</a> | 
-                        <a href="#">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Đàn Tranh</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Trống Đồng</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Đàn Nhị</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Kèn Bầu</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Đàn Tính</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Đàn Nguyệt</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Đàn Gáo</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Đàn K'lông Put</td>
-                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
-                </tr>
+                <?php
+                    $ch = '';
+                    foreach ($danhmucmodel -> dsdm as $key => $value){
+                        $ch .='
+                             <tr>
+                                <td>'.$value['id'].'</td>
+                                <td>'.$value['ten_dm'].'</td>
+                                <td>
+                                    <a href="#" onclick="openEditModal("1", "Đàn Bầu")">Sửa</a> | 
+                                    <a href="#">Xóa</a>
+                                </td>
+                            </tr>
+                        
+                        ';
+                    }
+                    echo $ch;
+                ?>
+               
+               
                 <!-- Các hàng khác -->
             </tbody>
         </table>
