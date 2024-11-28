@@ -19,7 +19,7 @@
 
 <div class="header">
     
-    <a href="index.php?trang=home"><img src="https://via.placeholder.com/150x40" alt="Logo" /></a>
+    <a href="index.php?trang=home"><img src="./Public/img/logo.png" alt="Logo" /></a>
     <div class="user-icon">👤 Admin</div>
 </div>
 

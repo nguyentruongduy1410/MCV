@@ -38,7 +38,7 @@
                     <td>'.$value['id_dm'].'</td>
                     <td>'.$value['gia_sp'].'</td> 
                     <td><img src="./Public/img/'.$value['hinh_sp'].'" alt="Đàn Tranh" class="product-image"></td>
-                    <td>'.$value['mo_ta'].'</td>
+                    <td>'.$value['thong_tin_sp'].'</td>
                     <td class="gom">
                         <button class="btn edit">Sửa</button>
                         <button class="btn delete">Xóa</button>
@@ -64,62 +64,80 @@
 </div>
 
 <!-- The Modal -->     <!-- from them sp -->     <!-- from them sp -->
-<div id="myModal" class="modal">
+<div id="editModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Thêm Sản Phẩm Mới</h2>
-        <form>
+        <span class="close edit-close">&times;</span>
+        <h2>Sửa Sản Phẩm</h2>
+        <form id="editProductForm">
+            <input type="hidden" id="editProductId" name="productId">
             <div class="form-group">
-                <label for="productName">Tên Sản Phẩm</label>
-                <input type="text" id="productName" name="productName" required>
+                <label for="editProductName">Tên Sản Phẩm</label>
+                <input type="text" id="editProductName" name="productName" required>
             </div>
             <div class="form-group">
-                <label for="category">Danh Mục</label>
-                <select id="category" name="category" required>
+                <label for="editCategory">Danh Mục</label>
+                <select id="editCategory" name="category" required>
                     <option value="dan">Đàn</option>
                     <option value="trong">Trống</option>
                     <option value="sao">Sáo</option>
                 </select>
             </div>
-       
             <div class="form-group">
-                <label for="productImage">Ảnh Sản Phẩm</label>
-                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                <label for="editProductImage">Ảnh Sản Phẩm</label>
+                <input type="file" id="editProductImage" name="productImage" accept="image/*">
             </div>
             <div class="form-group">
-                <label for="description">Mô Tả</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
+                <label for="editDescription">Mô Tả</label>
+                <textarea id="editDescription" name="description" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn add">Thêm Sản Phẩm</button>
+            <button type="submit" class="btn edit">Lưu Thay Đổi</button>
         </form>
     </div>
 </div>
 
 <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
+    // Get the edit modal
+    var editModal = document.getElementById("editModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("addProductBtn");
+    // Get the <span> element that closes the edit modal
+    var editClose = document.getElementsByClassName("edit-close")[0];
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal.style.display = "block";
+    // When the user clicks on <span> (x), close the edit modal
+    editClose.onclick = function() {
+        editModal.style.display = "none";
     }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the edit modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == editModal) {
+            editModal.style.display = "none";
         }
+    }
+
+    // Handle edit button click
+    document.querySelectorAll('.btn.edit').forEach(button => {
+        button.onclick = function() {
+            var row = button.closest('tr');
+            var productId = row.querySelector('td:nth-child(1)').innerText;
+            var productName = row.querySelector('td:nth-child(2)').innerText;
+            var category = row.querySelector('td:nth-child(3)').innerText;
+            var description = row.querySelector('td:nth-child(6)').innerText;
+
+            document.getElementById('editProductId').value = productId;
+            document.getElementById('editProductName').value = productName;
+            document.getElementById('editCategory').value = category;
+            document.getElementById('editDescription').value = description;
+
+            editModal.style.display = "block";
+        }
+    });
+
+    // Handle form submission for edit
+    document.getElementById('editProductForm').onsubmit = function(event) {
+        event.preventDefault();
+        // Add your form submission logic here
+        // You may need to use AJAX to submit the form data to your server
+        editModal.style.display = "none";
     }
 </script>
 
