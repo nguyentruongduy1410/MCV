@@ -1,76 +1,52 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['login'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    include_once 'Models/connectmodel.php';
+    include_once 'Models/UserModel.php';
 
-        try {
-            include_once 'Models/connectmodel.php';
-            $connect = new ConnectModel();
-            $conn = $connect->ketnoi();
-
-            $sql = "SELECT * FROM users WHERE email = :email AND mk = :password";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-            $stmt->execute();
-
-            if ($stmt->rowCount() > 0) {
-                // Đăng nhập thành công
-                $_SESSION['email'] = $email;
-                 header("Location: index.php?trang=home");
-            } else {
-                // Đăng nhập thất bại
+    if (isset($_POST["login"])) {
+        $user = $_POST['email'];
+        $pass = $_POST['password'];
+        $role = checkuser($user, $pass);
+    
+        if ($role !== null) {
+            $_SESSION['role'] = $role;
+            $_SESSION['email'] = $user;
+    
+            if ($role == 1) {
+                header('Location: ../layoutAdmin/index.php');
+            } else if ($role == 0) {
+                header('Location: index.php?trang=home');
             }
-        } catch (PDOException $e) {
-            $message = "Đã xảy ra lỗi khi kết nối!";
+            exit();
         }
     }
 
-
-    // Đăng ký
+    //đăng ký
+    $error_message = '';
     if (isset($_POST['signup'])) {
         $sEmail = $_POST['sEmail'];
         $sPassword = $_POST['sPassword'];
         $sRPassword = $_POST['sRPassword'];
-
+    
         if ($sPassword === $sRPassword) {
             try {
-                include_once 'Models/connectmodel.php';
-                $connect = new ConnectModel();
-                $conn = $connect->ketnoi();
-
-                $sql_check = "SELECT * FROM users WHERE email = :sEmail";
-                $stmt_check = $conn->prepare($sql_check);
-                $stmt_check->bindParam(':sEmail', $sEmail);
-                $stmt_check->execute();
-
-                if ($stmt_check->rowCount() > 0) {
-                    $error_message = "Email này đã được đăng ký!";
+                include_once 'Models/UserModel.php';
+                if (registerUser($sEmail, $sPassword)) {
+                    $_SESSION['email'] = $sEmail;
+                    header('Location: index.php');
+                    exit();
                 } else {
-                    $sql = "INSERT INTO users (email, mk) VALUES (:sEmail, :sPassword)";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bindParam(':sEmail', $sEmail);
-                    $stmt->bindParam(':sPassword', $sPassword);
-                    if ($stmt->execute()) {
-                        $_SESSION['email'] = $sEmail;
-                        exit();
-                    } else {
-                        
-                    }
+                    $error_message = "Email đã được đăng ký";
                 }
             } catch (PDOException $e) {
-                
+                $error_message = "Lỗi kết nối: " . $e->getMessage();
             }
         } else {
-            
+            $error_message = "Mật khẩu không khớp";
         }
     }
-}
 ?>
 
-
-
+    <link rel="stylesheet" href="./Public/css/style.css">
 <div id="loginModal">
     <div class="modal-content">
         <div class="modal-content-left">
@@ -95,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p>Hoặc đăng nhập với</p>
                     <div class="line"></div>
                 </div>
-                <form action="" method="post" >
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div class="box-input">
                         <img src="./Public/img/email-4ddcb32a.svg" alt="">
                         <input id="login-email" type="email" name="email" placeholder="Nhập Email" required>

@@ -7,7 +7,7 @@
         
         public function ketnoi(){
             try{
-                $this->conn = new PDO("mysql:host=".$this->servername.";dbname=mcv;charset=utf8",$this->username,password: $this->password);
+                $this->conn = new PDO("mysql:host=".$this->servername.";dbname=mcv;charset=utf8", $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 // echo 'kết nối thành công';
                 return $this->conn;

@@ -60,5 +60,4 @@ switch ($page) {
 }
 include_once './Views/footer.php';
 include_once './Views/login.php';
-
 ?>
