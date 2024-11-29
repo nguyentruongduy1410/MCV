@@ -2,6 +2,7 @@
     include_once 'Models/connectmodel.php';
     include_once 'Models/UserModel.php';
 // dang nhap
+$err='';
 if (isset($_POST["login"])) {
     $user = $_POST['email'];
     $pass = $_POST['password'];
@@ -24,7 +25,7 @@ if (isset($_POST["login"])) {
         }
         exit();
     } else {
-        echo "Thông tin đăng nhập không chính xác!";
+        $err = 'Thông tin đăng nhập không chính xác!';
     }
 }
 
@@ -39,22 +40,22 @@ if (isset($_POST["login"])) {
         if ($sPassword === $sRPassword) {
             try {
                 include_once 'Models/UserModel.php';
-                if (registerUser($sEmail, $sPassword)) {
+                $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
+                if (registerUser($sEmail, $hashedPassword)) {
                     $_SESSION['email'] = $sEmail;
                     header('Location: index.php');
                     exit();
                 } else {
-                    $error_message = "Email đã được đăng ký";
+                    $error_message = "Email đã được đăng ký!";
                 }
             } catch (PDOException $e) {
                 $error_message = "Lỗi kết nối: " . $e->getMessage();
             }
         } else {
-            $error_message = "Mật khẩu không khớp";
+            $error_message = "Mật khẩu không khớp!";
         }
     }
 ?>
-
     <link rel="stylesheet" href="./Public/css/style.css">
 <div id="loginModal">
     <div class="modal-content">
@@ -92,7 +93,7 @@ if (isset($_POST["login"])) {
                         <span class="show-pass"><img id="show-login-pass" src="./Public/img/eye.png" alt=""
                                 width="20px"></span>
                     </div>
-                    <p class="repair" id="repairpassword"></p>
+                    <p class="repair" id="repairpassword"><?php echo $err; ?></p>
                     <button name="login" class="log-in">Đăng nhập</button>
                 </form>
 
@@ -141,7 +142,7 @@ if (isset($_POST["login"])) {
                         <span class="show-pass"><img id="show-signup2-pass" src="./Public/img/eye.png" alt=""
                                 width="20px"></span>
                     </div>
-                    <p class="repair" id="repairpassword-signup2"></p>
+                    <p class="repair" id="repairpassword-signup2"><?php echo $error_message; ?></p>
                     <button class="log-in" name="signup">Đăng ký</button>
                     <div class="forgot">
                         <p>Bạn đã có tài khoản?

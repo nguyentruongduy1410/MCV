@@ -106,9 +106,7 @@ if (isset($_SESSION['email']) && isset($_POST['update_info'])) {
     $_SESSION['user_phone'] = $new_phone;
     $_SESSION['user_address'] = $new_address;
 
-    echo "<script>alert('Cập nhật thông tin thành công!');</script>";
-
-    header("Location: index.php?trang=address"); 
+    header("Location: index.php?trang=address");
     exit();
 }
 ?>

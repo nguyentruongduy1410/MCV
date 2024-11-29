@@ -26,15 +26,12 @@
 function checkuser($user, $pass) {
     $connect = new ConnectModel();
     $conn = $connect->ketnoi();
-
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email AND mk = :pass"); 
-    $stmt->bindParam(':email', $user); 
-    $stmt->bindParam(':pass', $pass); 
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email"); 
+    $stmt->bindParam(':email', $user);
     $stmt->execute();
-    
     $kq = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($kq) {
+    if ($kq && password_verify($pass, $kq['mk'])) {
         return $kq['role']; 
     } else {
         return null;

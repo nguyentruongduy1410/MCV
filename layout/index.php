@@ -42,7 +42,6 @@ switch ($page) {
     case 'user':
         include_once 'Controllers/UserController.php';
         $userController = new UserController();
-        $userController->infor();
         break;
 
     case 'address':
