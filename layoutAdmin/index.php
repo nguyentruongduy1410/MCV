@@ -6,6 +6,10 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
 $lenh  = isset($_GET['lenh']) ? $_GET['lenh'] :'';
 $tendm = isset($_POST['tendm']) ? $_POST['tendm'] :'';
 $hinhdm = isset($_POST['hinhdm']) ? $_POST['hinhdm'] :'';
+$email = isset($_POST['email']) ? $_POST['email'] :'';
+$mk = isset($_POST['mk']) ? $_POST['mk'] :'';
+$sdt = isset($_POST['sdt']) ? $_POST['sdt'] :'';
+$diachi = isset($_POST['diachi']) ? $_POST['diachi'] :'';
 
 switch ($page) {
     case 'home':
@@ -30,7 +34,8 @@ switch ($page) {
         break;
     case 'qluser':
         include_once ('Controller/QluserController.php');
-        $QluserController = new QluserController();
+        $qlusercontroller = new QluserController($lenh,$email,$mk,$sdt,$diachi);
+        $qlusercontroller -> index();
         break;
     case 'qlvoucher':
         include_once ('Controller/QlvoucherController.php');
