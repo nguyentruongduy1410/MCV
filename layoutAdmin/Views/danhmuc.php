@@ -23,8 +23,8 @@
                         <td>' . $value['ten_dm'] . '</td>
                          <td>' . $value['hinh_dm'] . '</td>
                         <td>
-                            <a href="#" onclick="openEditModal(' . $value['id'] . ', \'' . $value['ten_dm'] . '\')">Sửa</a> | 
-                            <a href="#">Xóa</a>
+                            <a href="index.php?trang=danhmuc&lenh=sua&id='.$value['id'].'" onclick="openEditModal(' . $value['id'] . ', \'' . $value['ten_dm'] . '\')">Sửa</a> | 
+                            <a href="index.php?trang=danhmuc&lenh=xoa&id='.$value['id'].'">Xóa</a>
                         </td>
                     </tr>
                     ';
@@ -41,16 +41,16 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('addModal')">&times;</span>
         <h2>Thêm Danh Mục</h2>
-        <form id="addForm">
+        <form action="index.php?trang=danhmuc&lenh=them" id="addForm" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="newCategory">Tên Danh Mục</label>
-                <input type="text" id="newCategory" name="newCategory" required>
+                <input type="text" name="tendm" id="newCategory" name="newCategory" required>
                 <label for="editCategory">Hình Danh Mục</label>
-                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                <input type="file" name="hinhdm" id="productImage" name="productImage" accept="image/*" required>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn secondary" onclick="closeModal('addModal')">Hủy</button>
-                <button type="submit" class="btn">Thêm</button>
+                <button type="submit" name="them" class="btn">Thêm</button>
             </div>
         </form>
     </div>
@@ -61,11 +61,11 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('editModal')">&times;</span>
         <h2>Sửa Danh Mục</h2>
-        <form id="editForm">
+        <form action="index.php?trang=danhmuc&lenh=capnhat&id=<?php $danhmucmodel[0]['id']; ?>" id="editForm" method="post">
             <input type="hidden" id="editCategoryId" name="editCategoryId">
             <div class="form-group">
                 <label for="editCategory">Tên Danh Mục</label>
-                <input type="text" id="editCategory" name="editCategory" required>
+                <input type="text" id="editCategory" name="tendm" value="<?php echo $danhmucmodel[0]['tendm']; ?>" required>
                 <label for="editCategory">Hình Danh Mục</label>
                 <input type="file" id="productImage" name="productImage" accept="image/*" required>
             </div>
@@ -77,6 +77,14 @@
 </div>
 
 <script>
+//     window.onclick = function (event) {
+//     const addModal = document.getElementById('addModal');
+//     const editModal = document.getElementById('editModal');
+
+//     if (event.target === addModal) addModal.style.display = 'none';
+//     if (event.target === editModal) editModal.style.display = 'none';
+// };
+
     // Mở modal Thêm Danh Mục
     function openAddModal() {
         document.getElementById('addModal').style.display = 'flex';
@@ -103,27 +111,27 @@
     };
 
     // Handle form submission for adding a new category
-    document.getElementById('addForm').onsubmit = function(event) {
-        event.preventDefault();
+    // document.getElementById('addForm').onsubmit = function(event) {
+    //     event.preventDefault();
         
-        var formData = new FormData(this);
+    //     var formData = new FormData(this);
 
-        // Use AJAX to submit the form data to the server
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "path_to_your_server_endpoint_for_adding_category", true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                // Successfully added the category
-                alert('Category added successfully!');
-                location.reload(); // Reload the page to reflect the new category
-            } else {
-                alert('Failed to add category.');
-            }
-        };
-        xhr.send(formData);
+    //     // Use AJAX to submit the form data to the server
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.open("POST", "path_to_your_server_endpoint_for_adding_category", true);
+    //     xhr.onload = function () {
+    //         if (xhr.status === 200) {
+    //             // Successfully added the category
+    //             alert('Category added successfully!');
+    //             location.reload(); // Reload the page to reflect the new category
+    //         } else {
+    //             alert('Failed to add category.');
+    //         }
+    //     };
+    //     xhr.send(formData);
 
-        closeModal('addModal');
-    }
+    //     closeModal('addModal');
+    // }
 
     // Handle form submission for editing a category
     document.getElementById('editForm').onsubmit = function(event) {
