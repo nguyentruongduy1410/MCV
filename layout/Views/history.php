@@ -65,7 +65,6 @@
                             <td><?php echo number_format($order['tong_tien'], 0, ',', '.'); ?> VND</td>
                             <td><?php echo $order['id_gg']; ?></td>
                             <td><?php echo date('d/m/Y', strtotime($order['ngay_dat_hang'])); ?></td>
-
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

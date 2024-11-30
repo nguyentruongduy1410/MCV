@@ -1,8 +1,8 @@
 <?php
-    include_once 'Models/connectmodel.php';
-    include_once 'Models/UserModel.php';
+include_once 'Models/connectmodel.php';
+include_once 'Models/UserModel.php';
 // dang nhap
-$err='';
+$err = '';
 if (isset($_POST["login"])) {
     $user = $_POST['email'];
     $pass = $_POST['password'];
@@ -14,8 +14,8 @@ if (isset($_POST["login"])) {
         if ($user_info) {
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $user;
-            $_SESSION['user_id'] = $user_info['id']; 
-            $_SESSION['user_name'] = $user_info['ten']; 
+            $_SESSION['user_id'] = $user_info['id'];
+            $_SESSION['user_name'] = $user_info['ten'];
             $_SESSION['user_address'] = $user_info['diachi'];
             $_SESSION['user_phone'] = $user_info['sdt'];
         }
@@ -31,33 +31,42 @@ if (isset($_POST["login"])) {
 }
 
 
-    //đăng ký
-    $error_message = '';
-    if (isset($_POST['signup'])) {
-        $sEmail = $_POST['sEmail'];
-        $sPassword = $_POST['sPassword'];
-        $sRPassword = $_POST['sRPassword'];
-    
-        if ($sPassword === $sRPassword) {
-            try {
-                include_once 'Models/UserModel.php';
-                $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
-                if (registerUser($sEmail, $hashedPassword)) {
+//đăng ký
+$error_message = '';
+if (isset($_POST['signup'])) {
+    $sEmail = $_POST['sEmail'];
+    $sPassword = $_POST['sPassword'];
+    $sRPassword = $_POST['sRPassword'];
+
+    if ($sPassword === $sRPassword) {
+        try {
+            include_once 'Models/UserModel.php';
+            $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
+            if (registerUser($sEmail, $hashedPassword)) {
+                $user_info = getCustomerInfo($sEmail);
+
+                if ($user_info) {
+                    $_SESSION['role'] = $role;
                     $_SESSION['email'] = $sEmail;
-                    header('Location: index.php');
-                    exit();
-                } else {
-                    $error_message = "Email đã được đăng ký!";
+                    $_SESSION['user_id'] = $user_info['id'];
+                    $_SESSION['user_name'] = $user_info['ten'];
+                    $_SESSION['user_address'] = $user_info['diachi'];
+                    $_SESSION['user_phone'] = $user_info['sdt'];
                 }
-            } catch (PDOException $e) {
-                $error_message = "Lỗi kết nối: " . $e->getMessage();
+                header('Location: index.php');
+                exit();
+            } else {
+                $error_message = "Email đã được đăng ký!";
             }
-        } else {
-            $error_message = "Mật khẩu không khớp!";
+        } catch (PDOException $e) {
+            $error_message = "Lỗi kết nối: " . $e->getMessage();
         }
+    } else {
+        $error_message = "Mật khẩu không khớp!";
     }
+}
 ?>
-    <link rel="stylesheet" href="./Public/css/style.css">
+<link rel="stylesheet" href="./Public/css/style.css">
 <div id="loginModal">
     <div class="modal-content">
         <div class="modal-content-left">
@@ -123,7 +132,7 @@ if (isset($_POST["login"])) {
                     <p>Hoặt đăng ký với</p>
                     <div class="line"></div>
                 </div>
-                <form action="" method="post" >
+                <form action="" method="post">
                     <div class="box-input">
                         <img src="./Public/img/email-4ddcb32a.svg" alt="">
                         <input name="sEmail" id="signup-email" type="email" placeholder="Nhập Email" required>
