@@ -49,3 +49,21 @@ body {
 .btn.add {
     margin-bottom: 20px;
 }
+.col3{
+    width: 28%;
+    float: left;
+}
+.col9{
+    width: 70%;
+    float: right;
+}.action-icons {
+    display: flex;
+    justify-content: space-around;
+}
+.action-icons a {
+    text-decoration: none;
+    color: #333;
+}
+.action-icons a:hover {
+    color: #ff0000;
+}

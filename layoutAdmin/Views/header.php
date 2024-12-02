@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="public/css/qlbaiviet.css">
     <link rel="stylesheet" href="public/css/qlbinhluan.css">
     <link rel="stylesheet" href="public/css/qldonhang.css">
-    <link rel="stylesheet" href="public/css/qluser.css">
+    <link rel="stylesheet" href="public/css/qluser.css ">
     <link rel="stylesheet" href="public/css/qlvoucher.css">
     <link rel="stylesheet" href="public/css/sanpham.css">
     <link rel="stylesheet" href="public/css/thongke.css">
     <link rel="stylesheet" href="public/css/baivietsp.css">
+    <link rel="stylesheet" href="public/css/edituser.css">
 
     
 </head>
@@ -39,7 +40,8 @@
         <a href="index.php?trang=qlvoucher">Quản Lý Khuyến Mãi</a>
         <a href="index.php?trang=baivietsp">Bài viết sản phẩm</a>
         <a href="index.php?trang=loginadmin">Đăng Xuất</a> <br> <br> <br>
-          
+
+       
         </div>
      
     </div>
