@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2024 lúc 08:30 AM
+-- Thời gian đã tạo: Th12 01, 2024 lúc 04:07 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -136,6 +136,7 @@ CREATE TABLE `don_hang` (
   `id` int(11) NOT NULL,
   `ngay_dat_hang` date NOT NULL,
   `trangthai_dh` varchar(50) DEFAULT NULL,
+  `trangthai_thanhtoan` varchar(50) NOT NULL,
   `tong_tien` decimal(15,2) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
   `id_gg` int(11) DEFAULT NULL
@@ -145,9 +146,10 @@ CREATE TABLE `don_hang` (
 -- Đang đổ dữ liệu cho bảng `don_hang`
 --
 
-INSERT INTO `don_hang` (`id`, `ngay_dat_hang`, `trangthai_dh`, `tong_tien`, `id_user`, `id_gg`) VALUES
-(1, '2024-08-15', 'Đang xử lý', 500000.00, 1, 1),
-(2, '2024-09-20', 'Đã giao', 1000000.00, 2, 2);
+INSERT INTO `don_hang` (`id`, `ngay_dat_hang`, `trangthai_dh`, `trangthai_thanhtoan`, `tong_tien`, `id_user`, `id_gg`) VALUES
+(1, '2024-08-15', 'Đang xử lý', '', 500000.00, 1, 1),
+(2, '2024-09-20', 'Đã giao', '', 1000000.00, 2, 2),
+(6, '2025-04-16', 'đang giao', 'đã thanh toán', 16042005.00, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -386,16 +388,27 @@ CREATE TABLE `users` (
   `mk` varchar(255) NOT NULL,
   `sdt` varchar(20) DEFAULT NULL,
   `vaitro` varchar(50) DEFAULT NULL,
-  `diachi` text DEFAULT NULL
+  `diachi` text DEFAULT NULL,
+  `role` tinyint(1) NOT NULL DEFAULT 0,
+  `ten` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`) VALUES
-(1, 'a@gmail.com', 'password1', '0123456789', 'customer', 'Địa chỉ A'),
-(2, 'b@gmail.com', 'password2', '0987654321', 'customer', 'Địa chỉ B');
+INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`, `role`, `ten`) VALUES
+(1, 'a@gmail.com', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '0123456789', 'customer', 'Địa chỉ Aaa', 1, 'nguyen van aaa'),
+(2, 'b@gmail.com', 'password2', '34454', 'customer', 'nhà an', 0, 'nguyen a'),
+(3, 'anpham16042005@gmail.com', 'a', '098766', NULL, 'Địa chỉ g', 0, 'an'),
+(4, 'dsf@s', 's', NULL, NULL, NULL, 0, ''),
+(5, 'anphams16042005@gmail.com', 'a', NULL, NULL, NULL, 0, ''),
+(6, 'dsf@ss', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '190010', NULL, 'nhà tao', 0, 'ma hóaa'),
+(7, 'dsf@sa', '$2y$10$.k82nGscI/SIvwCbbBlmr.CsJm6NxJnMeswBchTgJUJD9BHYcx9iu', NULL, NULL, NULL, 0, ''),
+(8, 'anpham160420e05@gmail.com', '1', '1', NULL, '1', 0, ''),
+(11, 'z@gmail.com', '$2y$10$KxGnD/ZdQbMjykiRghonSulbZaMlJL0JPjrwZWmx5sFO3DTY4JATa', NULL, NULL, NULL, 0, ''),
+(12, 'q@gmail.com', '$2y$10$xJ.fxorSl7wV8caUl7Y0Mu.CO3Wx9dZ6mARQgupFDQOGeyEKh53SW', 'a', NULL, 'a', 0, 'a'),
+(13, 'e@gmail.com', '$2y$10$qK1fZcVXm0qdpJmW6G..huLiLgNdFIzAJEvDXgFfpvVZRKc0usMx.', 'f', NULL, 'f', 0, 'a');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -521,7 +534,7 @@ ALTER TABLE `san_pham`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

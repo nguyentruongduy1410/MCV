@@ -62,21 +62,26 @@
             <!-- mini ảnh sản phẩm -->
             <div class="wrapper" id="minis">
             <?php 
-if (isset($chitiethinhanh) && is_array($chitiethinhanh)) {
-    if (!empty($chitiethinhanh)) {
-        foreach ($chitiethinhanh as $key => $value) {
-            echo '
-                <div class="mini-box">
-                    <img src="./Public/img/' . htmlspecialchars($value['id_sp']) . '" alt="">
-                </div>
-            ';
-        }
-    } else {
-        echo "Không có hình ảnh chi tiết cho sản phẩm này.";
-    }
-} else {
-    echo "Dữ liệu không được truyền đúng.";
-}
+               $ch = '';
+               if (isset($productdetailmodel) && !is_null($productdetailmodel) && property_exists($productdetailmodel, 'chitiethinhanh') && is_array($productdetailmodel->chitiethinhanh)) {
+                   foreach ($productdetailmodel->chitiethinhanh as $key => $value) {
+                       if (isset($value['hinh_url']) && !empty($value['hinh_url'])) {
+                           $ch .= '
+                               <div class="mini-box">
+                                   <img src="./Public/img/' . htmlspecialchars($value['hinh_url']) . '" alt="">
+                               </div>
+                           ';
+                       }
+                   }
+               } else {
+                   echo 'Không có dữ liệu hình ảnh để hiển thị.';
+               }
+               echo $ch;
+               
+                
+                
+    
+
 ?>
 
     

@@ -6,6 +6,7 @@ $iddb = isset($_GET['iddb']) ? $_GET['iddb'] : '';
 $iddm = isset($_GET['iddm']) ? $_GET['iddm'] : '';
 $chuyen = isset($_GET['chuyen']) ? $_GET['chuyen'] : '1';
 $kyw = isset($_GET['kyw']) ? $_GET['kyw'] : '';
+$userId = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 switch ($page) {
     case 'home':
         include_once 'Controllers/HomeController.php';
@@ -37,7 +38,7 @@ switch ($page) {
         break;
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
-        $ProductdetailController = new ProductdetailController(id_sp: $id);
+        $ProductdetailController = new ProductdetailController(id: $id);
         break;
     case 'user':
         include_once 'Controllers/UserController.php';
@@ -50,7 +51,7 @@ switch ($page) {
         break;
     case 'history':
         include_once 'Controllers/HistoryController.php';
-        $HistoryController = new HistoryController();
+        $HistoryController = new HistoryController($userId);
         break;
         case 'thanhtoan':
             include_once '../Controllers/thanhtoanControllers.php';
