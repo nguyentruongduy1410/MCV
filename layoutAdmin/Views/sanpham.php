@@ -51,7 +51,6 @@
             </tbody>
         </table>
     </div>
-
     <!-- Add Product Modal -->
     <div id="addProductModal" class="modal">
         <div class="modal-content">
@@ -134,147 +133,53 @@
     </div>
 
     <script>
-        // Get the modals
-        var addModal = document.getElementById("addProductModal");
-        var editModal = document.getElementById("editProductModal");
+      // Lấy các phần tử cần thiết
+const addProductBtn = document.getElementById('addProductBtn');
+const addProductModal = document.getElementById('addProductModal');
+const editProductModal = document.getElementById('editProductModal'); // Cần đảm bảo bạn đặt đúng id cho modal Sửa
+const closeButtons = document.querySelectorAll('.modal .close');
+const editButtons = document.querySelectorAll('.btn.edit'); // Các nút Sửa trong danh sách sản phẩm
 
-        // Get the buttons that open the modals
-        var addBtn = document.getElementById("addProductBtn");
+// Hiển thị modal Thêm Sản Phẩm
+addProductBtn.addEventListener('click', () => {
+    addProductModal.style.display = 'block';
+});
 
-        // Get the <span> elements that close the modals
-        var addSpan = addModal.getElementsByClassName("close")[0];
-        var editSpan = editModal.getElementsByClassName("close")[0];
+// Hiển thị modal Sửa Sản Phẩm
+editButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const productId = event.target.dataset.id;
 
-        // When the user clicks the button, open the add modal
-        addBtn.onclick = function() {
-            addModal.style.display = "block";
-        }
+        // Gán giá trị vào các trường trong modal Sửa
+        document.getElementById('editProductId').value = productId;
+        document.getElementById('editProductName').value = "Tên Sản Phẩm"; // Thay bằng dữ liệu thực
+        document.getElementById('editCategory').value = "Danh Mục"; // Thay bằng dữ liệu thực
+        document.getElementById('editPrice').value = "Giá"; // Thay bằng dữ liệu thực
+        document.getElementById('editDiscountPrice').value = "Giá Giảm"; // Thay bằng dữ liệu thực
+        document.getElementById('editDescription').value = "Mô Tả"; // Thay bằng dữ liệu thực
 
-        // When the user clicks on <span> (x), close the modals
-        addSpan.onclick = function() {
-            addModal.style.display = "none";
-        }
+        // Hiển thị modal Sửa
+        editProductModal.style.display = 'block';
+    });
+});
 
-        editSpan.onclick = function() {
-            editModal.style.display = "none";
-        }
+// Đóng modal khi nhấn nút đóng
+closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        button.closest('.modal').style.display = 'none';
+    });
+});
 
-        // When the user clicks anywhere outside of the modals, close them
-        window.onclick = function(event) {
-            if (event.target == addModal) {
-                addModal.style.display = "none";
-            } else if (event.target == editModal) {
-                editModal.style.display = "none";
-            }
-        }
+// Đóng modal khi nhấn bên ngoài modal
+window.addEventListener('click', (event) => {
+    if (event.target === addProductModal) {
+        addProductModal.style.display = 'none';
+    }
+    if (event.target === editProductModal) {
+        editProductModal.style.display = 'none';
+    }
+});
 
-        // Handle form submission for adding a new product
-        document.getElementById('addProductForm').onsubmit = function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(this);
-
-            // You can use AJAX to submit the form data to the server
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "path_to_your_server_endpoint", true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Successfully added the product
-                    alert('Product added successfully!');
-                    location.reload(); // Reload the page to reflect the new product
-                } else {
-                    alert('Failed to add product.');
-                }
-            };
-            xhr.send(formData);
-
-            addModal.style.display = "none";
-        }
-
-        // Handle form submission for editing a product
-        document.getElementById('editProductForm').onsubmit = function(event) {
-            event.preventDefault();
-            
-            var formData = new FormData(this);
-
-            // You can use AJAX to submit the form data to the server
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "path_to_your_server_endpoint_for_editing", true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Successfully edited the product
-                    alert('Product edited successfully!');
-                    location.reload(); // Reload the page to reflect the changes
-                } else {
-                    alert('Failed to edit product.');
-                }
-            };
-            xhr.send(formData);
-
-            editModal.style.display = "none";
-        }
-
-        // Add event listeners for edit and delete buttons
-        document.querySelector('.product-table tbody').addEventListener('click', function(event) {
-            if (event.target.classList.contains('edit')) {
-                // Open edit modal and populate fields with existing data
-                var productId = event.target.getAttribute('data-id');
-                var row = document.querySelector('tr[data-id="' + productId + '"]');
-                document.getElementById('editProductId').value = productId;
-                document.getElementById('editProductName').value = row.cells[1].textContent;
-                document.getElementById('editCategory').value = row.cells[2].textContent;
-                document.getElementById('editPrice').value = row.cells[3].textContent;
-                document.getElementById('editDiscountPrice').value = row.cells[4].textContent;
-                document.getElementById('editDescription').value = row.cells[6].textContent;
-
-                editModal.style.display = "block";
-            }
-
-            if (event.target.classList.contains('delete')) {
-                // Delete product
-                var productId = event.target.getAttribute('data-id');
-                if (confirm('Are you sure you want to delete this product?')) {
-                    // Use AJAX to delete the product
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "path_to_your_server_endpoint_for_deleting", true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    xhr.onload = function () {
-                        if (xhr.status === 200) {
-                            // Successfully deleted the product
-                            alert('Product deleted successfully!');
-                            location.reload(); // Reload the page to reflect the deletion
-                        } else {
-                            alert('Failed to delete product.');
-                        }
-                    };
-                    xhr.send("productId=" + productId);
-                }
-            }
-        });
-
-        // Preview selected image in add form
-        document.getElementById('productImage').addEventListener('change', function(event) {
-            var preview = document.getElementById('productImagePreview');
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        });
-
-        // Preview selected image in edit form
-        document.getElementById('editProductImage').addEventListener('change', function(event) {
-            var preview = document.getElementById('editProductImagePreview');
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        });
     </script>
 
 </body>

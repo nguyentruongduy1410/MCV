@@ -77,84 +77,26 @@
 </div>
 
 <script>
-//     window.onclick = function (event) {
-//     const addModal = document.getElementById('addModal');
-//     const editModal = document.getElementById('editModal');
-
-//     if (event.target === addModal) addModal.style.display = 'none';
-//     if (event.target === editModal) editModal.style.display = 'none';
-// };
-
-    // Mở modal Thêm Danh Mục
     function openAddModal() {
-        document.getElementById('addModal').style.display = 'flex';
-    }
+    const addModal = document.getElementById('addModal');
+    addModal.style.display = 'block';
+}
 
-    // Mở modal Sửa Danh Mục
-    function openEditModal(id, name) {
-        document.getElementById('editModal').style.display = 'flex';
-        document.getElementById('editCategoryId').value = id;
-        document.getElementById('editCategory').value = name;
-    }
+function openEditModal(id, name) {
+    const editModal = document.getElementById('editModal');
 
-    // Đóng modal
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-    }
+    // Điền thông tin danh mục vào form
+    document.getElementById('editCategoryId').value = id; // Gán ID vào input ẩn
+    document.getElementById('editCategory').value = name; // Gán tên danh mục vào input
 
-    // Đóng modal khi nhấn bên ngoài
-    window.onclick = function (event) {
-        const addModal = document.getElementById('addModal');
-        const editModal = document.getElementById('editModal');
-        if (event.target === addModal) addModal.style.display = 'none';
-        if (event.target === editModal) editModal.style.display = 'none';
-    };
+    // Hiển thị modal sửa
+    editModal.style.display = 'block';
+}
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+}
 
-    // Handle form submission for adding a new category
-    // document.getElementById('addForm').onsubmit = function(event) {
-    //     event.preventDefault();
-        
-    //     var formData = new FormData(this);
-
-    //     // Use AJAX to submit the form data to the server
-    //     var xhr = new XMLHttpRequest();
-    //     xhr.open("POST", "path_to_your_server_endpoint_for_adding_category", true);
-    //     xhr.onload = function () {
-    //         if (xhr.status === 200) {
-    //             // Successfully added the category
-    //             alert('Category added successfully!');
-    //             location.reload(); // Reload the page to reflect the new category
-    //         } else {
-    //             alert('Failed to add category.');
-    //         }
-    //     };
-    //     xhr.send(formData);
-
-    //     closeModal('addModal');
-    // }
-
-    // Handle form submission for editing a category
-    document.getElementById('editForm').onsubmit = function(event) {
-        event.preventDefault();
-        
-        var formData = new FormData(this);
-
-        // Use AJAX to submit the form data to the server
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "path_to_your_server_endpoint_for_editing_category", true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                // Successfully edited the category
-                alert('Category edited successfully!');
-                location.reload(); // Reload the page to reflect the changes
-            } else {
-                alert('Failed to edit category.');
-            }
-        };
-        xhr.send(formData);
-
-        closeModal('editModal');
-    }
 </script>
 
 </body>

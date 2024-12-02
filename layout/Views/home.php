@@ -50,10 +50,11 @@
     </div>
     <div class="product-box">
         <?php
+        
         $ch = '';
         foreach ($homemodel->mangsp as $key => $value) {
             $ch .= '
-                <a href="index.php?trang=home&id=' . $value['id'] . '">
+                <a href="index.php?trang=productdetail&id=' . $value['id'] . '">
                     <div class="box-sp" >
                     <div class="img">
                         <img src="public/img/' . $value['hinh_sp'] . '" alt="">

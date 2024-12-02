@@ -4,7 +4,7 @@ ob_start();
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: index.php");
+    header(header: "Location: index.php");
     exit();
 }
 ?>

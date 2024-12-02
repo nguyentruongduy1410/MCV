@@ -1,23 +1,13 @@
 <?php
 class ProductdetailController {
-    public function __construct($id_sp) {
+    public function __construct($id, $iddm) {
         include_once 'Models/ProductdetailModel.php';
         $productdetailmodel = new ProductdetailModel();
-
-        // Kiểm tra tham số id_sp đã được nhận chưa
-        echo "Product ID: " . $id_sp; // Kiểm tra xem giá trị id có đúng không
-
-        // Lấy dữ liệu hình ảnh chi tiết cho sản phẩm theo id_sp
-        $productdetailmodel->chitiethinhanh($id_sp);
-
-        // Truyền dữ liệu từ Model sang View
-        $chitiethinhanh = $productdetailmodel->chitiethinhanh;
-        include_once './Views/productdetails.php';
+        $productdetailmodel -> onesp($id);
+        $productdetailmodel -> splienquan($id);
+        $productdetailmodel->chitiethinhanh($id); // Lấy dữ liệu từ model
+        $chitiethinhanh = $productdetailmodel->chitiethinhanh; // Dữ liệu từ model
+        include './Views/productdetails.php'; // Truyền dữ liệu vào view
     }
 }
-
-
-
-
-
 ?>

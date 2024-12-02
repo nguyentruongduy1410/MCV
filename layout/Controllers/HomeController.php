@@ -4,7 +4,6 @@
             include_once 'Models/HomeModel.php';
             $homemodel = new HomeModel();
             if($id != ''){
-                $homemodel -> onesp($id);
                 include_once 'Views/productdetails.php';
 
             }else{

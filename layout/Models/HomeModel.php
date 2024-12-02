@@ -4,19 +4,13 @@
         public $spdatbiet;
         public $danhmucsp;
         public $sanphamdanhmuc;
-        public $chitiet;
         public function dssp($page = 1){
             include_once 'Models/connectmodel.php';
             $data = new ConnectModel();
             $sql="SELECT * FROM san_pham LIMIT 8"; 
             $this->mangsp=$data->selectall($sql);
         }
-        public function onesp($id){
-            include_once 'Models/connectmodel.php';
-            $data = new ConnectModel();
-            $sql = 'SELECT * FROM san_pham WHERE id=:id';
-            $this->chitiet = $data->selectone($sql, $id);
-        }
+       
         public function spdb($iddb){
             include_once 'Models/connectmodel.php';
             $data = new ConnectModel();

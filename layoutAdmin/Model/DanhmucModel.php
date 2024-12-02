@@ -1,5 +1,6 @@
 <?php 
     class DanhmucModel{
+        public $dm;
         public $dsdm;
         public function dsdm(){
             include_once 'Model/connectmodel.php';

@@ -7,16 +7,6 @@ class QluserController
     public $mk;
     public $sdt;
     public $diachi;
-
-<<<<<<< HEAD
-    public function __construct($lenh, $email, $mk, $sdt, $diachi)
-    {
-        $this->lenh = $lenh;
-        $this->email = $email;
-        $this->mk = $mk;
-        $this->sdt = $sdt;
-        $this->diachi = $diachi;
-=======
     public function __construct($lenh, $email, $vaitro , $mk, $sdt, $diachi, $id = null)
     {
         $this->lenh = $lenh;
@@ -26,7 +16,6 @@ class QluserController
         $this->sdt = $sdt;
         $this->diachi = $diachi;
         $this->id = $id; // Đảm bảo rằng id được khởi tạo
->>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
     }
 
     public function index()
@@ -43,12 +32,8 @@ class QluserController
                     break;
 
                 case 'them':
-<<<<<<< HEAD
-                    $user->themuser($this->email, $this->mk, $this->sdt, $this->diachi);
-=======
-                    // Thêm người dùng mới
+                                        // Thêm người dùng mới
                     $user->themuser($this->email, $this->vaitro, $this->mk, $this->sdt, $this->diachi);
->>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
                     $user->dsuser();
                     $userList = $user->userList; // Sử dụng tên mới
                     include_once 'Views/qluser.php';
@@ -59,7 +44,6 @@ class QluserController
         }
     }
 }
-<<<<<<< HEAD
 
 
 // case 'xoa':
@@ -75,6 +59,4 @@ class QluserController
 //         $qlusermodel -> dsuser();
 //         include_once 'Views/qluser.php';
 //     }
-=======
 ?>
->>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
