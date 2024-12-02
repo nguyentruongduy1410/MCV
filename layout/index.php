@@ -1,4 +1,9 @@
 <?php
+session_start();
+ob_start();
+if(!isset($_SESSION['giohang'])){
+    $_SESSION['giohang']=array();
+}
 include_once './Views/header.php';
 $page = isset($_GET['trang']) ? $_GET['trang'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -20,10 +25,46 @@ switch ($page) {
         include_once 'Controllers/AllproductController.php';
         $AllproductController = new AllproductController(id: $id, iddm: $iddm, chuyen: $chuyen, kyw: $kyw);
         break;
-    case 'cart':
-        include_once 'Controllers/CartController.php';
-        $CartController = new CartController();
-        break;
+        case 'cart':
+            if(isset($_GET['delcart'])&&is_numeric($_GET['delcart'])&&($_GET['delcart']==1)){
+                unset($_SESSION['giohang']);
+            }
+            if(isset($_GET['key'])&&is_numeric($_GET['key'])&&($_GET['key']>=0)){
+                if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>0)){
+                    unset($_SESSION['giohang'][$_GET['key']]);
+                    header('location: index.php?trang=cart');
+                }
+            }
+            if(isset($_POST['btnaddcart'])){
+                $id=$_POST['id'];
+                $name=$_POST['name'];
+                $img=$_POST['img'];
+                $price=$_POST['price'];
+                $soluong=$_POST['soluong']??1;
+    
+                $chek=false;
+                if (isset($_SESSION['giohang'])) {
+                    foreach ($_SESSION['giohang'] as $key => $value) {
+                        if($_SESSION['giohang'][$key]['id']==$id){
+                            $_SESSION['giohang'][$key]['soluong']+=$soluong;
+                            $chek=true;
+                        }
+                    }
+                }
+    
+                if(!$chek){
+                    include_once 'Controllers/CartController.php';
+                    $CartController = new CartController();
+                    $CartController->addtocart($id,$name,$img,$price,$soluong);
+                }
+    
+                header('location: index.php?trang=cart');
+            }
+            include_once 'Controllers/CartController.php';
+            $CartController = new CartController();
+            $cart_html= $CartController->showcart_html();
+            include_once './Views/cart.php';
+            break;
     case 'contact':
         include_once 'Controllers/ContactController.php';
         $ContactController = new ContactController();

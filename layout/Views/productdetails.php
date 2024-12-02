@@ -42,14 +42,21 @@
                 <div class="contents">'.$value['thong_tin_sp'].'</div>
                 <div class="quantity">
                     <p>Số lượng</p>
+                    <form action="index.php?trang=cart" method="post">
                     <div class="button-quantity">
                         <button class="down">-</button>
-                        <input size="4" value="1" maxlength="3" type="text">
+                        <input name="soluong" size="4" value="1" maxlength="3" type="text">
                         <button class="up">+</button>
                     </div>
                 </div>
                 <div class="btn-mua">
-                    <button class="themgh">THÊM VÀO GIỎ</button>
+                    
+                        <input type="hidden" name="id" value="'.$value['id'].'">
+                        <input type="hidden" name="price" value="'.$value['gia_sp'].'">
+                        <input type="hidden" name="img" value="'.$value['hinh_sp'].'">
+                        <input type="hidden" name="name" value="'.$value['ten_sp'].'">
+                        <button type="submit" name="btnaddcart" class="themgh">THÊM VÀO GIỎ</button>
+                    </form>
                     <button class="mua">MUA NGAY</button>
                 </div>
 
