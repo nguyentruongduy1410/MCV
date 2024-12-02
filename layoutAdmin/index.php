@@ -24,7 +24,6 @@ $email = isset($_POST['email']) ? $_POST['email'] :'';
 $mk = isset($_POST['mk']) ? $_POST['mk'] :'';
 $sdt = isset($_POST['sdt']) ? $_POST['sdt'] :'';
 $diachi = isset($_POST['diachi']) ? $_POST['diachi'] :'';
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
 
 switch ($page) {
     case 'home':
@@ -36,13 +35,10 @@ switch ($page) {
         break;
     case 'danhmuc':
         include_once ('Controller/DanhmucController.php');
-<<<<<<< HEAD
         $DanhmucController = new DanhmucController($lenh, $tendm, $hinhdm, $id);
         $DanhmucController->index($lenh);
-=======
         $DanhmucController = new DanhmucController(lenh: $lenh, tendm: $tendm,hinhdm: $hinhdm, id: $id);
         $DanhmucController -> index(lenh: $lenh);
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
         break;
     case 'qlbaiviet':
         include_once ('Controller/QlbaivietController.php');
@@ -54,13 +50,10 @@ switch ($page) {
         break;
     case 'qluser':
         include_once ('Controller/QluserController.php');
-<<<<<<< HEAD
         $qlusercontroller = new QluserController($lenh, $email, $vaitro, $mk, $sdt, $diachi, $id); 
         $qlusercontroller->index();
-=======
         $qlusercontroller = new QluserController($lenh,$email,$mk,$sdt,$diachi);
         $qlusercontroller -> index();
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
         break;
     case 'qlvoucher':
         include_once ('Controller/QlvoucherController.php');
