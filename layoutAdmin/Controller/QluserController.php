@@ -8,6 +8,7 @@ class QluserController
     public $mk;
     public $sdt;
     public $diachi;
+
     public function __construct($lenh, $email, $vaitro , $mk, $sdt, $diachi, $id = null)
     {
         $this->lenh = $lenh;
@@ -17,13 +18,6 @@ class QluserController
         $this->sdt = $sdt;
         $this->diachi = $diachi;
         $this->id = $id; // Đảm bảo rằng id được khởi tạo
-    public function __construct($lenh, $email, $mk, $sdt, $diachi)
-    {
-        $this->lenh = $lenh;
-        $this->email = $email;
-        $this->mk = $mk;
-        $this->sdt = $sdt;
-        $this->diachi = $diachi;
     }
 
     public function index()
@@ -43,7 +37,6 @@ class QluserController
                 case 'them':
                     // Thêm người dùng mới
                     $user->themuser($this->email, $this->vaitro, $this->mk, $this->sdt, $this->diachi);
-                    $user->themuser($this->email, $this->mk, $this->sdt, $this->diachi);
                     $user->dsuser();
                     $userList = $user->userList; // Sử dụng tên mới
                     include_once 'Views/qluser.php';
@@ -77,18 +70,3 @@ class QluserController
     }
 }
 ?>
-
-
-// case 'xoa':
-//     $sv->xoasv($this->id);
-//     $mangsv = $sv->dssv();
-//     include_once 'views/sinhvien.php';
-//     break;
-
-// class QluserController{
-//     public function __construct(){
-//         include_once("Model/QluserModel.php");
-//         $qlusermodel = new QluserModel();
-//         $qlusermodel -> dsuser();
-//         include_once 'Views/qluser.php';
-//     }

@@ -12,7 +12,6 @@ class QluserModel
     }
 
     public function themuser($email, $vaitro, $mk, $sdt, $diachi)
-    public function themuser($email, $mk, $sdt, $diachi)
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
@@ -34,9 +33,6 @@ class QluserModel
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":vaitro", $vaitro);
-        $sql = "INSERT INTO users (email, mk, sdt, diachi) VALUES (:email, :mk, :sdt, :diachi)";
-        $stmt = $data->conn->prepare($sql);
-        $stmt->bindParam(":email", $email);
         $stmt->bindParam(":mk", $mk);
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);
@@ -91,4 +87,3 @@ class QluserModel
     }
 }
 ?>
-}

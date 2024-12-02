@@ -19,11 +19,6 @@
                     <option value="admin">admin</option>
                     <option value="user">user</option>  
                 </select>
-                    <label for="role">Vai Trò</label>
-                    <select id="role" name="vaitro" required>
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
@@ -64,7 +59,6 @@
             foreach ($userList as $key => $value) {
                 $ch .= '
                 <td>'.($key+1).'</td>
-                <td>' . $value['id'] . '</td>
                 <td>' . $value['email'] . '</td>
                 <td>' . $value['vaitro'] . '</td>
                 <td>' . $value['mk'] . '</td>
@@ -73,13 +67,10 @@
                 <td>
                     <a href="index.php?trang=qluser&lenh=sua&id='. $value['id'].'"><button class="btn edit">Sửa</button></a>
                     <a href="index.php?trang=qluser&lenh=xoa&id='.$value['id'].'"><button class="btn delete" ">Xóa</button></a>
-                    <button class="btn edit" data-id="' . $value['id'] . '">Sửa</button>
-                    <button class="btn delete" data-id="' . $value['id'] . '">Xóa</button>
                 </td>
             </tr>
         ';
             }
-
 
 
             echo $ch;

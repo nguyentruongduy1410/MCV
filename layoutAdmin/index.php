@@ -2,7 +2,6 @@
 include_once "Views/header.php";
 
 $page = isset($_GET['trang']) ? $_GET['trang'] : 'loginadmin';
-<<<<<<< HEAD
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 $lenh = isset($_GET['lenh']) ? $_GET['lenh'] : '';
 $tendm = isset($_POST['tendm']) ? $_POST['tendm'] : '';
@@ -15,15 +14,6 @@ $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
 $id = isset($_GET['id']) ? $_GET['id'] : ''; // ID cho trường hợp xóa
 
 // In giá trị của các biến để kiểm tra (tùy chọn)
-=======
-$id = isset($_GET['id']) ? $_GET['id'] :'';
-$lenh  = isset($_GET['lenh']) ? $_GET['lenh'] :'';
-$tendm = isset($_POST['tendm']) ? $_POST['tendm'] :'';
-$hinhdm = isset($_POST['hinhdm']) ? $_POST['hinhdm'] :'';
-$email = isset($_POST['email']) ? $_POST['email'] :'';
-$mk = isset($_POST['mk']) ? $_POST['mk'] :'';
-$sdt = isset($_POST['sdt']) ? $_POST['sdt'] :'';
-$diachi = isset($_POST['diachi']) ? $_POST['diachi'] :'';
 
 switch ($page) {
     case 'home':
@@ -37,8 +27,6 @@ switch ($page) {
         include_once ('Controller/DanhmucController.php');
         $DanhmucController = new DanhmucController($lenh, $tendm, $hinhdm, $id);
         $DanhmucController->index($lenh);
-        $DanhmucController = new DanhmucController(lenh: $lenh, tendm: $tendm,hinhdm: $hinhdm, id: $id);
-        $DanhmucController -> index(lenh: $lenh);
         break;
     case 'qlbaiviet':
         include_once ('Controller/QlbaivietController.php');
@@ -52,8 +40,6 @@ switch ($page) {
         include_once ('Controller/QluserController.php');
         $qlusercontroller = new QluserController($lenh, $email, $vaitro, $mk, $sdt, $diachi, $id); 
         $qlusercontroller->index();
-        $qlusercontroller = new QluserController($lenh,$email,$mk,$sdt,$diachi);
-        $qlusercontroller -> index();
         break;
     case 'qlvoucher':
         include_once ('Controller/QlvoucherController.php');
