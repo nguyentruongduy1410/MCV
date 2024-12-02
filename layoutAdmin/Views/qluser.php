@@ -14,11 +14,19 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
+<<<<<<< HEAD
                     <label for="role">Vai Trò</label>
                     <select id="role" name="vaitro" required>
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     </select>
+=======
+                <select name="vaitro" id="vaitro">
+                    <option value="">Chọn Vai trò</option>
+                    <option value="admin">admin</option>
+                    <option value="user">user</option>  
+                </select>
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
@@ -58,20 +66,28 @@
 
             foreach ($userList as $key => $value) {
                 $ch .= '
+<<<<<<< HEAD
                 <td>' . $value['id'] . '</td>
+=======
+                <td>'.($key+1).'</td>
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
                 <td>' . $value['email'] . '</td>
                 <td>' . $value['vaitro'] . '</td>
                 <td>' . $value['mk'] . '</td>
                 <td>' . $value['sdt'] . '</td>
                 <td>' . $value['diachi'] . '</td>
                 <td>
+<<<<<<< HEAD
                     <button class="btn edit" data-id="' . $value['id'] . '">Sửa</button>
                     <button class="btn delete" data-id="' . $value['id'] . '">Xóa</button>
+=======
+                    <a href="index.php?trang=qluser&lenh=sua&id='. $value['id'].'"><button class="btn edit">Sửa</button></a>
+                    <a href="index.php?trang=qluser&lenh=xoa&id='.$value['id'].'"><button class="btn delete" ">Xóa</button></a>
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
                 </td>
             </tr>
         ';
             }
-
 
 
             echo $ch;

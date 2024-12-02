@@ -2,6 +2,7 @@
 include_once "Views/header.php";
 
 $page = isset($_GET['trang']) ? $_GET['trang'] : 'loginadmin';
+<<<<<<< HEAD
 $id = isset($_GET['id']) ? $_GET['id'] :'';
 $lenh  = isset($_GET['lenh']) ? $_GET['lenh'] :'';
 $tendm = isset($_POST['tendm']) ? $_POST['tendm'] :'';
@@ -10,6 +11,20 @@ $email = isset($_POST['email']) ? $_POST['email'] :'';
 $mk = isset($_POST['mk']) ? $_POST['mk'] :'';
 $sdt = isset($_POST['sdt']) ? $_POST['sdt'] :'';
 $diachi = isset($_POST['diachi']) ? $_POST['diachi'] :'';
+=======
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+$lenh = isset($_GET['lenh']) ? $_GET['lenh'] : '';
+$tendm = isset($_POST['tendm']) ? $_POST['tendm'] : '';
+$hinhdm = isset($_POST['hinhdm']) ? $_POST['hinhdm'] : '';
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$vaitro = isset($_POST['vaitro']) ? $_POST['vaitro'] : ''; // Sử dụng biến $vaitro
+$mk = isset($_POST['mk']) ? $_POST['mk'] : '';
+$sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
+$diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : ''; // ID cho trường hợp xóa
+
+// In giá trị của các biến để kiểm tra (tùy chọn)
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
 
 switch ($page) {
     case 'home':
@@ -21,8 +36,13 @@ switch ($page) {
         break;
     case 'danhmuc':
         include_once ('Controller/DanhmucController.php');
+<<<<<<< HEAD
         $DanhmucController = new DanhmucController(lenh: $lenh, tendm: $tendm,hinhdm: $hinhdm, id: $id);
         $DanhmucController -> index(lenh: $lenh);
+=======
+        $DanhmucController = new DanhmucController($lenh, $tendm, $hinhdm, $id);
+        $DanhmucController->index($lenh);
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
         break;
     case 'qlbaiviet':
         include_once ('Controller/QlbaivietController.php');
@@ -34,8 +54,13 @@ switch ($page) {
         break;
     case 'qluser':
         include_once ('Controller/QluserController.php');
+<<<<<<< HEAD
         $qlusercontroller = new QluserController($lenh,$email,$mk,$sdt,$diachi);
         $qlusercontroller -> index();
+=======
+        $qlusercontroller = new QluserController($lenh, $email, $vaitro, $mk, $sdt, $diachi, $id); 
+        $qlusercontroller->index();
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
         break;
     case 'qlvoucher':
         include_once ('Controller/QlvoucherController.php');
@@ -52,5 +77,8 @@ switch ($page) {
         include_once 'Views/baivietsp.php';
         break;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
 ?>

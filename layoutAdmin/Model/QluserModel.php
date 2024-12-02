@@ -11,7 +11,11 @@ class QluserModel
         $this->userList = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
     }
 
+<<<<<<< HEAD
     public function themuser($email, $mk, $sdt, $diachi)
+=======
+    public function themuser($email, $vaitro, $mk, $sdt, $diachi)
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
@@ -29,9 +33,16 @@ class QluserModel
         }
 
         // Thêm người dùng
+<<<<<<< HEAD
         $sql = "INSERT INTO users (email, mk, sdt, diachi) VALUES (:email, :mk, :sdt, :diachi)";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
+=======
+        $sql = "INSERT INTO users (email, vaitro, mk, sdt, diachi) VALUES (:email, :vaitro, :mk, :sdt, :diachi)";
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":vaitro", $vaitro);
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
         $stmt->bindParam(":mk", $mk);
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);
@@ -39,4 +50,54 @@ class QluserModel
 
         $data->conn = null; // đóng kết nối database
     }
+<<<<<<< HEAD
 }
+=======
+
+    public function xoauser($id)
+    {
+        $sql = "DELETE FROM users WHERE id=:id";
+        include_once 'Model/connectmodel.php';
+        $data = new ConnectModel();
+        $data->ketnoi();
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $data->conn = null;
+    }
+
+    public function getUserById($id)
+    {
+        include_once 'Model/connectmodel.php';
+        $data = new ConnectModel();
+        $data->ketnoi();
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $data->conn = null;
+        return $user;
+    }
+
+    public function suauser($id, $email, $vaitro, $mk, $sdt, $diachi)
+    {
+        include_once 'Model/connectmodel.php';
+        $data = new ConnectModel();
+        $data->ketnoi();
+
+        $sql = "UPDATE users SET email = :email, vaitro = :vaitro, mk = :mk, sdt = :sdt, diachi = :diachi WHERE id = :id";
+        $stmt = $data->conn->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":vaitro", $vaitro);
+        $stmt->bindParam(":mk", $mk);
+        $stmt->bindParam(":sdt", $sdt);
+        $stmt->bindParam(":diachi", $diachi);
+        $stmt->execute();
+
+        $data->conn = null;
+    }
+}
+?>
+>>>>>>> dcb50f7e0cd111c94a1715ab1f34243dd4222315
