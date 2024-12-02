@@ -1,28 +1,4 @@
 <?php 
-    class UserModel{
-        public $users;
-       public function __construct(){   
-
-    }
-    public function dsuser(){
-        include_once 'Models/connectmodel.php';
-        $data = new ConnectModel();
-        $sql="SELECT * FROM users";
-        $this->users=$data->selectall($sql);
-    }
-    // function checkuser($email, $pass){
-    //     $data = new ConnectModel();
-    //     $sql = $data->prepare("SELECT * FROM users WHERE user = :email");
-    //     $sql->bindParam("email", $email);
-    //     $sql->execute();
-    //     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
-    //     $kq=$sql->selectall($sql);
-    //     return $kq[0]['role'];
-    // }
-    
-    
-    
-}
 function checkuser($user, $pass) {
     $connect = new ConnectModel();
     $conn = $connect->ketnoi();
@@ -87,4 +63,29 @@ function updateUserInfo($email, $name, $phone, $address) {
 
     $stmt->execute();
 }
+function getOldPassword($email) {
+    $connect = new ConnectModel();
+    $conn = $connect->ketnoi();
+    $stmt = $conn->prepare("SELECT mk FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($result) {
+        return $result['mk'];
+    } else {
+        return false;
+    }
+}
+
+function updatePassword($email, $newPassword)
+    {
+        $connect = new ConnectModel();
+        $conn = $connect->ketnoi();
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("UPDATE users SET mk = :mk WHERE email = :email");
+        $stmt->bindParam(':mk', $hashedPassword);
+        $stmt->bindParam(':email', $email);
+        return $stmt->execute(); 
+    }
 ?>

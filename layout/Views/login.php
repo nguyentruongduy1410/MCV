@@ -186,7 +186,7 @@ if (isset($_POST['signup'])) {
 <script src="./Public/js/allproduct.js"></script>
 <script src="./Public/js/cart.js"></script>
 <script src="./Public/js/address.js"></script>
-<script src="./Public/js/productdetail.js"></script>
+<script src="./Public/js/user.js"></script>
 
 </body>
 

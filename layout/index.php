@@ -38,7 +38,7 @@ switch ($page) {
         break;
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
-        $ProductdetailController = new ProductdetailController(id: $id);
+        $ProductdetailController = new ProductdetailController(id_sp: $id);
         break;
     case 'user':
         include_once 'Controllers/UserController.php';
