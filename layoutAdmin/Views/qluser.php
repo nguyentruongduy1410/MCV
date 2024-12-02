@@ -14,19 +14,16 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
                 <select name="vaitro" id="vaitro">
                     <option value="">Chọn Vai trò</option>
                     <option value="admin">admin</option>
                     <option value="user">user</option>  
                 </select>
-=======
                     <label for="role">Vai Trò</label>
                     <select id="role" name="vaitro" required>
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     </select>
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
@@ -66,34 +63,25 @@
 
             foreach ($userList as $key => $value) {
                 $ch .= '
-<<<<<<< HEAD
                 <td>'.($key+1).'</td>
-=======
                 <td>' . $value['id'] . '</td>
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
                 <td>' . $value['email'] . '</td>
                 <td>' . $value['vaitro'] . '</td>
                 <td>' . $value['mk'] . '</td>
                 <td>' . $value['sdt'] . '</td>
                 <td>' . $value['diachi'] . '</td>
                 <td>
-<<<<<<< HEAD
                     <a href="index.php?trang=qluser&lenh=sua&id='. $value['id'].'"><button class="btn edit">Sửa</button></a>
                     <a href="index.php?trang=qluser&lenh=xoa&id='.$value['id'].'"><button class="btn delete" ">Xóa</button></a>
-=======
                     <button class="btn edit" data-id="' . $value['id'] . '">Sửa</button>
                     <button class="btn delete" data-id="' . $value['id'] . '">Xóa</button>
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
                 </td>
             </tr>
         ';
             }
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
             echo $ch;
             ?>
 
