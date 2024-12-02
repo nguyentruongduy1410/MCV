@@ -11,11 +11,8 @@ class QluserModel
         $this->userList = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
     }
 
-<<<<<<< HEAD
     public function themuser($email, $vaitro, $mk, $sdt, $diachi)
-=======
     public function themuser($email, $mk, $sdt, $diachi)
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
@@ -33,16 +30,13 @@ class QluserModel
         }
 
         // Thêm người dùng
-<<<<<<< HEAD
         $sql = "INSERT INTO users (email, vaitro, mk, sdt, diachi) VALUES (:email, :vaitro, :mk, :sdt, :diachi)";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":vaitro", $vaitro);
-=======
         $sql = "INSERT INTO users (email, mk, sdt, diachi) VALUES (:email, :mk, :sdt, :diachi)";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
         $stmt->bindParam(":mk", $mk);
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);
@@ -50,7 +44,6 @@ class QluserModel
 
         $data->conn = null; // đóng kết nối database
     }
-<<<<<<< HEAD
 
     public function xoauser($id)
     {
@@ -98,6 +91,4 @@ class QluserModel
     }
 }
 ?>
-=======
 }
->>>>>>> 1f9392bae6c3b8c3cbaa8c12873c155b8c6bcd60
