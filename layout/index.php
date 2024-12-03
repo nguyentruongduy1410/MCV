@@ -78,12 +78,7 @@ switch ($page) {
         include_once './Views/cart.php';
         break;
 
-<<<<<<< HEAD
-    case 'contact':
-        include_once 'Controllers/ContactController.php';
-        $ContactController = new ContactController();
-        break;
-=======
+
         case 'contact':
             include_once 'Controllers/ContactController.php';
             $ContactController = new ContactController();
@@ -94,7 +89,6 @@ switch ($page) {
                 include_once './Views/contact.php'; // Hiển thị form liên hệ
             }
             break;
->>>>>>> 325e375f512dd1bc94304ce99d04e6403a655295
 
     case 'news':
         include_once 'Controllers/NewsController.php';
