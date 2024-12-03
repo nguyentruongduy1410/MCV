@@ -117,5 +117,4 @@ switch ($page) {
 
 include_once './Views/footer.php';
 include_once './Views/login.php';
-// echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
 ?>
