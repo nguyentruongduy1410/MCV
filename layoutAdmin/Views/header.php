@@ -39,7 +39,7 @@
         <a href="index.php?trang=qlbinhluan">Quản Lý Bình Luận</a>
         <a href="index.php?trang=qlvoucher">Quản Lý Khuyến Mãi</a>
         <a href="index.php?trang=baivietsp">Bài viết sản phẩm</a>
-        <a href="index.php?trang=loginadmin">Đăng Xuất</a> <br> <br> <br>
+        <a href="../layout">Đăng Xuất</a> <br> <br> <br>
           
         </div>
      
