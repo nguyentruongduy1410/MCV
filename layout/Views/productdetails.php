@@ -125,7 +125,7 @@ HTML;
             $ch = '';
         if (isset($_SESSION['email'])) {
            echo '
-               <form action="index.php?trang=productdetail&lenh=cmt&id=' . $id . '&iddm=' . $iddm . '" class="comments-describe" method="post">
+               <form action="index.php?trang=productdetail&lenh=cmt&id=' . $id . '&iddm=' . $iddm . '&id_user='.$_SESSION['user_id'].'" class="comments-describe" method="post">
                     <div class="comments-user">
                         <img src="./Public/img/user-avatar.jpg" alt="User Avatar">
                     </div>
@@ -148,7 +148,7 @@ HTML;
                         </div>
                         <div class="comments-text">
                             <div class="name-user">
-                                <h4>' .$value['email'] . '</h4>
+                                <h4>' .$value['ten'] . '</h4>
                                 <p>'.$value['ngay_bl'].'</p>
                             </div>
                             <p>'.$value['noi_dung'].'</p>
