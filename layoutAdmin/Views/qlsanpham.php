@@ -31,9 +31,9 @@ foreach ($productList as $key => $value) {
         <td>' . $value['giamgia_sp'] . '</td>
         <td><img src="./Public/img/' . $value['hinh_sp'] . '" alt="Đàn Tranh" class="product-image"></td>
         <td>' . $value['thong_tin_sp'] . '</td>
-        <td class="gom">
-            <button class="btn edit" data-id="' . $value['id'] . '">Sửa</button>
-            <button class="btn delete" data-id="' . $value['id'] . '">Xóa</button>
+        <td >
+            <a href="index.php?trang=qlsanpham&lenh=sua&id=' . $value['id'] . '"><button class="btn edit">Sửa</button></a>
+                            <a href="index.php?trang=qlsanpham&lenh=xoa&id=' . $value['id'] . '"><button class="btn delete">Xóa</button></a>
         </td>
     </tr>
     ';
@@ -99,4 +99,23 @@ echo $ch;
             addProductModal.style.display = "none";
         }
     }
+    document.addEventListener('DOMContentLoaded', function () {
+    // Handle edit button click
+    document.querySelectorAll('.btn.edit').forEach(button => {
+        button.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            window.location.href = `index.php?trang=qlsanpham&lenh=sua&id=${id}`;
+        });
+    });
+
+    // Handle delete button click
+    document.querySelectorAll('.btn.delete').forEach(button => {
+        button.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                window.location.href = `index.php?trang=qlsanpham&lenh=xoa&id=${id}`;
+            }
+        });
+    });
+});
 </script>

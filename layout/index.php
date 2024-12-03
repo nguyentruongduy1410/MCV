@@ -92,7 +92,6 @@ switch ($page) {
         $NewsdetailController = new NewsdetailController();
         break;
 
-    // Trường hợp chi tiết sản phẩm
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
         $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);

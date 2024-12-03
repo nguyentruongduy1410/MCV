@@ -83,11 +83,11 @@ if (isset($_GET['logout'])) {
                 </div>
 
             </nav>
-
+                    
             <!-- nội dung của menu -->
             <div id="tools-menu">
                 <div class="tools-box-all">
-                    <a href="index.php?trang=allproduct&iddm=1">
+                    <a href="index.php?trang=allproduct&iddm=1" class="tools-box1">
                         <div class="tools-box">
                             <img src="./Public/img/dan.png" alt="">
                             <h4>ĐÀN DÂN TỘC</h4>
