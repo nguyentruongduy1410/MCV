@@ -78,9 +78,16 @@ switch ($page) {
         include_once './Views/cart.php';
         break;
 
-    case 'contact':
-        include_once 'Controllers/ContactController.php';
-        $ContactController = new ContactController();
+        case 'contact':
+            include_once 'Controllers/ContactController.php';
+            $ContactController = new ContactController();
+    
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ContactController->sendEmail();
+            } else {
+                include_once './Views/contact.php'; // Hiển thị form liên hệ
+            }
+            break;
 
     case 'news':
         include_once 'Controllers/NewsController.php';
