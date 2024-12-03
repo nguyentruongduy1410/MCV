@@ -52,9 +52,9 @@ foreach ($productdetailmodel -> chitiet as $key => $value) {
                     <p>Số lượng</p>
                     <form action="index.php?trang=cart" method="post">
                     <div class="button-quantity">
-                        <button class="down">-</button>
+                        <button type="button" class="down">-</button>
                         <input name="soluong" size="4" value="1" maxlength="3" type="text">
-                        <button class="up">+</button>
+                        <button type="button" class="up">+</button>
                     </div>
                 </div>
                 <div class="btn-mua">
@@ -118,7 +118,8 @@ HTML;
         echo $ch;
         ?>
         <!-- bình luận -->
-        <?php
+        <div class="cmt-user">
+            <?php
         if (isset($_SESSION['email'])) {
             echo '
                              <form action="index.php?trang=productdetail" class="comments-describe" method="post">
@@ -159,15 +160,6 @@ HTML;
             echo '<a class="log-in" href="#">Vui lòng đăng nhập để bình luận</a>';
         }
         ?>
-        <div class="cmt-user">
-
-            <!-- bình luận của người khác -->
-
-
-
-
-
-
         </div>
 
 

@@ -27,7 +27,7 @@ if (isset($_GET['logout'])) {
     <link rel="stylesheet" href="./Public/css/history.css">
     <link rel="stylesheet" href="./Public/css/address.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
+
 </head>
 
 <body>
@@ -87,33 +87,40 @@ if (isset($_GET['logout'])) {
             <!-- nội dung của menu -->
             <div id="tools-menu">
                 <div class="tools-box-all">
-                    <div class="tools-box">
-                        <img src="./Public/img/dan.png" alt="">
-                        <h4>ĐÀN DÂN TỘC</h4>
-                        <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-                    <div class="tools-box">
+                    <a href="index.php?trang=allproduct&iddm=1">
+                        <div class="tools-box">
+                            <img src="./Public/img/dan.png" alt="">
+                            <h4>ĐÀN DÂN TỘC</h4>
+                            <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </a>
+                   <a href="index.php?trang=allproduct&iddm=6">
+                   <div class="tools-box">
                         <img src="./Public/img/sao.png" alt="">
                         <h4>SÁO DÂN TỘC</h4>
                         <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
-                    <div class="tools-box">
+                   </a>
+                   <a href="index.php?trang=allproduct&iddm=7">
+                   <div class="tools-box">
                         <img src="./Public/img/trong.png" alt="">
-                        <h4>PHỤ KIỆN DÂN TỘC KHÁC</h4>
+                        <h4>CỒNG CHIÊN</h4>
                         <a class="i-hover" href="#"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
+
+                   </a>
                 </div>
                 <div class="tools-contents-all">
                     <ul>
                         <li><a href="">
                                 <h3>ALL</h3>
                             </a></li>
-                        <li><a href="">Đàn tam thập lục</a></li>
-                        <li><a href="">Đàn đáy</a></li>
-                        <li><a href="">Đàn giáo</a></li>
-                        <li><a href="">Sáo bầu</a></li>
-                        <li><a href="">Sáo mèo</a></li>
-                        <li><a href="">Trống giáo xứ</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=2">Đàn Nguyệt</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=3">Đàn Nhị</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=4">Đàn Đá</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=6">Sáo bầu</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=8">Đàn bầu</a></li>
+                        <li><a href="index.php?trang=allproduct&iddm=9">Đàn Tỳ Bà</a></li>
                     </ul>
                 </div>
             </div>

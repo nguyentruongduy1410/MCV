@@ -42,19 +42,26 @@ size.forEach(li => {
 const downButton = document.querySelector('.button-quantity .down');
 const upButton = document.querySelector('.button-quantity .up');
 const quantityInput = document.querySelector('.button-quantity input');
-downButton.addEventListener('click', function () {
+
+// Ngăn không cho hành động mặc định (gửi form) khi nhấn vào nút tăng hoặc giảm
+downButton.addEventListener('click', function (event) {
+    event.preventDefault(); // Ngừng gửi form
     let currentValue = parseInt(quantityInput.value);
     if (currentValue > 1) {
         quantityInput.value = currentValue - 1;
     }
 });
-upButton.addEventListener('click', function () {
+
+upButton.addEventListener('click', function (event) {
+    event.preventDefault(); // Ngừng gửi form
     let currentValue = parseInt(quantityInput.value);
     if (currentValue < 999) {
         quantityInput.value = currentValue + 1;
     }
 });
-quantityInput.addEventListener('input', function () {
+
+quantityInput.addEventListener('input', function (event) {
+    event.preventDefault(); // Ngừng gửi form
     let value = parseInt(quantityInput.value);
     if (isNaN(value) || value < 1) {
         quantityInput.value = 1;
@@ -62,6 +69,9 @@ quantityInput.addEventListener('input', function () {
         quantityInput.value = 999;
     }
 });
+
+
+
 
 
 var menu_icon = document.getElementById('mm')

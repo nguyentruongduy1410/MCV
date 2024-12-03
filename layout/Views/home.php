@@ -54,7 +54,7 @@
         $ch = '';
         foreach ($homemodel->mangsp as $key => $value) {
             $ch .= '
-                <a href="index.php?trang=productdetail&id=' . $value['id'] . '">
+                <a href="index.php?trang=productdetail&id=' . $value['id'] . '&iddm='.$value['id_dm'].'">
                     <div class="box-sp" >
                     <div class="img">
                         <img src="public/img/' . $value['hinh_sp'] . '" alt="">
@@ -99,7 +99,7 @@
             foreach ($homemodel->spdatbiet as $key => $value) {
                 $ch .= '
                     <div class="pro-sale">
-                        <a href="index.php?trang=home&id=' . $value['id'] . '">
+                        <a href="index.php?trang=productdetail&id=' . $value['id'] . '&iddm='.$value['id_dm'].'">
                             <div class="sale-img">
                                 <img src="./Public/img/' . $value['hinh_sp'] . '" alt="">
                             </div>
@@ -158,7 +158,7 @@
             foreach ($homemodel->sanphamdanhmuc[1] as $key => $product) {
 
                 $ch .= '
-                    <a href="index.php?trang=home&id='.$product['id'].'">
+                    <a href="index.php?trang=productdetail&id=' . $product['id'] . '&iddm='.$product['id_dm'].'">
                         <div class="box-sp">
                             <div class="img">
                                 <img src="./Public/img/' . htmlspecialchars($product['hinh_sp']) . '" alt="' . htmlspecialchars($product['ten_sp']) . '">
@@ -222,7 +222,7 @@
         if (!empty($homemodel->sanphamdanhmuc[2])) {
             foreach ($homemodel->sanphamdanhmuc[2] as $key => $product) {
                 $ch .= '
-                    <a href="index.php?trang=home&id='.$product['id'].'">
+                    <a href="index.php?trang=productdetail&id=' . $product['id'] . '&iddm='.$product['id_dm'].'">
                             <div class="box-sp">
                                 <div class="img">
                                     <img src="./Public/img/' . htmlspecialchars($product['hinh_sp']) . '" alt="' . htmlspecialchars($product['ten_sp']) . '">

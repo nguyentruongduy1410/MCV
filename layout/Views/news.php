@@ -135,3 +135,36 @@
         <?php endif; ?>
     <?php endif; ?>
 </ul>
+<script>
+    var menu_icon = document.getElementById('mm')
+    var menu_hide = document.querySelector('#menu-hide');
+    menu_icon.onclick = function () {
+
+        if (menu_hide.style.display === 'none') {
+            menu_hide.style.display = 'block';
+        } else {
+            menu_hide.style.display = 'none';
+        }
+    }
+
+
+    let tools = document.getElementById('tools');
+    let tools_menu = document.getElementById('tools-menu');
+
+    tools.addEventListener('mouseover', function () {
+        tools_menu.style.display = 'block';
+    })
+    tools.addEventListener('mouseout', function () {
+        setTimeout(function () {
+            if (!tools_menu.matches(':hover')) {
+                tools_menu.style.display = 'none';
+            }
+        }, 200);
+    });
+    tools_menu.addEventListener('mouseleave', function () {
+        tools_menu.style.display = 'none';
+    })
+    tools_menu.addEventListener('mouseout', function () {
+        tools_menu.style.display = 'block';
+    })
+</script>

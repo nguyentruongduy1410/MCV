@@ -73,7 +73,7 @@
                 if (isset($mang) && !empty($mang)) {
                     foreach ($mang as $key => $value) {
                         $ch .= '
-                            <a href="index.php?trang=home&id='.$value['id'].'">
+                            <a href="index.php?trang=productdetail&id=' . $value['id'] . '&iddm='.$value['id_dm'].'">
                                 <div class="box-sp">
                                     <div class="img">
                                         <img src="./Public/img/' . $value['hinh_sp'] . '" alt="">
