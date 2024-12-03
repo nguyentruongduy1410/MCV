@@ -3,6 +3,8 @@ class ProductdetailModel {
     public $chitiethinhanh = []; // Khởi tạo thuộc tính mặc định là mảng rỗng
     public $chitiet;
     public $splienquan;
+    public $loadcmt;
+    public $binhluan;
     public function chitiethinhanh($id) {
         include_once 'Models/connectmodel.php';
         $data = new ConnectModel();
@@ -34,8 +36,9 @@ class ProductdetailModel {
             $sql="select * from san_pham where id_dm=:id_dm  AND id<>:id";
             $data->ketnoi();
             $stmt = $data->conn->prepare($sql);
-            $stmt->bindParam(":id",$id);
-            $stmt->bindParam(":id_dm",$iddm);
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":id_dm", $iddm);
+
 
             $stmt->execute();
             $kq = $stmt->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC : chuyển dl mãng lk
@@ -44,5 +47,54 @@ class ProductdetailModel {
 
 
         }
+        public function loadcmt($id, $id_user) {
+            include_once 'Models/connectmodel.php';
+            $data = new ConnectModel();
+        
+            $sql = "SELECT binh_luan.*, users.email FROM binh_luan 
+            JOIN users ON binh_luan.id_user = users.id 
+            WHERE binh_luan.id_sp = :id AND binh_luan.id_user <> :id_user";
+        
+            try {
+                $data->ketnoi();
+                $stmt = $data->conn->prepare($sql);
+                $stmt->bindParam(":id", $id, PDO::PARAM_INT); // Sử dụng biến $id
+                $stmt->bindParam(":id_user", $id_user, PDO::PARAM_INT); // Sử dụng biến $id_user
+                $stmt->execute();
+        
+                $this->loadcmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                error_log("Lỗi khi load bình luận: " . $e->getMessage());
+                $this->loadcmt = [];
+            } finally {
+                $data->conn = null;
+            }
+        }
+
+        public function slbl($id, $id_user, $noi_dung) {
+            include_once 'Models/connectmodel.php';
+            $data = new ConnectModel();
+            try {
+                $data->ketnoi();
+        
+                // Kiểm tra nếu nội dung bình luận không rỗng
+                if (!empty($noi_dung)) {
+                    $sql = "INSERT INTO binh_luan (id_sp, id_user, noi_dung, ngay_bl) 
+                            VALUES (:id_sp, :id_user, :noi_dung, NOW())";
+                    $stmt = $data->conn->prepare($sql);
+                    $stmt->bindParam(':id_sp', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+                    $stmt->bindParam(':noi_dung', $noi_dung, PDO::PARAM_STR);
+                    $stmt->execute();
+                }
+            } catch (PDOException $e) {
+                error_log("Lỗi khi thêm bình luận: " . $e->getMessage());
+            } finally {
+                $data->conn = null;
+            }
+        }
+        
+        
+    
 }
 ?>

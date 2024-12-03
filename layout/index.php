@@ -14,6 +14,9 @@ $iddm = isset($_GET['iddm']) ? $_GET['iddm'] : '';
 $chuyen = isset($_GET['chuyen']) ? $_GET['chuyen'] : '1';
 $kyw = isset($_GET['kyw']) ? $_GET['kyw'] : '';
 $userId = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+$id_user = isset($_GET['id_user']) ? $_GET['id_user'] : '';
+$lenh = isset($_GET['lenh']) ? $_GET['lenh'] : '';
+$noi_dung = isset($_POST['comment']) ? $_POST['comment'] : '';  
 
 switch ($page) {
     case 'home':
@@ -90,7 +93,7 @@ switch ($page) {
     // Trường hợp chi tiết sản phẩm
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
-        $ProductdetailController = new ProductdetailController(id: $id,iddm: $iddm);
+        $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);
         break;
 
     case 'user':
@@ -116,5 +119,5 @@ switch ($page) {
 
 include_once './Views/footer.php';
 include_once './Views/login.php';
-echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
+// echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
 ?>
