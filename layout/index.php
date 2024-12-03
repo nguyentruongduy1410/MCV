@@ -97,16 +97,28 @@ switch ($page) {
         $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);
         break;
     case 'user':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/UserController.php';
         $userController = new UserController();
         break;
 
     case 'address':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/AddressController.php';
         $AddressController = new AddressController();
         break;
 
     case 'history':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/HistoryController.php';
         $HistoryController = new HistoryController($userId);
         break;
@@ -147,8 +159,8 @@ switch ($page) {
         $thanhtoanController = new thanhtoanController();
         $thanhtoan_html = $thanhtoanController->showthanhtoan_html();
 
-        include_once './Views/thanhtoan.php';
-        include_once '../Controllers/thanhtoanControllers.php';
+        include_once 'Views/thanhtoan.php';
+        include_once 'Controllers/thanhtoanControllers.php';
         $thanhtoanController = new thanhtoanController();
         break;
 }

@@ -26,16 +26,12 @@
         <div class="info-grid">
             <div>
                 <strong>Nhóm khách hàng:</strong> Vip<br>
-                <strong>Mã:</strong> J97BOCON<br>
-                <strong>Số điện thoại:</strong> 199750000<br>
-                <strong>Email:</strong> j97@gmail.com<br>
-                <strong>Nợ hiện tại:</strong> 5,000,000
+                <strong>Số điện thoại:</strong> <?= $_SESSION['user_phone'];?><br>
+                <strong>Email:</strong> <?= $_SESSION['email'];?><br>
             </div>
             <div>
-                <strong>Mã số thuế:</strong> 774-332-001<br>
-                <strong>Website:</strong> ---<br>
+                <strong>Website:</strong> Classical Music<br>
                 <strong>Giới tính:</strong> Nam<br>
-                <strong>Ngày sinh:</strong> 16/04/1999<br>
                 <strong>Chiết khấu:</strong> 10%
             </div>
         </div>

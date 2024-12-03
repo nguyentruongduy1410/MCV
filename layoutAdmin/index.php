@@ -1,7 +1,7 @@
 <?php
 include_once "Views/header.php";
 
-$page = isset($_GET['trang']) ? $_GET['trang'] : 'loginadmin';
+$page = isset($_GET['trang']) ? $_GET['trang'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 $lenh  = isset($_GET['lenh']) ? $_GET['lenh'] : '';
 $ten_dm = isset($_POST['ten_dm']) ? $_POST['ten_dm'] : '';
