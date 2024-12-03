@@ -70,89 +70,70 @@ if (isset($_POST['signup'])) {
 }
 
 // Khôi phục mật khẩu
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Include thư viện PHPMailer
 require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/SMTP.php';
 require '../PHPMailer-master/src/Exception.php';
 
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
+use PHPMailer\PHPMailer\PHPMailer;
 
-    // Kiểm tra xem email có tồn tại trong hệ thống không
-    $user_info = getCustomerInfo($email); // Giả sử bạn có hàm này để lấy thông tin người dùng từ cơ sở dữ liệu
+function generateRandomPassword($length = 8) {
+    return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
+}
 
-    if ($user_info) {
-        // Tạo mật khẩu mới ngẫu nhiên
-        $new_password = bin2hex(random_bytes(8)); // Tạo mật khẩu ngẫu nhiên 8 ký tự
-        $hashedPassword = password_hash($new_password, PASSWORD_DEFAULT); // Mã hóa mật khẩu mới
+function sendNewPasswordEmail($email, $newPassword) {
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'classicalmusicvnn@gmail.com'; // Thay bằng email của bạn
+        $mail->Password = 'elzz tppy mkgb saav'; // Mật khẩu ứng dụng
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-        // Lưu mật khẩu mới vào cơ sở dữ liệu
-        updatePassword($email, $hashedPassword); // Giả sử bạn có hàm này để cập nhật mật khẩu trong cơ sở dữ liệu
+        $mail->setFrom('classicalmusicvnn@gmail.com', 'Admin');
+        $mail->addAddress($email);
 
-        // Khởi tạo đối tượng PHPMailer
-        $mail = new PHPMailer(true);
+        $mail->isHTML(true);
+        $mail->Subject = 'Mật khẩu mới của bạn';
+        $mail->Body = "Mật khẩu mới của bạn là: <b>$newPassword</b>. Vui lòng đăng nhập và thay đổi mật khẩu nếu cần.";
 
-        try {
-            // Cấu hình SMTP
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; 
-            $mail->SMTPAuth = true;
-            $mail->Username = 'classicalmusicvnn@gmail.com'; // Thay bằng email của bạn
-            $mail->Password = 'elzz tppy mkgb saav'; // Thay bằng mật khẩu ứng dụng
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-
-            // Cấu hình người gửi và người nhận
-            $mail->setFrom('classicalmusicvnn@gmail.com', 'c');
-            $mail->addAddress($email); 
-
-            // Tiêu đề và nội dung email
-            $mail->Subject = 'Khôi phục mật khẩu';
-            $mail->Body    = 'Mật khẩu mới của bạn là: ' . $new_password;
-
-            // Gửi email
-            if ($mail->send()) {
-                $_SESSION['message'] = "Đã gửi email khôi phục mật khẩu! Mật khẩu mới đã được gửi đến email của bạn.";
-            } else {
-                $_SESSION['error'] = "Không thể gửi email. Lỗi: " . $mail->ErrorInfo;
-            }
-        } catch (Exception $e) {
-            // Hiển thị chi tiết lỗi trong quá trình gửi email
-            $_SESSION['error'] = "Lỗi khi gửi email: " . $e->getMessage();
-        }
-    } else {
-        $_SESSION['error'] = "Email không tồn tại!";
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
     }
 }
 
+function updatePasswordInDatabase($email, $newPassword) {
+    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+    $connect = new ConnectModel();
+    $conn = $connect->ketnoi();
+
+    $stmt = $conn->prepare("UPDATE users SET mk = :password WHERE email = :email");
+    $stmt->bindParam(':password', $hashedPassword);
+    $stmt->bindParam(':email', $email);
+
+    return $stmt->execute();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resetpass'])) {
+    $email = $_POST['rEmail'];
+
+    if (checkEmail($email)) {
+        $newPassword = generateRandomPassword();
+        if (updatePasswordInDatabase($email, $newPassword) && sendNewPasswordEmail($email, $newPassword)) {
+            echo "<p style='color: green;'>Mật khẩu mới đã được gửi đến email của bạn!</p>";
+        } else {
+            echo "<p style='color: red;'>Đã xảy ra lỗi, vui lòng thử lại sau!</p>";
+        }
+    } else {
+        echo "<p style='color: red;'>Email không tồn tại trong hệ thống!</p>";
+    }
+}
 
 ?>
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông Báo</title>
-</head>
-<body>
-
-<?php
-// Hiển thị thông báo lỗi nếu có
-if (isset($_SESSION['error'])) {
-    echo "<p style='color: red;'>" . $_SESSION['error'] . "</p>";
-    unset($_SESSION['error']); // Xóa thông báo lỗi sau khi hiển thị
-}
-
-// Hiển thị thông báo thành công nếu có
-if (isset($_SESSION['message'])) {
-    echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
-    unset($_SESSION['message']); // Xóa thông báo thành công sau khi hiển thị
-}
-?>
 
 
 <link rel="stylesheet" href="./Public/css/style.css">
