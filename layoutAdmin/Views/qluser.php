@@ -87,22 +87,29 @@
     <div class="modal-content">
         <span class="close" id="closeEditModal">&times;</span>
         <h2>Sửa Người Dùng</h2>
-        <form id="editUserForm">
-            <input type="hidden" id="editUserId" name="userId">
+        <form id="editUserForm" action="index.php?trang=qluser&lenh=sua&id=<?php echo $userInfo['id']; ?>" method="post">
             <div class="form-group">
                 <label for="editEmail">Email</label>
-                <input type="email" id="editEmail" name="email" required>
+                <input type="email" id="editEmail" name="email" value="<?php echo $userInfo['email']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="editRole">Vai Trò</label>
-                <select id="editRole" name="role" required>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
+                <select id="editRole" name="vaitro" required>
+                    <option value="admin" <?php echo $userInfo['vaitro'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
+                    <option value="user" <?php echo $userInfo['vaitro'] == 'user' ? 'selected' : ''; ?>>User</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="editPassword">Mật khẩu</label>
-                <input type="password" id="editPassword" name="password">
+                <input type="password" id="editPassword" name="mk" value="<?php echo $userInfo['mk']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="editSdt">Số điện thoại</label>
+                <input type="text" id="editSdt" name="sdt" value="<?php echo $userInfo['sdt']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="editAddress">Địa chỉ</label>
+                <input type="text" id="editAddress" name="diachi" value="<?php echo $userInfo['diachi']; ?>" required>
             </div>
             <button type="submit" class="btn edit">Lưu Thay Đổi</button>
         </form>
@@ -110,6 +117,7 @@
 </div>
 
 <script>
+   
     // Add User Modal
     var addModal = document.getElementById("addUserModal");
     var addBtn = document.getElementById("addUserBtn");

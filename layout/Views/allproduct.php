@@ -81,8 +81,8 @@
                                     <div class="text-sp">
                                         <h3>' . $value['ten_sp'] . '</h3>
                                         <div class="price-sp">
-                                            <p>' . $value['ten_sp'] . '</p>
-                                            <p class="sale-sp">' . $value['giamgia_sp'] . '</p>
+                                            <p>' . $value['giamgia_sp'] . 'đ</p>
+                                            <p class="sale-sp">' . $value['gia_sp'] . 'đ</p>
                                         </div>
                                     </div>
                                 </div>

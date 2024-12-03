@@ -1,7 +1,7 @@
 <?php
 include_once 'Models/connectmodel.php';
 include_once 'Models/UserModel.php';
-// dang nhap
+// Đăng nhập
 $err = '';
 if (isset($_POST["login"])) {
     $user = $_POST['email'];
@@ -10,7 +10,6 @@ if (isset($_POST["login"])) {
 
     if ($role !== null) {
         $user_info = getCustomerInfo($user);
-
         if ($user_info) {
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $user;
@@ -27,11 +26,13 @@ if (isset($_POST["login"])) {
         exit();
     } else {
         $err = 'Thông tin đăng nhập không chính xác!';
+        $_SESSION['login_error'] = $err;
     }
 }
 
 
-//đăng ký
+
+// Đăng ký
 $error_message = '';
 if (isset($_POST['signup'])) {
     $sEmail = $_POST['sEmail'];
@@ -44,7 +45,6 @@ if (isset($_POST['signup'])) {
             $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
             if (registerUser($sEmail, $hashedPassword)) {
                 $user_info = getCustomerInfo($sEmail);
-
                 if ($user_info) {
                     $_SESSION['role'] = $role;
                     $_SESSION['email'] = $sEmail;
@@ -57,14 +57,19 @@ if (isset($_POST['signup'])) {
                 exit();
             } else {
                 $error_message = "Email đã được đăng ký!";
+                $_SESSION['signup_error'] = $error_message; 
             }
         } catch (PDOException $e) {
             $error_message = "Lỗi kết nối: " . $e->getMessage();
+            $_SESSION['signup_error'] = $error_message;
         }
     } else {
         $error_message = "Mật khẩu không khớp!";
+        $_SESSION['signup_error'] = $error_message;
     }
 }
+
+
 ?>
 <link rel="stylesheet" href="./Public/css/style.css">
 <div id="loginModal">
@@ -103,7 +108,7 @@ if (isset($_POST['signup'])) {
                         <span class="show-pass"><img id="show-login-pass" src="./Public/img/eye.png" alt=""
                                 width="20px"></span>
                     </div>
-                    <p class="repair" id="repairpassword"><?php echo $err; ?></p>
+                    <p class="repair" id="repairpassword"></p>
                     <button name="login" class="log-in">Đăng nhập</button>
                 </form>
 
@@ -152,7 +157,7 @@ if (isset($_POST['signup'])) {
                         <span class="show-pass"><img id="show-signup2-pass" src="./Public/img/eye.png" alt=""
                                 width="20px"></span>
                     </div>
-                    <p class="repair" id="repairpassword-signup2"><?php echo $error_message; ?></p>
+                    <p class="repair" id="repairpassword-signup2"></p>
                     <button class="log-in" name="signup">Đăng ký</button>
                     <div class="forgot">
                         <p>Bạn đã có tài khoản?
@@ -188,6 +193,27 @@ if (isset($_POST['signup'])) {
 <script src="./Public/js/address.js"></script>
 <script src="./Public/js/user.js"></script>
 <script src="./Public/js/productdetail.js"></script>
+
+<script>
+    // Kiểm tra lỗi đăng nhập
+    <?php if (!empty($_SESSION['login_error'])) { ?>
+        document.getElementById("loginModal").style.display = "flex"; 
+        loginSection.style.display = 'block';
+        signupSection.style.display = 'none';
+        document.getElementById("repairpassword").innerText = "<?php echo $_SESSION['login_error']; ?>";
+        <?php unset($_SESSION['login_error']); ?>
+    <?php } ?>
+
+    // Kiểm tra lỗi đăng ký
+    <?php if (!empty($_SESSION['signup_error'])) { ?>
+        document.getElementById("loginModal").style.display = "flex";  
+        signupSection.style.display = 'block';
+        loginSection.style.display = 'none';
+        document.getElementById("repairpassword-signup2").innerText = "<?php echo $_SESSION['signup_error']; ?>";
+        <?php unset($_SESSION['signup_error']); ?> 
+    <?php } ?>
+</script>
+
 
 </body>
 

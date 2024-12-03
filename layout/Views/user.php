@@ -144,10 +144,19 @@
                 <div class="input-box">
                     <input name="change-pass2" id="change-pass2" type="text" placeholder="Nhập xác nhận mật khẩu mới">
                 </div>
-                <p style="color: red" class="error-message" id="repairaddress-address"><?php echo $err_pass; ?></p>
+                <p style="color: red" class="error-message" id="repairaddress-address"></p>
                 <button class="reset-button" type="submit" name="update_info">Thay đổi</button>
             </form>
             <i id="close-user-info" class='bx bx-x'></i>
         </div>
     </div>
 </div>
+<?php if (!empty($_SESSION['error_pass'])) { ?>
+    <script>
+        // Hiển thị modal với thông báo lỗi
+        document.getElementById("user-info").style.display = "flex";
+        document.getElementById("repairaddress-address").innerText = "<?php echo $_SESSION['error_pass']; ?>";
+        <?php unset($_SESSION['error_pass']); ?>
+    </script>
+<?php } ?>
+
