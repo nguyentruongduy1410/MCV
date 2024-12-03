@@ -119,33 +119,39 @@ HTML;
         ?>
         <!-- bình luận -->
         <div class="cmt-user">
-            <?php
-        if (isset($_SESSION['email'])) {
-            echo '
-                             <form action="index.php?trang=productdetail" class="comments-describe" method="post">
-                                <div class="comments-user">
-                                    <img src="./Public/img/sp1.2.jpg" alt="">
-                                </div>
-                                <div class="text-submit">
-                                    <div class="text">
-                                        <input placeholder="Viết bình luận..." type="text" name="">
-                                    </div>
-                                    <div class="submit">
-                                        <button>Bình luận</button>
-                                    </div>
-                                </div>
-                            </form>
+    
 
+            <?php
+            $ch = '';
+        if (isset($_SESSION['email'])) {
+           echo '
+               <form action="index.php?trang=productdetail&lenh=cmt&id=' . $id . '&iddm=' . $iddm . '" class="comments-describe" method="post">
+                    <div class="comments-user">
+                        <img src="./Public/img/user-avatar.jpg" alt="User Avatar">
+                    </div>
+                    <div class="text-submit">
+                        <div class="text">
+                            <input placeholder="Viết bình luận..." type="text" name="comment" required />
+                        </div>
+                        <div class="submit">
+                            <button type="submit" name="submit_cmt">Bình luận</button>
+                        </div>
+                    </div>
+        </form>
+           ';
+            foreach($productdetailmodel -> loadcmt as $key => $value) {
+            $ch .= '
+                          
                              <div class="comments-describe-user">
                         <div class="comments-user">
                             <img src="./Public/img/sp1.2.jpg" alt="">
                         </div>
                         <div class="comments-text">
                             <div class="name-user">
-                                <h4>' . $_SESSION['user_name'] . '</h4>
-                                <p>14/10/2005</p>
+                                <h4>' .$value['email'] . '</h4>
+                                <p>'.$value['ngay_bl'].'</p>
                             </div>
-                            <p>awfasdf</p>
+                            <p>'.$value['noi_dung'].'</p>
                             <div class="vote">
                                 <i class="bx bx-like"></i>
                                 <i class="bx bx-dislike"></i>
@@ -156,9 +162,14 @@ HTML;
                     </div>
 
                         ';
+            }
+            if (empty($productdetailmodel->loadcmt)) {
+                echo '<p>Chưa có bình luận cho sản phẩm này.</p>';
+            } 
         } else {
             echo '<a class="log-in" href="#">Vui lòng đăng nhập để bình luận</a>';
         }
+    echo $ch;
         ?>
         </div>
 
