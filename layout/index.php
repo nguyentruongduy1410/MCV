@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-if(!isset($_SESSION['giohang'])){
+if (!isset($_SESSION['giohang'])) {
     $_SESSION['giohang'] = array();
 }
 include_once './Views/header.php';
@@ -35,16 +35,16 @@ switch ($page) {
         break;
 
     case 'cart':
-        if(isset($_GET['delcart']) && is_numeric($_GET['delcart']) && ($_GET['delcart'] == 1)){
+        if (isset($_GET['delcart']) && is_numeric($_GET['delcart']) && ($_GET['delcart'] == 1)) {
             unset($_SESSION['giohang']);
         }
-        if(isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)){
-            if(isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)){
+        if (isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)) {
+            if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
                 unset($_SESSION['giohang'][$_GET['key']]);
                 header('location: index.php?trang=cart');
             }
         }
-        if(isset($_POST['btnaddcart'])){
+        if (isset($_POST['btnaddcart'])) {
             $id = $_POST['id'];
             $name = $_POST['name'];
             $img = $_POST['img'];
@@ -78,12 +78,11 @@ switch ($page) {
     case 'contact':
         include_once 'Controllers/ContactController.php';
         $ContactController = new ContactController();
-        break;
 
     case 'news':
         include_once 'Controllers/NewsController.php';
         $NewsController = new NewsController($chuyen);
-        break;        
+        break;
 
     case 'newsdetail':
         include_once 'Controllers/NewsdetailController.php';
@@ -95,7 +94,6 @@ switch ($page) {
         include_once 'Controllers/ProductdetailController.php';
         $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);
         break;
-
     case 'user':
         include_once 'Controllers/UserController.php';
         $userController = new UserController();

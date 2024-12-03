@@ -1,7 +1,7 @@
-        <script>
+<script>
             var menu_icon = document.getElementById('mm')
             var menu_hide = document.querySelector('#menu-hide');
-            menu_icon.onclick = function () {
+            menu_icon.onclick = function() {
 
                 if (menu_hide.style.display === 'none') {
                     menu_hide.style.display = 'block';
@@ -13,23 +13,22 @@
             let tools = document.getElementById('tools');
             let tools_menu = document.getElementById('tools-menu');
 
-            tools.addEventListener('mouseover', function () {
+            tools.addEventListener('mouseover', function() {
                 tools_menu.style.display = 'block';
             })
-            tools.addEventListener('mouseout', function () {
-                setTimeout(function () {
+            tools.addEventListener('mouseout', function() {
+                setTimeout(function() {
                     if (!tools_menu.matches(':hover')) {
                         tools_menu.style.display = 'none';
                     }
                 }, 200);
             });
-            tools_menu.addEventListener('mouseleave', function () {
+            tools_menu.addEventListener('mouseleave', function() {
                 tools_menu.style.display = 'none';
             })
-            tools_menu.addEventListener('mouseout', function () {
+            tools_menu.addEventListener('mouseout', function() {
                 tools_menu.style.display = 'block';
             })
-
         </script>
         <div class="contact-container">
             <div class="contact-info">
@@ -46,15 +45,15 @@
             </div>
             <div class="contact-form">
                 <h2>Hỏi câu hỏi của bạn</h2>
-                <form action="" method="" onsubmit="contact(event)">
+                <form action="index.php?trang=contact" method="post">
                     <label for="email">Email của bạn</label>
-                    <input type="email" id="text" name="email">
+                    <input type="email" id="email" name="email" required>
 
                     <label for="name">Tên của bạn</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
 
                     <label for="message">Lời nhắn</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
+                    <textarea id="message" name="message" rows="4" required></textarea>
 
                     <button type="submit">Gửi Tin Nhắn</button>
                 </form>
