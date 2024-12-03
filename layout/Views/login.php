@@ -68,9 +68,77 @@ if (isset($_POST['signup'])) {
         $_SESSION['signup_error'] = $error_message;
     }
 }
+//quen mat khau
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Include thư viện PHPMailer
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
+require '../PHPMailer-master/src/Exception.php';
 
 
+if (isset($_POST['email'])) {
+    $email = $_POST['email'];
+
+    // Khởi tạo đối tượng PHPMailer
+    $mail = new PHPMailer(true);
+
+    try {
+        // Cấu hình SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com'; 
+        $mail->SMTPAuth = true;
+        $mail->Username = 'classicalmusicvnn@gmail.com'; // Thay bằng email của bạn
+        $mail->Password = 'elzz tppy mkgb saav'; // Thay bằng mật khẩu ứng dụng
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        // Cấu hình người gửi và người nhận
+        $mail->setFrom('classicalmusicvnn@gmail.com', 'c');
+        $mail->addAddress($email); 
+
+        // Tiêu đề và nội dung email
+        $mail->Subject = 'Khôi phục mật khẩu';
+        $mail->Body    = 'Đây là nội dung email khôi phục mật khẩu của bạn.';
+
+        // Gửi email
+        if ($mail->send()) {
+            $_SESSION['message'] = "Đã gửi email khôi phục mật khẩu!";
+        } else {
+            $_SESSION['error'] = "Không thể gửi email. Lỗi: " . $mail->ErrorInfo;
+        }
+    } catch (Exception $e) {
+        // Hiển thị chi tiết lỗi trong quá trình gửi email
+        $_SESSION['error'] = "Lỗi khi gửi email: " . $e->getMessage();
+    }
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Báo</title>
+</head>
+<body>
+
+<?php
+// Hiển thị thông báo lỗi nếu có
+if (isset($_SESSION['error'])) {
+    echo "<p style='color: red;'>" . $_SESSION['error'] . "</p>";
+    unset($_SESSION['error']); // Xóa thông báo lỗi sau khi hiển thị
+}
+
+// Hiển thị thông báo thành công nếu có
+if (isset($_SESSION['message'])) {
+    echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
+    unset($_SESSION['message']); // Xóa thông báo thành công sau khi hiển thị
+}
+?>
+
+
 <link rel="stylesheet" href="./Public/css/style.css">
 <div id="loginModal">
     <div class="modal-content">
@@ -134,7 +202,7 @@ if (isset($_POST['signup'])) {
                 </div>
                 <div class="login-line">
                     <div class="line"></div>
-                    <p>Hoặt đăng ký với</p>
+                    <p>Hoặc đăng ký với</p>
                     <div class="line"></div>
                 </div>
                 <form action="" method="post">
@@ -173,13 +241,13 @@ if (isset($_POST['signup'])) {
             <div class="reset-password-all">
                 <h2>Khôi Phục Mật Khẩu</h2>
                 <p>Vui lòng nhập email để khôi phục mật khẩu</p>
-                <form action="" method="" onsubmit="validateEmail(event)">
+                <form action="" method="post">
                     <div class="box-input">
                         <img src="./Public/img/email-4ddcb32a.svg" alt="">
-                        <input id="reset-email" type="text" placeholder="Nhập Email">
+                        <input name="rEmail" id="reset-email" type="email" placeholder="Nhập Email" required>
                     </div>
                     <p class="repair" id="repairemail-resetpass"></p>
-                    <button class="reset-button" type="submit">Tiếp tục</button>
+                    <button name="resetpass" class="reset-button" type="submit">Tiếp tục</button>
                 </form>
             </div>
         </div>

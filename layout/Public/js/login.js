@@ -121,17 +121,17 @@ togglePasswordVisibility('signup-pass1', 'show-signup-pass', './Public/img/eye.p
 togglePasswordVisibility('signup-pass2', 'show-signup2-pass', './Public/img/eye.png', './Public/img/hidden.png');
 
 //link signup
-var loginSection = document.querySelector('.modal-content-right');
-var signupSection = document.querySelector('.modal-content-right-signup');
-var resetpass = document.querySelector('.modal-content-right-ressetpass');
-var signupLink = document.getElementById('signup');  
+var loginSection = document.querySelector('.modal-content-right'); // Phần đăng nhập
+var signupSection = document.querySelector('.modal-content-right-signup'); // Phần đăng ký
+var resetpass = document.querySelector('.modal-content-right-ressetpass'); // Phần reset mật khẩu
+var signupLink = document.getElementById('signup');
 var loginLink = document.getElementById('signup2');
-var resetLink = document.getElementById('resetpass');      
+var resetLink = document.getElementById('resetpass');
 
 // Khi nhấn vào 'Quên mật khẩu', chuyển qua phần reset mật khẩu
 resetLink.onclick = function() {
-    loginSection.style.display = 'none';
-    resetpass.style.display = 'block';
+    loginSection.style.display = 'block';
+    resetpass.style.display = 'none';
 }
 
 // Khi nhấn vào 'Đăng ký', chuyển qua phần đăng ký
@@ -151,3 +151,4 @@ function resetuser() {
     loginSection.style.display = 'none';
     resetpass.style.display = 'block';
 }
+

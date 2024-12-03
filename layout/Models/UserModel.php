@@ -88,4 +88,11 @@ function updatePassword($email, $newPassword)
         $stmt->bindParam(':email', $email);
         return $stmt->execute(); 
     }
+function setResetToken($email, $token) {
+        $conn = connect();
+        $stmt = $conn->prepare("UPDATE users SET reset_token = :token WHERE email = :email");
+        $stmt->bindParam(':token', $token);
+        $stmt->bindParam(':email', $email);
+        return $stmt->execute(); // Trả về true nếu thành công
+    }
 ?>
