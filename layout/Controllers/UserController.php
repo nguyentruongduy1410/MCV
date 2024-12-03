@@ -15,19 +15,20 @@ class UserController {
             if ($oldPasswordFromDb && password_verify($oldPassword, $oldPasswordFromDb)) {
                 if ($newPassword === $confirmPassword) {
                     if (updatePassword($email, $newPassword)) {
-                        $err_pass = "Mật khẩu đã được thay đổi thành công!";
+                        $_SESSION['error_pass'] = "Mật khẩu đã được thay đổi thành công!";
                     } else {
-                        $err_pass = "Lỗi khi cập nhật mật khẩu!";
+                        $_SESSION['error_pass'] = "Lỗi khi cập nhật mật khẩu!";
                     }
                 } else {
-                    $err_pass = "Mật khẩu mới và xác nhận mật khẩu không khớp!";
+                    $_SESSION['error_pass'] = "Mật khẩu mới và xác nhận mật khẩu không khớp!";
                 }
             } else {
-                $err_pass = "Mật khẩu cũ không đúng!";
+                $_SESSION['error_pass'] = "Mật khẩu cũ không đúng!";
             }
         }
 
         include_once 'Views/user.php';
     }
 }
+
 ?>

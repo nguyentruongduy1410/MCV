@@ -128,21 +128,25 @@ var signupLink = document.getElementById('signup');
 var loginLink = document.getElementById('signup2');
 var resetLink = document.getElementById('resetpass');      
 
+// Khi nhấn vào 'Quên mật khẩu', chuyển qua phần reset mật khẩu
 resetLink.onclick = function() {
-    loginSection.style.display = 'block';
-    resetpass.style.display = 'none';
+    loginSection.style.display = 'none';
+    resetpass.style.display = 'block';
 }
 
+// Khi nhấn vào 'Đăng ký', chuyển qua phần đăng ký
 signupLink.onclick = function() {
     loginSection.style.display = 'none';
     signupSection.style.display = 'block';
 }
 
+// Khi nhấn vào 'Đăng nhập', quay lại phần đăng nhập
 loginLink.onclick = function() {
     signupSection.style.display = 'none';
     loginSection.style.display = 'block';
 }
 
+// Khi nhấn vào 'Quay lại', quay lại phần đăng nhập
 function resetuser() {
     loginSection.style.display = 'none';
     resetpass.style.display = 'block';
