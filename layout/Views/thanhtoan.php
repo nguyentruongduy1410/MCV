@@ -1,12 +1,12 @@
-
 <?php
-   $ThanhToanController = new ThanhToanController();
-   $html_thanhtoan = $ThanhToanController->showthanhtoan_html();
+$ThanhToanController = new ThanhToanController();
+$html_thanhtoan = $ThanhToanController->showthanhtoan_html();
 ?>
 <div class="container" id="thanhtoan">
-    <?php 
+    <div class="form-section summary-section promo-code total" >
+        <?php
+        echo $html_thanhtoan;
+        ?>
+    </div>
     
-    echo $html_thanhtoan;
-    ?>
-  
 </div>

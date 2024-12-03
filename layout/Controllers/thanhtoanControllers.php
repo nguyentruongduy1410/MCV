@@ -1,24 +1,28 @@
 <?php
-class ThanhToanController {
+class ThanhToanController
+{
     public $html_thanhtoan = '';
-    public function __construct() {
+    public function __construct()
+    {
         include_once 'Models/thanhtoanModel.php';
-        $thanhtoanModel = new thanhtoanModel(); 
+        $thanhtoanModel = new thanhtoanModel();
     }
 
-    public function addthanhtoan($id,$name,$img,$price,$soluong){
-        if(isset($_SESSION['thanhtoan'])){
-            $item=array('id'=>$id,'name'=>$name,'img'=>$img,'price'=>$price,'soluong'=>$soluong);
-            array_push($_SESSION['thanhtoan'],$item);
+    public function addthanhtoan($id, $name, $img, $price, $soluong)
+    {
+        if (isset($_SESSION['thanhtoan'])) {
+            $item = array('id' => $id, 'name' => $name, 'img' => $img, 'price' => $price, 'soluong' => $soluong);
+            array_push($_SESSION['thanhtoan'], $item);
         }
     }
-    public function showthanhtoan_html(){
-       
-        if(isset($_SESSION['thanhtoan'])&&(count($_SESSION['thanhtoan'])>0)){
-           $tong=0;
-            $html_thanhtoan='
+    public function showthanhtoan_html()
+    {
 
-    <div class="container">
+        if (isset($_SESSION['thanhtoan']) && (count($_SESSION['thanhtoan']) > 0)) {
+            $tong = 0;
+            $html_thanhtoan = '
+
+    
     <div class="content">
         <div class="form-container">
             <h2>Thông tin nhận hàng</h2>
@@ -53,42 +57,41 @@ class ThanhToanController {
             </div>
             <div class="order-summary">
             <h2>Đơn hàng</h2>';
-            
-            foreach ($_SESSION['thanhtoan'] as $key=>$value) {
-                $tt=intval($value['price'])*intval($value['soluong']);
-                $tong+=$tt;
-             $html_thanhtoan.='
+
+            foreach ($_SESSION['thanhtoan'] as $key => $value) {
+                $tt = intval($value['price']) * intval($value['soluong']);
+                $tong += $tt;
+                $html_thanhtoan .= '
         
             <div class="item">
                 <div class="item-info">
-                    <p><strong>'.$value['name'].'</strong></p>
+                    <p><strong>' . $value['name'] . '</strong></p>
                   
                 </div>
-                <p>'.$value['price'].'</p>
+                <p>' . $value['price'] . '</p>
             </div>';
             }
-   $html_thanhtoan.='
+            $html_thanhtoan .= '
             <div class="promo-code">
                 <input type="text" placeholder="Nhập mã giảm giá">
                 <button>Áp dụng</button>
             </div>
             <div class="total">
-                <p>Tạm tính: <span>'.$tong.'</span></p>
+                <p>Tạm tính: <span>' . $tong . '</span></p>
                 <p>Phí vận chuyển: <span>-</span></p>
-                <p><strong>Tổng cộng: <span>'.$tong.'</span></strong></p>
+                <p><strong>Tổng cộng: <span>' . $tong . '</span></strong></p>
             </div>
             <button class="order-btn">ĐẶT HÀNG</button>
         </div>
     </div>
    
-</div>
+
 
 
 ';
-return $html_thanhtoan;
-            }
-return '<p>không có sp</p>';
-        
+            return $html_thanhtoan;
+        }
+        return '<p>không có sp</p>';
     }
 }
 ?>
