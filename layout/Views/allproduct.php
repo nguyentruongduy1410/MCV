@@ -29,28 +29,45 @@
             </ul>
         </div>
     </div>
-
+    <style>
+        .locsp{
+            background-color: #7B68EE;
+            color: #fff;
+            font-size: 15px;
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .locsp:hover{
+            background-color: #EE82EE;
+        }
+    </style>
     <div class="product-right">
         <div class="filter-all">
             <!-- Bộ lọc giá -->
-            <div class="filter-section">
+            <form method="GET" action="index.php">
+                <input type="hidden" name="trang" value="allproduct">
                 <div class="filter-title">Lọc theo giá</div>
                 <div class="filter-price">
                     <input type="radio" id="price1" name="price" value="1">
                     <label for="price1">Dưới 500.000đ</label>
-
                     <input type="radio" id="price2" name="price" value="2">
                     <label for="price2">500.000đ - 1.000.000đ</label>
-
                     <input type="radio" id="price3" name="price" value="3">
                     <label for="price3">1.000.000đ - 5.000.000đ</label>
-
                     <input type="radio" id="price4" name="price" value="4">
                     <label for="price4">Trên 5.000.000đ</label>
+                    <input type="submit" class="locsp" value="Lọc">
                 </div>
-            </div>
+            </form>
 
         </div>
+        <style>
+            
+        </style>
+
         <div id="product">
             <?php
             if (!empty($iddm)) {
@@ -73,7 +90,7 @@
                 if (isset($mang) && !empty($mang)) {
                     foreach ($mang as $key => $value) {
                         $ch .= '
-                            <a href="index.php?trang=productdetail&id=' . $value['id'] . '&iddm='.$value['id_dm'].'">
+                            <a href="index.php?trang=productdetail&id=' . $value['id'] . '&iddm=' . $value['id_dm'] . '">
                                 <div class="box-sp">
                                     <div class="img">
                                         <img src="./Public/img/' . $value['hinh_sp'] . '" alt="">
@@ -95,6 +112,7 @@
                     $ch .= '<p>Không có sản phẩm nào.</p>';
                 }
                 echo $ch;
+                // print_r($mang);
                 ?>
 
 

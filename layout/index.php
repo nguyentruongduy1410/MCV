@@ -4,6 +4,9 @@ ob_start();
 if (!isset($_SESSION['giohang'])) {
     $_SESSION['giohang'] = array();
 }
+if (!isset($_SESSION['thanhtoan'])) {
+    $_SESSION['thanhtoan'] = array();
+}
 include_once './Views/header.php';
 
 // Lấy tham số từ URL
@@ -89,7 +92,6 @@ switch ($page) {
         $NewsdetailController = new NewsdetailController();
         break;
 
-    // Trường hợp chi tiết sản phẩm
     case 'productdetail':
         include_once 'Controllers/ProductdetailController.php';
         $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);
@@ -110,6 +112,42 @@ switch ($page) {
         break;
 
     case 'thanhtoan':
+        if (isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)) {
+            if (isset($_SESSION['thanhtoan']) && (count($_SESSION['thanhtoan']) > 0)) {
+                unset($_SESSION['thanhtoan'][$_GET['key']]);
+                header('location:index.php?trang=thanhtoan');
+            }
+        }
+        if (isset($_POST['checkout'])) {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $img = $_POST['img'];
+            $price = $_POST['price'];
+            $soluong = $_POST['soluong'] ?? 1;
+
+            $chek = false;
+            if (isset($_SESSION['thanhtoan'])) {
+                foreach ($_SESSION['thanhtoan'] as $key => $value) {
+                    if ($_SESSION['thanhtoan'][$key]['id'] == $id) {
+                        $_SESSION['thanhtoan'][$key]['soluong'] += $soluong;
+                        $chek = true;
+                    }
+                }
+            }
+
+            if (!$chek) {
+                include_once 'Controllers/thanhtoanControllers.php';
+                $ThanhToanController = new ThanhToanController();
+                $ThanhToanController->addthanhtoan($id, $name, $img, $price, $soluong);
+            }
+
+            header('location:index.php?trang=thanhtoan');
+        }
+        include_once 'Controllers/thanhtoanControllers.php';
+        $thanhtoanController = new thanhtoanController();
+        $thanhtoan_html = $thanhtoanController->showthanhtoan_html();
+
+        include_once './Views/thanhtoan.php';
         include_once '../Controllers/thanhtoanControllers.php';
         $thanhtoanController = new thanhtoanController();
         break;

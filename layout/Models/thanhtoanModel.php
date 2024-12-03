@@ -1,7 +1,7 @@
 <?php 
     class thanhtoanModel{
         public function __construct(){
-            include_once '../Views/thanhtoan.php';
+            include_once './Views/thanhtoan.php';
         }
     }
 ?>

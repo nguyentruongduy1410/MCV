@@ -1,0 +1,150 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 60%;
+    margin: auto;
+}
+
+.form-section {
+    flex: 1; /* Giảm giá trị flex để form section nhỏ hơn */
+    background-color: #fff;
+    padding: 10px; /* Giảm padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Giảm chiều rộng */
+    max-width: 500px; /* Tùy chọn: Đặt chiều rộng tối đa */
+}
+
+.form-section h2 {
+    font-size: 18px; /* Giảm kích thước font */
+    margin-bottom: 12px; /* Giảm margin */
+}
+
+.form-section label {
+    display: block;
+    margin-top: 10px; /* Giảm khoảng cách */
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-section input, 
+.form-section select, 
+.form-section textarea {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    padding: 8px; /* Giảm padding */
+    margin-bottom: 8px; /* Giảm margin dưới */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px; /* Điều chỉnh kích thước font */
+}
+
+.form-section textarea {
+    resize: none;
+    height: 60px; /* Giảm chiều cao */
+}
+
+.summary-section {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px; /* Giảm padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Giảm chiều rộng */
+    height: 400px; /* Giảm chiều cao */
+}
+
+.summary-section h2 {
+    font-size: 18px; /* Giảm kích thước font */
+    margin-bottom: 15px; /* Giảm margin */
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px; /* Giảm padding */
+    margin-bottom: 8px; /* Giảm margin */
+}
+
+.order-item img {
+    width: 40px; /* Giảm kích thước hình ảnh */
+    height: 40px; /* Giảm kích thước hình ảnh */
+    object-fit: cover;
+}
+
+.order-item .item-details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.order-item p {
+    margin: 0;
+}
+
+.promo-code {
+    display: flex;
+    gap: 8px; /* Giảm khoảng cách giữa input và button */
+    margin-top: 15px; /* Giảm margin */
+}
+
+.promo-code input {
+    flex: 1;
+    padding: 8px; /* Giảm padding */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.promo-code button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Giảm padding */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.promo-code button:hover {
+    background-color: #0056b3;
+}
+
+.order-total {
+    margin-top: 15px; /* Giảm margin trên */
+}
+
+.order-total p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-total strong {
+    font-size: 16px; /* Giảm kích thước font */
+}
+
+.back-btn, .order-btn {
+    width: 100%;
+    padding: 12px; /* Giảm padding */
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.order-btn {
+    background-color: black;
+    color: white;
+}
+
+.order-btn:hover {
+   background-color: rgba(0, 0, 0, 0.808);
+}

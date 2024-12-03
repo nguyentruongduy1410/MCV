@@ -64,8 +64,15 @@ foreach ($productdetailmodel -> chitiet as $key => $value) {
                         <input type="hidden" name="img" value="' . $value['hinh_sp'] . '">
                         <input type="hidden" name="name" value="' . $value['ten_sp'] . '">
                         <button type="submit" name="btnaddcart" class="themgh">THÊM VÀO GIỎ</button>
-                    </form>
-                    <button class="mua">MUA NGAY</button>
+                        </form>
+                          <form>
+                        <input type="hidden" name="id" value="' . $value['id'] . '">
+                        <input type="hidden" name="price" value="' . $value['gia_sp'] . '">
+                        <input type="hidden" name="img" value="' . $value['hinh_sp'] . '">
+                        <input type="hidden" name="name" value="' . $value['ten_sp'] . '"> 
+                    <button class="mua" name="checkout" type="submit">MUA NGAY</button>
+                
+              </form>
                 </div>
 
                  ';
@@ -125,7 +132,7 @@ HTML;
             $ch = '';
         if (isset($_SESSION['email'])) {
            echo '
-               <form action="index.php?trang=productdetail&lenh=cmt&id=' . $id . '&iddm=' . $iddm . '" class="comments-describe" method="post">
+               <form action="index.php?trang=productdetail&lenh=cmt&id=' . $id . '&iddm=' . $iddm . '&id_user='.$_SESSION['user_id'].'" class="comments-describe" method="post">
                     <div class="comments-user">
                         <img src="./Public/img/user-avatar.jpg" alt="User Avatar">
                     </div>
@@ -148,7 +155,7 @@ HTML;
                         </div>
                         <div class="comments-text">
                             <div class="name-user">
-                                <h4>' .$value['email'] . '</h4>
+                                <h4>' .$value['ten'] . '</h4>
                                 <p>'.$value['ngay_bl'].'</p>
                             </div>
                             <p>'.$value['noi_dung'].'</p>
