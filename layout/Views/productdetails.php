@@ -65,14 +65,14 @@ foreach ($productdetailmodel -> chitiet as $key => $value) {
                         <input type="hidden" name="name" value="' . $value['ten_sp'] . '">
                         <button type="submit" name="btnaddcart" class="themgh">THÊM VÀO GIỎ</button>
                         </form>
-                          <form>
-                        <input type="hidden" name="id" value="' . $value['id'] . '">
-                        <input type="hidden" name="price" value="' . $value['gia_sp'] . '">
-                        <input type="hidden" name="img" value="' . $value['hinh_sp'] . '">
-                        <input type="hidden" name="name" value="' . $value['ten_sp'] . '"> 
-                    <button class="mua" name="checkout" type="submit">MUA NGAY</button>
-                
-              </form>
+                          <form action="index.php?trang=thanhtoan" method="post">
+                                <input type="hidden" name="id" value="' . $value['id'] . '">
+                                <input type="hidden" name="price" value="' . $value['gia_sp'] . '">
+                                <input type="hidden" name="img" value="' . $value['hinh_sp'] . '">
+                                <input type="hidden" name="name" value="' . $value['ten_sp'] . '"> 
+                            <button class="mua" name="thanhtoan" type="submit">MUA NGAY</button>
+                        
+                        </form>
                 </div>
 
                  ';

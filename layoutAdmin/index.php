@@ -1,7 +1,7 @@
 <?php
 include_once "Views/header.php";
 
-$page = isset($_GET['trang']) ? $_GET['trang'] : 'loginadmin';
+$page = isset($_GET['trang']) ? $_GET['trang'] : 'home';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 $lenh  = isset($_GET['lenh']) ? $_GET['lenh'] : '';
 $ten_dm = isset($_POST['ten_dm']) ? $_POST['ten_dm'] : '';
@@ -67,9 +67,6 @@ switch ($page) {
     case 'qldonhang':
         include_once('Controller/QldonhangController.php');
         $QldonhangController = new QldonhangController();
-        break;
-    case 'loginadmin':
-        include_once 'Views/loginadmin.php';
         break;
     case 'baivietsp':
         include_once 'Views/baivietsp.php';

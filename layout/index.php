@@ -111,46 +111,45 @@ switch ($page) {
         $HistoryController = new HistoryController($userId);
         break;
 
-    case 'thanhtoan':
-        if (isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)) {
-            if (isset($_SESSION['thanhtoan']) && (count($_SESSION['thanhtoan']) > 0)) {
+        case 'thanhtoan':
+            if (isset($_GET['key']) && isset($_SESSION['thanhtoan'][$_GET['key']])) {
                 unset($_SESSION['thanhtoan'][$_GET['key']]);
                 header('location:index.php?trang=thanhtoan');
+                exit;
             }
-        }
-        if (isset($_POST['checkout'])) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $img = $_POST['img'];
-            $price = $_POST['price'];
-            $soluong = $_POST['soluong'] ?? 1;
-
-            $chek = false;
-            if (isset($_SESSION['thanhtoan'])) {
+        
+            if (isset($_POST['thanhtoan'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $img = $_POST['img'];
+                $price = $_POST['price'];
+                $soluong = $_POST['soluong'] ?? 1;
+                print_r($_POST);
+                $check = false;
                 foreach ($_SESSION['thanhtoan'] as $key => $value) {
-                    if ($_SESSION['thanhtoan'][$key]['id'] == $id) {
+                    if ($value['id'] == $id) {
                         $_SESSION['thanhtoan'][$key]['soluong'] += $soluong;
-                        $chek = true;
+                        $check = true;
+                        break;
                     }
                 }
+        
+                if (!$check) {
+                    include_once 'Controllers/thanhtoanControllers.php';
+                    $ThanhToanController = new ThanhToanController();
+                    $ThanhToanController->addthanhtoan($id, $name, $img, $price, $soluong);
+                }
+        
+                header('location:index.php?trang=thanhtoan');
+                exit;
             }
-
-            if (!$chek) {
-                include_once 'Controllers/thanhtoanControllers.php';
-                $ThanhToanController = new ThanhToanController();
-                $ThanhToanController->addthanhtoan($id, $name, $img, $price, $soluong);
-            }
-
-            header('location:index.php?trang=thanhtoan');
-        }
-        include_once 'Controllers/thanhtoanControllers.php';
-        $thanhtoanController = new thanhtoanController();
-        $thanhtoan_html = $thanhtoanController->showthanhtoan_html();
-
-        include_once './Views/thanhtoan.php';
-        include_once '../Controllers/thanhtoanControllers.php';
-        $thanhtoanController = new thanhtoanController();
-        break;
+        
+            include_once 'Controllers/thanhtoanControllers.php';
+            $ThanhToanController = new ThanhToanController();
+            $html_thanhtoan = $ThanhToanController->showthanhtoan_html();
+            include_once './Views/thanhtoan.php';
+            break;
+        
 }
 
 include_once './Views/footer.php';

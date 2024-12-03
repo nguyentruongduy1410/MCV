@@ -1,5 +1,6 @@
 <?php
 class ThanhToanController {
+    public $html_thanhtoan = '';
     public function __construct() {
         include_once 'Models/thanhtoanModel.php';
         $thanhtoanModel = new thanhtoanModel(); 
@@ -12,6 +13,7 @@ class ThanhToanController {
         }
     }
     public function showthanhtoan_html(){
+       
         if(isset($_SESSION['thanhtoan'])&&(count($_SESSION['thanhtoan'])>0)){
            $tong=0;
             $html_thanhtoan='
@@ -48,7 +50,7 @@ class ThanhToanController {
                 <label for="note">Ghi chú (tùy chọn)</label>
                 <textarea id="note" placeholder="Nhập ghi chú"></textarea>
             </form>';
-            foreach ($_SESSION['giohang'] as $key=>$value) {
+            foreach ($_SESSION['thanhtoan'] as $key=>$value) {
                 $tt=intval($value['price'])*intval($value['soluong']);
                 $tong+=$tt;
              $html_thanhtoan.='
@@ -61,13 +63,13 @@ class ThanhToanController {
                   
                 </div>
                 <p>'.$value['price'].'</p>
-            </div>
+            </div>';
+            }
+   $html_thanhtoan.='
             <div class="promo-code">
                 <input type="text" placeholder="Nhập mã giảm giá">
                 <button>Áp dụng</button>
             </div>
-            ';
-            $html_thanhtoan.='
             <div class="total">
                 <p>Tạm tính: <span>'.$tong.'</span></p>
                 <p>Phí vận chuyển: <span>-</span></p>
@@ -80,8 +82,11 @@ class ThanhToanController {
 </div>
 
 
-';}
-        }
+';
+return $html_thanhtoan;
+            }
+return '<p>không có sp</p>';
+        
     }
 }
 ?>
