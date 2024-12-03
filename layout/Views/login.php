@@ -14,7 +14,7 @@ if (isset($_POST["login"])) {
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $user;
             $_SESSION['user_id'] = $user_info['id'];
-            $_SESSION['user_name'] = $user_info['ten'];
+            $_SESSION['user_name'] = $user_info['ten'] ?: substr($user_info['email'], 0, strpos($user_info['email'], '@'));
             $_SESSION['user_address'] = $user_info['diachi'];
             $_SESSION['user_phone'] = $user_info['sdt'];
         }

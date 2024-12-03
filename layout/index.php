@@ -97,16 +97,28 @@ switch ($page) {
         $ProductdetailController = new ProductdetailController(lenh: $lenh,id: $id,iddm: $iddm, id_user: $id_user,noi_dung: $noi_dung);
         break;
     case 'user':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/UserController.php';
         $userController = new UserController();
         break;
 
     case 'address':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/AddressController.php';
         $AddressController = new AddressController();
         break;
 
     case 'history':
+        if (!isset($_SESSION['email'])) {
+            header('location:index.php?trang=home');
+            exit();
+        }
         include_once 'Controllers/HistoryController.php';
         $HistoryController = new HistoryController($userId);
         break;
@@ -143,6 +155,7 @@ switch ($page) {
                 header('location:index.php?trang=thanhtoan');
                 exit;
             }
+<<<<<<< HEAD
         
             include_once 'Controllers/thanhtoanControllers.php';
             $ThanhToanController = new ThanhToanController();
@@ -150,9 +163,27 @@ switch ($page) {
             include_once './Views/thanhtoan.php';
             break;
         
+=======
+
+            if (!$chek) {
+                include_once 'Controllers/thanhtoanControllers.php';
+                $ThanhToanController = new ThanhToanController();
+                $ThanhToanController->addthanhtoan($id, $name, $img, $price, $soluong);
+            }
+
+            header('location:index.php?trang=thanhtoan');
+        }
+        include_once 'Controllers/thanhtoanControllers.php';
+        $thanhtoanController = new thanhtoanController();
+        $thanhtoan_html = $thanhtoanController->showthanhtoan_html();
+
+        include_once 'Views/thanhtoan.php';
+        include_once 'Controllers/thanhtoanControllers.php';
+        $thanhtoanController = new thanhtoanController();
+        break;
+>>>>>>> 540a415496e7e93ea4ad8ed700a187b0aa39b142
 }
 
 include_once './Views/footer.php';
 include_once './Views/login.php';
-// echo "<p style='color: green;'>" . $_SESSION['message'] . "</p>";
 ?>

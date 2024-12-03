@@ -1,3 +1,15 @@
+<?php 
+session_start();
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
+    header(header: "Location: ../layout");
+    exit();
+}
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header(header: "Location: ../layout");
+    exit();
+}?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -38,7 +50,7 @@
         <a href="index.php?trang=qldonhang">Quản Lý Đơn Hàng</a>
         <a href="index.php?trang=qlbinhluan">Quản Lý Bình Luận</a>
         <a href="index.php?trang=qlvoucher">Quản Lý Khuyến Mãi</a>
-        <a href="../layout">Đăng Xuất</a> <br> <br> <br>
+        <a href="index.php?trang=loginadmin">Tài Khoản</a> <br> <br> <br>
           
         </div>
      
