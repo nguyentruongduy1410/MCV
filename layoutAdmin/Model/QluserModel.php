@@ -11,7 +11,7 @@ class QluserModel
         $this->userList = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
     }
 
-    public function themuser($email, $vaitro, $mk, $sdt, $diachi)
+    public function themuser($email, $role, $mk, $sdt, $diachi)
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
@@ -29,10 +29,10 @@ class QluserModel
         }
 
         // Thêm người dùng
-        $sql = "INSERT INTO users (email, vaitro, mk, sdt, diachi) VALUES (:email, :vaitro, :mk, :sdt, :diachi)";
+        $sql = "INSERT INTO users (email, role, mk, sdt, diachi) VALUES (:email, :role, :mk, :sdt, :diachi)";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":vaitro", $vaitro);
+        $stmt->bindParam(":role", $vaitro);
         $stmt->bindParam(":mk", $mk);
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);
@@ -67,17 +67,17 @@ class QluserModel
         return $user;
     }
 
-    public function suauser($id, $email, $vaitro, $mk, $sdt, $diachi)
+    public function suauser($id, $email, $role, $mk, $sdt, $diachi)
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
         $data->ketnoi();
 
-        $sql = "UPDATE users SET email = :email, vaitro = :vaitro, mk = :mk, sdt = :sdt, diachi = :diachi WHERE id = :id";
+        $sql = "UPDATE users SET email = :email, role = :role, mk = :mk, sdt = :sdt, diachi = :diachi WHERE id = :id";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":vaitro", $vaitro);
+        $stmt->bindParam(":role", $role);
         $stmt->bindParam(":mk", $mk);
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);

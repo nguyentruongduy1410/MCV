@@ -31,14 +31,13 @@
         <div>
             <h2>Quản Trị</h2>
         <a href="index.php?trang=home">Trang Chủ</a>
-        <a href="index.php?trang=sanpham">Sản Phẩm</a>
+        <a href="index.php?trang=qlsanpham">Sản Phẩm</a>
         <a href="index.php?trang=danhmuc">Danh Mục Sản Phẩm</a>
         <a href="index.php?trang=qluser">Người Dùng</a>
         <a href="index.php?trang=qlbaiviet">Quản Lý Bài Viết</a>
         <a href="index.php?trang=qldonhang">Quản Lý Đơn Hàng</a>
         <a href="index.php?trang=qlbinhluan">Quản Lý Bình Luận</a>
         <a href="index.php?trang=qlvoucher">Quản Lý Khuyến Mãi</a>
-        <a href="index.php?trang=baivietsp">Bài viết sản phẩm</a>
         <a href="../layout">Đăng Xuất</a> <br> <br> <br>
           
         </div>

@@ -4,16 +4,16 @@ class QluserController
     public $lenh;
     public $id;
     public $email;
-    public $vaitro;
+    public $role;
     public $mk;
     public $sdt;
     public $diachi;
 
-    public function __construct($lenh, $email, $vaitro , $mk, $sdt, $diachi, $id = null)
+    public function __construct($lenh, $email, $role , $mk, $sdt, $diachi, $id = null)
     {
         $this->lenh = $lenh;
         $this->email = $email;
-        $this->vaitro = $vaitro;
+        $this->role = $role;
         $this->mk = $mk;
         $this->sdt = $sdt;
         $this->diachi = $diachi;
@@ -36,7 +36,7 @@ class QluserController
 
                 case 'them':
                     // Thêm người dùng mới
-                    $user->themuser($this->email, $this->vaitro, $this->mk, $this->sdt, $this->diachi);
+                    $user->themuser($this->email, $this->role, $this->mk, $this->sdt, $this->diachi);
                     $user->dsuser();
                     $userList = $user->userList; // Sử dụng tên mới
                     include_once 'Views/qluser.php';
@@ -51,7 +51,7 @@ class QluserController
 
                 case 'sua':
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        $user->suauser($this->id, $this->email, $this->vaitro, $this->mk, $this->sdt, $this->diachi);
+                        $user->suauser($this->id, $this->email, $this->role, $this->mk, $this->sdt, $this->diachi);
                         $user->dsuser();
                         $userList = $user->userList;
                         include_once 'Views/qluser.php';

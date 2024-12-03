@@ -14,11 +14,15 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                <select name="vaitro" id="vaitro">
+                <!-- <select name="vaitro" id="vaitro">
                     <option value="">Chọn Vai trò</option>
                     <option value="admin">admin</option>
                     <option value="user">user</option>  
-                </select>
+                </select> -->
+                <div class="form-group">
+                    <label for="sdt">Vai trò</label>
+                    <input type="text" id="role" name="sdt" required>
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
@@ -60,7 +64,7 @@
                 $ch .= '
                 <td>'.($key+1).'</td>
                 <td>' . $value['email'] . '</td>
-                <td>' . $value['vaitro'] . '</td>
+                <td>' . $value['role'] . '</td>
                 <td>' . $value['mk'] . '</td>
                 <td>' . $value['sdt'] . '</td>
                 <td>' . $value['diachi'] . '</td>
@@ -94,10 +98,7 @@
             </div>
             <div class="form-group">
                 <label for="editRole">Vai Trò</label>
-                <select id="editRole" name="vaitro" required>
-                    <option value="admin" <?php echo $userInfo['vaitro'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
-                    <option value="user" <?php echo $userInfo['vaitro'] == 'user' ? 'selected' : ''; ?>>User</option>
-                </select>
+                <input type="text" id="editRole" name="sdt" value="<?php echo $userInfo['role']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="editPassword">Mật khẩu</label>

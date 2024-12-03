@@ -12,12 +12,8 @@
             <input type="email" id="email" name="email" value="<?php echo $userInfo['email']; ?>" required>
         </div>
         <div>
-            <label for="vaitro">Vai Trò:</label>
-            <select id="vaitro" name="vaitro" required>
-                <option value="admin" <?php echo $userInfo['vaitro'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
-                <option value="user" <?php echo $userInfo['vaitro'] == 'user' ? 'selected' : ''; ?>>User</option>
-            </select>
-        </div>
+        <label for="sdt">Vai trò</label>
+        <input type="text" id="role" name="role" value="<?php echo $userInfo['role']; ?>" required>
         <div>
             <label for="mk">Mật khẩu:</label>
             <input type="password" id="mk" name="mk" value="<?php echo $userInfo['mk']; ?>" required>
