@@ -1,105 +1,93 @@
 .container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    width: 70%;
+    font-family: 'Arial', sans-serif;
+    width: 80%;
     margin: auto;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-section {
     flex: 1;
-    /* Giảm giá trị flex để form section nhỏ hơn */
-    background-color: #fff;
-    padding: 10px;
-    /* Giảm padding */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    /* Giảm chiều rộng */
-    max-width: 500px;
-    /* Tùy chọn: Đặt chiều rộng tối đa */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-section h2 {
-    font-size: 18px;
-    /* Giảm kích thước font */
-    margin-bottom: 12px;
-    /* Giảm margin */
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-section label {
     display: block;
-    margin-top: 10px;
-    /* Giảm khoảng cách */
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.form-section input,
-.form-section select,
-.form-section textarea {
-    width: 100%;
-    /* Chiếm toàn bộ chiều rộng */
-    padding: 8px;
-    /* Giảm padding */
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
     margin-bottom: 8px;
-    /* Giảm margin dưới */
-    border: 1px solid #ddd;
-    border-radius: 4px;
+}
+
+.form-section form input, 
+.form-section form select, 
+.form-section form textarea {
+    width: 300px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 14px;
-    /* Điều chỉnh kích thước font */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section input:focus, 
+.form-section select:focus, 
+.form-section textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
 }
 
 .form-section textarea {
-    resize: none;
-    height: 60px;
-    /* Giảm chiều cao */
+    height: 100px;
+    resize: vertical;
+}
+
+.form-section select {
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
 }
 
 .summary-section {
     flex: 1;
-    background-color: #fff;
-    padding: 15px;
-    /* Giảm padding */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    /* Giảm chiều rộng */
-    height: 400px;
-    /* Giảm chiều cao */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .summary-section h2 {
-    font-size: 18px;
-    /* Giảm kích thước font */
-    margin-bottom: 15px;
-    /* Giảm margin */
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .order-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
-    /* Giảm padding */
-    margin-bottom: 8px;
-    /* Giảm margin */
-}
-
-.order-item img {
-    width: 40px;
-    /* Giảm kích thước hình ảnh */
-    height: 40px;
-    /* Giảm kích thước hình ảnh */
-    object-fit: cover;
-}
-
-.order-item .item-details {
-    flex: 1;
-    margin-left: 10px;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin-bottom: 10px;
 }
 
 .order-item p {
@@ -108,72 +96,65 @@
 
 .promo-code {
     display: flex;
-    gap: 8px;
-    /* Giảm khoảng cách giữa input và button */
-    margin-top: 15px;
-    /* Giảm margin */
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .promo-code input {
     flex: 1;
-    padding: 8px;
-    /* Giảm padding */
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .promo-code button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 8px 12px;
-    /* Giảm padding */
-    border-radius: 4px;
+    padding: 12px 15px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .promo-code button:hover {
     background-color: #0056b3;
 }
 
-.order-total {
-    margin-top: 15px;
-    /* Giảm margin trên */
-}
-
-.order-total p {
-    display: flex;
-    justify-content: space-between;
-}
-
-.order-total strong {
-    font-size: 16px;
-    /* Giảm kích thước font */
-}
-
-.back-btn,
 .order-btn {
+    display: block;
     width: 100%;
-    padding: 12px;
-    /* Giảm padding */
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.back-btn {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
-}
-
-.order-btn {
-    background-color: black;
+    padding: 15px;
+    background-color: #28a745;
     color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .order-btn:hover {
-    background-color: rgba(0, 0, 0, 0.808);
+    background-color: #218838;
+}
+
+.back-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #e9ecef;
 }

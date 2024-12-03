@@ -22,8 +22,8 @@ class ThanhToanController
             $tong = 0;
             $html_thanhtoan = '
 
-    
-    <div class="content">
+   
+
         <div class="form-container">
             <h2>Thông tin nhận hàng</h2>
             <form>
@@ -83,7 +83,7 @@ class ThanhToanController
             </div>
             <button class="order-btn">ĐẶT HÀNG</button>
         </div>
-    </div>
+
    
 
 
