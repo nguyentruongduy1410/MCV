@@ -10,6 +10,7 @@ class QluserModel
         $sql = "SELECT * FROM users";
         $this->userList = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
     }
+
     public function themuser($email, $vaitro, $mk, $sdt, $diachi)
     {
         include_once 'Model/connectmodel.php';
@@ -39,6 +40,7 @@ class QluserModel
 
         $data->conn = null; // đóng kết nối database
     }
+
     public function xoauser($id)
     {
         $sql = "DELETE FROM users WHERE id=:id";
@@ -70,6 +72,7 @@ class QluserModel
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
         $data->ketnoi();
+
         $sql = "UPDATE users SET email = :email, vaitro = :vaitro, mk = :mk, sdt = :sdt, diachi = :diachi WHERE id = :id";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":id", $id);
@@ -79,6 +82,7 @@ class QluserModel
         $stmt->bindParam(":sdt", $sdt);
         $stmt->bindParam(":diachi", $diachi);
         $stmt->execute();
+
         $data->conn = null;
     }
 }

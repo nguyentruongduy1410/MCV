@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="public/css/sanpham.css">
     <link rel="stylesheet" href="public/css/thongke.css">
     <link rel="stylesheet" href="public/css/baivietsp.css">
+    <link rel="stylesheet" href="public/css/edituser.css">
 
     
 </head>

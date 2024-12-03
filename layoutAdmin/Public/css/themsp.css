@@ -61,9 +61,6 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.form-group input[type="date"]{
-    width: 93%;
-}
 .form-group textarea {
     resize: vertical;
 }
