@@ -49,14 +49,16 @@ class ThanhToanController {
 
                 <label for="note">Ghi chú (tùy chọn)</label>
                 <textarea id="note" placeholder="Nhập ghi chú"></textarea>
-            </form>';
+            </form>
+            </div>
+            <div class="order-summary">
+            <h2>Đơn hàng</h2>';
+            
             foreach ($_SESSION['thanhtoan'] as $key=>$value) {
                 $tt=intval($value['price'])*intval($value['soluong']);
                 $tong+=$tt;
              $html_thanhtoan.='
-        </div>
-        <div class="order-summary">
-            <h2>Đơn hàng</h2>
+        
             <div class="item">
                 <div class="item-info">
                     <p><strong>'.$value['name'].'</strong></p>

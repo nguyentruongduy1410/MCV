@@ -155,33 +155,11 @@ switch ($page) {
                 header('location:index.php?trang=thanhtoan');
                 exit;
             }
-<<<<<<< HEAD
-        
             include_once 'Controllers/thanhtoanControllers.php';
             $ThanhToanController = new ThanhToanController();
             $html_thanhtoan = $ThanhToanController->showthanhtoan_html();
             include_once './Views/thanhtoan.php';
             break;
-        
-=======
-
-            if (!$chek) {
-                include_once 'Controllers/thanhtoanControllers.php';
-                $ThanhToanController = new ThanhToanController();
-                $ThanhToanController->addthanhtoan($id, $name, $img, $price, $soluong);
-            }
-
-            header('location:index.php?trang=thanhtoan');
-        }
-        include_once 'Controllers/thanhtoanControllers.php';
-        $thanhtoanController = new thanhtoanController();
-        $thanhtoan_html = $thanhtoanController->showthanhtoan_html();
-
-        include_once 'Views/thanhtoan.php';
-        include_once 'Controllers/thanhtoanControllers.php';
-        $thanhtoanController = new thanhtoanController();
-        break;
->>>>>>> 540a415496e7e93ea4ad8ed700a187b0aa39b142
 }
 
 include_once './Views/footer.php';
