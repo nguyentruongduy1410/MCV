@@ -8,7 +8,7 @@
         <div class="modal-content">
             <span class="close" id="closeAddModal">&times;</span>
             <h2>Thêm Người Dùng</h2>
-            <form id="addUserForm" action="index.php?trang=qluser&lenh=them" method="post">
+            <form class="form-add-user" id="addUserForm" action="index.php?trang=qluser&lenh=them" method="post" style="width: 90%;">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
