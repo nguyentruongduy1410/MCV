@@ -68,7 +68,8 @@ if (isset($_POST['signup'])) {
         $_SESSION['signup_error'] = $error_message;
     }
 }
-//quen mat khau
+
+// Khôi phục mật khẩu
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -77,42 +78,57 @@ require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/SMTP.php';
 require '../PHPMailer-master/src/Exception.php';
 
-
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
 
-    // Khởi tạo đối tượng PHPMailer
-    $mail = new PHPMailer(true);
+    // Kiểm tra xem email có tồn tại trong hệ thống không
+    $user_info = getCustomerInfo($email); // Giả sử bạn có hàm này để lấy thông tin người dùng từ cơ sở dữ liệu
 
-    try {
-        // Cấu hình SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; 
-        $mail->SMTPAuth = true;
-        $mail->Username = 'classicalmusicvnn@gmail.com'; // Thay bằng email của bạn
-        $mail->Password = 'elzz tppy mkgb saav'; // Thay bằng mật khẩu ứng dụng
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+    if ($user_info) {
+        // Tạo mật khẩu mới ngẫu nhiên
+        $new_password = bin2hex(random_bytes(8)); // Tạo mật khẩu ngẫu nhiên 8 ký tự
+        $hashedPassword = password_hash($new_password, PASSWORD_DEFAULT); // Mã hóa mật khẩu mới
 
-        // Cấu hình người gửi và người nhận
-        $mail->setFrom('classicalmusicvnn@gmail.com', 'c');
-        $mail->addAddress($email); 
+        // Lưu mật khẩu mới vào cơ sở dữ liệu
+        updatePassword($email, $hashedPassword); // Giả sử bạn có hàm này để cập nhật mật khẩu trong cơ sở dữ liệu
 
-        // Tiêu đề và nội dung email
-        $mail->Subject = 'Khôi phục mật khẩu';
-        $mail->Body    = 'Đây là nội dung email khôi phục mật khẩu của bạn.';
+        // Khởi tạo đối tượng PHPMailer
+        $mail = new PHPMailer(true);
 
-        // Gửi email
-        if ($mail->send()) {
-            $_SESSION['message'] = "Đã gửi email khôi phục mật khẩu!";
-        } else {
-            $_SESSION['error'] = "Không thể gửi email. Lỗi: " . $mail->ErrorInfo;
+        try {
+            // Cấu hình SMTP
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; 
+            $mail->SMTPAuth = true;
+            $mail->Username = 'classicalmusicvnn@gmail.com'; // Thay bằng email của bạn
+            $mail->Password = 'elzz tppy mkgb saav'; // Thay bằng mật khẩu ứng dụng
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            // Cấu hình người gửi và người nhận
+            $mail->setFrom('classicalmusicvnn@gmail.com', 'c');
+            $mail->addAddress($email); 
+
+            // Tiêu đề và nội dung email
+            $mail->Subject = 'Khôi phục mật khẩu';
+            $mail->Body    = 'Mật khẩu mới của bạn là: ' . $new_password;
+
+            // Gửi email
+            if ($mail->send()) {
+                $_SESSION['message'] = "Đã gửi email khôi phục mật khẩu! Mật khẩu mới đã được gửi đến email của bạn.";
+            } else {
+                $_SESSION['error'] = "Không thể gửi email. Lỗi: " . $mail->ErrorInfo;
+            }
+        } catch (Exception $e) {
+            // Hiển thị chi tiết lỗi trong quá trình gửi email
+            $_SESSION['error'] = "Lỗi khi gửi email: " . $e->getMessage();
         }
-    } catch (Exception $e) {
-        // Hiển thị chi tiết lỗi trong quá trình gửi email
-        $_SESSION['error'] = "Lỗi khi gửi email: " . $e->getMessage();
+    } else {
+        $_SESSION['error'] = "Email không tồn tại!";
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
