@@ -562,6 +562,7 @@ form .log-in {
     height: 93vh;
     position: relative;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 #banner .list-img {
@@ -609,74 +610,39 @@ form .log-in {
 
 /* danh mục */
 .banner-footer {
-    height: 40vh;
-    width: 80%;
+    width: 90%;
+    height: 55vh;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+.banner-footer .banner-food1{
+    width: 33%;
+    height: 100%;
+    background-image: url('http://localhost/php/github/MCV/layout/Public/img/pngtree-blue-music-chord-background-picture-image_1205877.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    flex-direction: column;
+    justify-content: center;
+    
 }
-
-.banner-footer .box {
-    cursor: pointer;
-    height: 35vh;
-    margin-top: 15px;
-    width: 32%;
-    box-shadow: 0 0 5px #333;
-    border-radius: 20px;
-    transition: 0.5s;
+.banner-food1 h3{
+    margin-top: 20px;
+    color: #05172C;
+    background-color: #FEDC68;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 800;
 }
-
-.banner-footer .box:hover {
-    transform: translateY(-5px);
+.banner-food1 img{
+ margin-bottom: 20px;
+ 
 }
-
-.box .box-top {
-    width: 80%;
-    margin: 0 auto;
-    height: 8vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding-bottom: 10px;
-
-}
-
-.box-top a {
-    font-size: 18px;
-    font-weight: 500;
-    color: #000;
-}
-
-.banner-footer .i-hover {
-    height: 30px;
-    width: 35px;
-    border-radius: 30px;
-    text-align: center;
-    line-height: 30px;
-}
-
-.banner-footer .box:hover .i-hover {
-    background-color: #000;
-    color: #fff;
-}
-
-.box .box-bottom {
-    height: 27vh;
-    width: 100%;
-    border-radius: 30px;
-
-}
-
-.box-bottom img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0 0 20px 20px;
-    object-fit: cover;
-
-}
-
 /* product */
 
 #product {

@@ -184,7 +184,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.box a{
+.box>a{
     width: 24%;
     height: 400px;
     margin: 10px 0;

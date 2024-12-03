@@ -81,6 +81,7 @@ switch ($page) {
     case 'contact':
         include_once 'Controllers/ContactController.php';
         $ContactController = new ContactController();
+        break;
 
     case 'news':
         include_once 'Controllers/NewsController.php';
