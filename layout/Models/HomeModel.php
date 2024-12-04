@@ -1,6 +1,8 @@
 <?php 
     class HomeModel{
         public $mangsp;
+        public $banner;
+        public $bannermini;
         public $spdatbiet;
         public $danhmucsp;
         public $sanphamdanhmuc;
@@ -10,7 +12,18 @@
             $sql="SELECT * FROM san_pham LIMIT 8"; 
             $this->mangsp=$data->selectall($sql);
         }
-       
+       public function banner(){
+            include_once 'Models/connectmodel.php';
+            $data = new ConnectModel();
+            $sql="SELECT * FROM banner"; 
+            $this->banner=$data->selectall($sql);
+       }
+       public function bannermini(){
+            include_once 'Models/connectmodel.php';
+            $data = new ConnectModel();
+            $sql="SELECT * FROM banner_mini"; 
+            $this->bannermini=$data->selectall($sql);
+       }
         public function spdb($iddb){
             include_once 'Models/connectmodel.php';
             $data = new ConnectModel();

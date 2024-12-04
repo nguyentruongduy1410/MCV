@@ -922,7 +922,7 @@ form .log-in {
 }
 
 /* footer */
-#container #footer-end {
+#footer-end {
     height: 60vh;
     width: 80%;
     margin: 0 auto;

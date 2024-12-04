@@ -8,6 +8,8 @@
 
             }else{
                 $homemodel->dssp();
+                $homemodel->banner();
+                $homemodel->bannermini();
                 $homemodel->spdb($iddb);
                 $homemodel->dmsp(iddm:$iddm);
                 $iddm1 = 1;

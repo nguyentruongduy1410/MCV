@@ -1,9 +1,16 @@
 <!-- banner -->
 <div id="banner">
     <div class="list-img">
-        <div class="img-banner"><img src="./Public/img/baner1.png" alt=""></div>
-        <div class="img-banner"><img src="./Public/img/baner2.png" alt=""></div>
-        <div class="img-banner"><img src="./Public/img/baner3.png" alt=""></div>
+        <?php
+        $ch = '';
+        foreach ($homemodel->banner as $key => $value) {
+            $ch .= '
+                    <div class="img-banner"><img src="./Public/img/' . $value['hinh_anh'] . '" alt=""></div>
+                ';
+        }
+        echo $ch;
+        ?>
+
     </div>
     <ul class="dots">
         <li class="active"></li>
@@ -11,23 +18,23 @@
         <li></li>
     </ul>
 </div>
-
-
 <div class="banner-footer">
-    <div class="banner-food1">
-            <h3>SHOWROOM</h3>
-            <img src="./Public/img/showroom.jpg" alt="">
-    </div>
-    <div class="banner-food1">
-            <h3>TRUNG TÂM BẢO HÀNH CHÍNH HÃNG</h3>
-            <img src="./Public/img/trungtam.jpg" alt="">
-    </div>
-    <div class="banner-food1">
-            <h3>TRƯỜNG HỌC ÂM NHẠC</h3>
-            <img src="./Public/img/truong.jpg" alt="">
-    </div>
-    
+
+    <?php
+    $ch = '';
+    foreach ($homemodel->bannermini as $key => $value) {
+        $ch .= '
+                <div class="banner-food1">
+                    <h3>' . $value['ten_banner_mini'] . '</h3>
+                    <img src="./Public/img/' . $value['mini_image'] . '" alt="">
+                </div>
+
+            ';
+    }
+    echo $ch;
+    ?>
 </div>
+
 
 
 </div>
