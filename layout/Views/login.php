@@ -39,32 +39,37 @@ if (isset($_POST['signup'])) {
     $sPassword = $_POST['sPassword'];
     $sRPassword = $_POST['sRPassword'];
 
-    if ($sPassword === $sRPassword) {
-        try {
-            include_once 'Models/UserModel.php';
-            $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
-            if (registerUser($sEmail, $hashedPassword)) {
-                $user_info = getCustomerInfo($sEmail);
-                if ($user_info) {
-                    $_SESSION['role'] = $role;
-                    $_SESSION['email'] = $sEmail;
-                    $_SESSION['user_id'] = $user_info['id'];
-                    $_SESSION['user_name'] = $user_info['ten'];
-                    $_SESSION['user_address'] = $user_info['diachi'];
-                    $_SESSION['user_phone'] = $user_info['sdt'];
+    if (strlen($sPassword) >= 8) {
+        if ($sPassword === $sRPassword) {
+            try {
+                include_once 'Models/UserModel.php';
+                $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
+                if (registerUser($sEmail, $hashedPassword)) {
+                    $user_info = getCustomerInfo($sEmail);
+                    if ($user_info) {
+                        $_SESSION['role'] = $role;
+                        $_SESSION['email'] = $sEmail;
+                        $_SESSION['user_id'] = $user_info['id'];
+                        $_SESSION['user_name'] = $user_info['ten'];
+                        $_SESSION['user_address'] = $user_info['diachi'];
+                        $_SESSION['user_phone'] = $user_info['sdt'];
+                    }
+                    header('Location: index.php');
+                    exit();
+                } else {
+                    $error_message = "Email đã được đăng ký!";
+                    $_SESSION['signup_error'] = $error_message;
                 }
-                header('Location: index.php');
-                exit();
-            } else {
-                $error_message = "Email đã được đăng ký!";
-                $_SESSION['signup_error'] = $error_message; 
+            } catch (PDOException $e) {
+                $error_message = "Lỗi kết nối: " . $e->getMessage();
+                $_SESSION['signup_error'] = $error_message;
             }
-        } catch (PDOException $e) {
-            $error_message = "Lỗi kết nối: " . $e->getMessage();
+        } else {
+            $error_message = "Mật khẩu không khớp!";
             $_SESSION['signup_error'] = $error_message;
         }
     } else {
-        $error_message = "Mật khẩu không khớp!";
+        $error_message = "Mật khẩu phải có ít nhất 8 ký tự!";
         $_SESSION['signup_error'] = $error_message;
     }
 }
@@ -76,11 +81,13 @@ require '../PHPMailer-master/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-function generateRandomPassword($length = 8) {
+function generateRandomPassword($length = 8)
+{
     return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
 }
 
-function sendNewPasswordEmail($email, $newPassword) {
+function sendNewPasswordEmail($email, $newPassword)
+{
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
@@ -94,6 +101,9 @@ function sendNewPasswordEmail($email, $newPassword) {
         $mail->setFrom('classicalmusicvnn@gmail.com', 'Admin');
         $mail->addAddress($email);
 
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+
         $mail->isHTML(true);
         $mail->Subject = 'Mật khẩu mới của bạn';
         $mail->Body = "Mật khẩu mới của bạn là: <b>$newPassword</b>. Vui lòng đăng nhập và thay đổi mật khẩu nếu cần.";
@@ -105,7 +115,8 @@ function sendNewPasswordEmail($email, $newPassword) {
     }
 }
 
-function updatePasswordInDatabase($email, $newPassword) {
+function updatePasswordInDatabase($email, $newPassword)
+{
     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
     $connect = new ConnectModel();
     $conn = $connect->ketnoi();
@@ -116,19 +127,22 @@ function updatePasswordInDatabase($email, $newPassword) {
 
     return $stmt->execute();
 }
-
+$err_quenpass = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resetpass'])) {
     $email = $_POST['rEmail'];
 
     if (checkEmail($email)) {
         $newPassword = generateRandomPassword();
         if (updatePasswordInDatabase($email, $newPassword) && sendNewPasswordEmail($email, $newPassword)) {
-            echo "<p style='color: green;'>Mật khẩu mới đã được gửi đến email của bạn!</p>";
+            $err_quenpass = 'Mật khẩu mới đã được gửi đến email của bạn!';
+            $_SESSION['quenpass_error'] = $err_quenpass;
         } else {
-            echo "<p style='color: red;'>Đã xảy ra lỗi, vui lòng thử lại sau!</p>";
+            $err_quenpass = 'Đã xảy ra lỗi, vui lòng thử lại sau!';
+            $_SESSION['quenpass_error'] = $err_quenpass;
         }
     } else {
-        echo "<p style='color: red;'>Email không tồn tại trong hệ thống!</p>";
+        $err_quenpass = 'Email không tồn tại trong hệ thống!';
+        $_SESSION['quenpass_error'] = $err_quenpass;
     }
 }
 
@@ -262,7 +276,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resetpass'])) {
 <script>
     // Kiểm tra lỗi đăng nhập
     <?php if (!empty($_SESSION['login_error'])) { ?>
-        document.getElementById("loginModal").style.display = "flex"; 
+        document.getElementById("loginModal").style.display = "flex";
         loginSection.style.display = 'block';
         signupSection.style.display = 'none';
         document.getElementById("repairpassword").innerText = "<?php echo $_SESSION['login_error']; ?>";
@@ -271,11 +285,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resetpass'])) {
 
     // Kiểm tra lỗi đăng ký
     <?php if (!empty($_SESSION['signup_error'])) { ?>
-        document.getElementById("loginModal").style.display = "flex";  
+        document.getElementById("loginModal").style.display = "flex";
         signupSection.style.display = 'block';
         loginSection.style.display = 'none';
         document.getElementById("repairpassword-signup2").innerText = "<?php echo $_SESSION['signup_error']; ?>";
-        <?php unset($_SESSION['signup_error']); ?> 
+        <?php unset($_SESSION['signup_error']); ?>
+    <?php } ?>
+
+    // Kiểm tra lỗi quên mật khẩu
+    <?php if (!empty($_SESSION['quenpass_error'])) { ?>
+        document.getElementById("loginModal").style.display = "flex";
+        loginSection.style.display = 'none';
+        resetpass.style.display = 'block';
+        document.getElementById("repairemail-resetpass").innerText = "<?php echo $_SESSION['quenpass_error']; ?>";
+        <?php unset($_SESSION['quenpass_error']); ?>
     <?php } ?>
 </script>
 

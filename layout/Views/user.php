@@ -134,15 +134,15 @@
             <h2>Thay đổi mật khẩu</h2>
             <form action="" method="POST" >
                 <div class="input-box">
-                    <input name="old-pass" id="old-pass" type="text" placeholder="Nhập mật khẩu cũ">
+                    <input name="old-pass" id="old-pass" type="password" placeholder="Nhập mật khẩu cũ">
                 </div>
                 <p class="error-message" id="repairname-address"></p>
                 <div class="input-box">
-                    <input name="change-pass1" id="change-pass1" type="text" placeholder="Nhập mật khẩu mới">
+                    <input name="change-pass1" id="change-pass1" type="password" placeholder="Nhập mật khẩu mới">
                 </div>
                 <p class="error-message" id="repaisdt-address"></p>
                 <div class="input-box">
-                    <input name="change-pass2" id="change-pass2" type="text" placeholder="Nhập xác nhận mật khẩu mới">
+                    <input name="change-pass2" id="change-pass2" type="password" placeholder="Nhập xác nhận mật khẩu mới">
                 </div>
                 <p style="color: red" class="error-message" id="repairaddress-address"></p>
                 <button class="reset-button" type="submit" name="update_info">Thay đổi</button>

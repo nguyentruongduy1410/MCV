@@ -1,7 +1,9 @@
 <?php
 include_once 'Models/connectmodel.php';
-class UserController {
-    public function __construct() {
+class UserController
+{
+    public function __construct()
+    {
         $err_pass = '';
         include_once 'Models/UserModel.php';
 
@@ -13,14 +15,18 @@ class UserController {
             $oldPasswordFromDb = getOldPassword($email);
 
             if ($oldPasswordFromDb && password_verify($oldPassword, $oldPasswordFromDb)) {
-                if ($newPassword === $confirmPassword) {
-                    if (updatePassword($email, $newPassword)) {
-                        $_SESSION['error_pass'] = "Mật khẩu đã được thay đổi thành công!";
+                if (strlen($newPassword) >= 8) { // Kiểm tra độ dài mật khẩu mới
+                    if ($newPassword === $confirmPassword) {
+                        if (updatePassword($email, $newPassword)) {
+                            $_SESSION['error_pass'] = "Mật khẩu đã được thay đổi thành công!";
+                        } else {
+                            $_SESSION['error_pass'] = "Lỗi khi cập nhật mật khẩu!";
+                        }
                     } else {
-                        $_SESSION['error_pass'] = "Lỗi khi cập nhật mật khẩu!";
+                        $_SESSION['error_pass'] = "Mật khẩu mới và xác nhận mật khẩu không khớp!";
                     }
                 } else {
-                    $_SESSION['error_pass'] = "Mật khẩu mới và xác nhận mật khẩu không khớp!";
+                    $_SESSION['error_pass'] = "Mật khẩu mới phải có ít nhất 8 ký tự!";
                 }
             } else {
                 $_SESSION['error_pass'] = "Mật khẩu cũ không đúng!";
