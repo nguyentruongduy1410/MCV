@@ -71,5 +71,8 @@ switch ($page) {
     case 'baivietsp':
         include_once 'Views/baivietsp.php';
         break;
+    case 'loginadmin':
+            include_once 'Views/loginadmin.php';
+            break;
 }
 ?>
