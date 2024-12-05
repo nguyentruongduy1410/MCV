@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 04, 2024 at 11:04 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 05, 2024 lúc 10:34 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mcv`
+-- Cơ sở dữ liệu: `mcv`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bai_viet`
+-- Cấu trúc bảng cho bảng `bai_viet`
 --
 
 CREATE TABLE `bai_viet` (
@@ -37,15 +37,15 @@ CREATE TABLE `bai_viet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `bai_viet`
+-- Đang đổ dữ liệu cho bảng `bai_viet`
 --
 
 INSERT INTO `bai_viet` (`id`, `ten_bv`, `noi_dung`, `hinh_anh`, `ngay_dang`, `mo_ta`) VALUES
-(1, 'Giới thiệu sản phẩm A', 'Sản phẩm A là sản phẩm mới ra mắt, với nhiều tính năng vượt trội...', 'hinh_a.jpg', '2024-11-17', 'Giới thiệu sản phẩm A với tính năng vượt trội.'),
-(2, 'Đánh giá sản phẩm B', 'Sản phẩm B là lựa chọn tốt cho người dùng phổ thông...', 'hinh_b.jpg', '2024-11-17', 'Đánh giá sản phẩm B cho người dùng phổ thông.'),
-(3, 'Hướng dẫn sử dụng sản phẩm C', 'Cách sử dụng sản phẩm C đơn giản và hiệu quả...', 'hinh_c.jpg', '2024-11-17', 'Hướng dẫn sử dụng sản phẩm C hiệu quả.'),
-(4, 'So sánh sản phẩm D và E', 'Hai sản phẩm D và E đều có ưu điểm riêng...', 'hinh_d_e.jpg', '2024-11-17', 'So sánh sản phẩm D và E với ưu điểm riêng.'),
-(5, 'Cập nhật công nghệ mới', 'Công nghệ mới nhất năm nay mang lại nhiều thay đổi...', 'hinh_cong_nghe.jpg', '2024-11-17', 'Cập nhật công nghệ mới nhất năm nay.'),
+(1, 'Bán trống trường học ở TP HCM', 'Bán trống trường học tphcm Các sản phẩm trống trường học tại cơ sở Phong Vân đang được rất nhiều khách hàng tin tưởng lựa chọn và hài lòng. Sản phẩm của chúng tôi luôn được chọn lựa nguyên liệu một cách kỹ lưỡng. Thân trống làm bằng gỗ mít,…', 'bv1.jpg', '2024-11-17', 'Bán trống trường học tphcm Các sản phẩm trống trường học tại cơ sở Phong Vân đang được rất nhiều khách hàng tin tưởng lựa chọn và hài lòng. Sản phẩm của chúng tôi luôn được chọn lựa nguyên liệu một cách kỹ lưỡng. Thân trống làm bằng gỗ mít,…'),
+(2, 'Nơi bán cồng chiêng tại thủ đô Hà Nội', 'Nơi bán cồng chiêng ở Hà Nội Cồng chiêng là loại nhạc khí bằng đồng rất phổ biến và gần gũi với người dân Tây Nguyên. Với người dân khu vực này thì cồng chiêng là tài sản vô cùng quý giá. Đó là biểu tượng cho quyền lực và…', 'bv2.jpg', '2024-11-17', 'Nơi bán cồng chiêng ở Hà Nội Cồng chiêng là loại nhạc khí bằng đồng rất phổ biến và gần gũi với người dân Tây Nguyên. Với người dân khu vực này thì cồng chiêng là tài sản vô cùng quý giá. Đó là biểu tượng cho quyền lực và…'),
+(3, 'Nơi bán đàn Giutar uy tín', 'Cửa hàng bán đàn guitar gần nhất Tìm được cửa hàng bán đàn guitar gần nhất sẽ hỗ trợ rất nhiều cho bạn trong việc tìm hiểu, lựa chọn sản phẩm. Chính vì vậy, chúng tôi xây dựng nhiều chi nhánh để bạn tiện lợi trong việc mua sắm. Dù…', 'bv3.jpg', '2024-11-17', 'Cửa hàng bán đàn guitar gần nhất Tìm được cửa hàng bán đàn guitar gần nhất sẽ hỗ trợ rất nhiều cho bạn trong việc tìm hiểu, lựa chọn sản phẩm. Chính vì vậy, chúng tôi xây dựng nhiều chi nhánh để bạn tiện lợi trong việc mua sắm. Dù…'),
+(4, 'Kèn saxophone cho người mới tập chơi', 'Kèn saxophone cho người mới tập Chọn kèn saxophone để phù hợp với người mới tập là vấn đề được rất nhiều người quan tâm. Để có thể học lên cao hoặc tăng khả năng chơi kèn saxophone, đòi hỏi bạn phải chọn lựa được dòng kèn thích hợp. Vì…', 'bv4.jpg', '2024-11-17', 'Kèn saxophone cho người mới tập Chọn kèn saxophone để phù hợp với người mới tập là vấn đề được rất nhiều người quan tâm. Để có thể học lên cao hoặc tăng khả năng chơi kèn saxophone, đòi hỏi bạn phải chọn lựa được dòng kèn thích hợp. Vì…'),
+(5, 'Bán sỉ trống đội inox', 'Bán sỉ trống đội inox Trống đội inox là một vật dụng quen thuộc và không thể thiếu cho các trường học. Trống đội luôn đồng hành cùng giáo viên và bạn học sinh vào những giờ chào cờ thứ hai hàng tuần, những buổi lễ lớn cũng như các…', 'bv5.jpg', '2024-11-17', 'Bán sỉ trống đội inox Trống đội inox là một vật dụng quen thuộc và không thể thiếu cho các trường học. Trống đội luôn đồng hành cùng giáo viên và bạn học sinh vào những giờ chào cờ thứ hai hàng tuần, những buổi lễ lớn cũng như các…'),
 (6, 'Top 5 sản phẩm bán chạy', 'Dưới đây là 5 sản phẩm được yêu thích và bán chạy nhất...', 'top5.jpg', '2024-11-17', 'Danh sách top 5 sản phẩm bán chạy nhất.'),
 (7, 'Kinh nghiệm chọn mua sản phẩm F', 'Chọn mua sản phẩm F phù hợp với nhu cầu...', 'hinh_f.jpg', '2024-11-17', 'Kinh nghiệm chọn mua sản phẩm F.'),
 (8, 'Ưu đãi tháng này', 'Tháng này có rất nhiều ưu đãi hấp dẫn cho các sản phẩm...', 'hinh_uu_dai.jpg', '2024-11-17', 'Ưu đãi hấp dẫn cho các sản phẩm tháng này.'),
@@ -55,7 +55,7 @@ INSERT INTO `bai_viet` (`id`, `ten_bv`, `noi_dung`, `hinh_anh`, `ngay_dang`, `mo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner`
+-- Cấu trúc bảng cho bảng `banner`
 --
 
 CREATE TABLE `banner` (
@@ -64,7 +64,7 @@ CREATE TABLE `banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `banner`
+-- Đang đổ dữ liệu cho bảng `banner`
 --
 
 INSERT INTO `banner` (`id`, `hinh_anh`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `banner` (`id`, `hinh_anh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner_mini`
+-- Cấu trúc bảng cho bảng `banner_mini`
 --
 
 CREATE TABLE `banner_mini` (
@@ -86,7 +86,7 @@ CREATE TABLE `banner_mini` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `banner_mini`
+-- Đang đổ dữ liệu cho bảng `banner_mini`
 --
 
 INSERT INTO `banner_mini` (`id`, `banner_id`, `mini_image`, `ten_banner_mini`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `banner_mini` (`id`, `banner_id`, `mini_image`, `ten_banner_mini`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `binh_luan`
+-- Cấu trúc bảng cho bảng `binh_luan`
 --
 
 CREATE TABLE `binh_luan` (
@@ -109,7 +109,7 @@ CREATE TABLE `binh_luan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `binh_luan`
+-- Đang đổ dữ liệu cho bảng `binh_luan`
 --
 
 INSERT INTO `binh_luan` (`id`, `id_user`, `id_sp`, `noi_dung`, `ngay_bl`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `binh_luan` (`id`, `id_user`, `id_sp`, `noi_dung`, `ngay_bl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitiet_don_hang`
+-- Cấu trúc bảng cho bảng `chitiet_don_hang`
 --
 
 CREATE TABLE `chitiet_don_hang` (
@@ -131,7 +131,7 @@ CREATE TABLE `chitiet_don_hang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `chitiet_don_hang`
+-- Đang đổ dữ liệu cho bảng `chitiet_don_hang`
 --
 
 INSERT INTO `chitiet_don_hang` (`id`, `id_sp`, `id_dh`, `so_luong`, `gia`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `chitiet_don_hang` (`id`, `id_sp`, `id_dh`, `so_luong`, `gia`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `danh_muc`
+-- Cấu trúc bảng cho bảng `danh_muc`
 --
 
 CREATE TABLE `danh_muc` (
@@ -154,7 +154,7 @@ CREATE TABLE `danh_muc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `danh_muc`
+-- Đang đổ dữ liệu cho bảng `danh_muc`
 --
 
 INSERT INTO `danh_muc` (`id`, `ten_dm`, `hinh_dm`, `stt_dm`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `danh_muc` (`id`, `ten_dm`, `hinh_dm`, `stt_dm`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `don_hang`
+-- Cấu trúc bảng cho bảng `don_hang`
 --
 
 CREATE TABLE `don_hang` (
@@ -185,7 +185,7 @@ CREATE TABLE `don_hang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `don_hang`
+-- Đang đổ dữ liệu cho bảng `don_hang`
 --
 
 INSERT INTO `don_hang` (`id`, `ngay_dat_hang`, `trangthai_dh`, `trangthai_thanhtoan`, `tong_tien`, `id_user`, `id_gg`) VALUES
@@ -196,7 +196,29 @@ INSERT INTO `don_hang` (`id`, `ngay_dat_hang`, `trangthai_dh`, `trangthai_thanht
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hinh_anh_chi_tiet`
+-- Cấu trúc bảng cho bảng `gio_hang`
+--
+
+CREATE TABLE `gio_hang` (
+  `id` int(11) NOT NULL,
+  `id_sp` int(11) NOT NULL,
+  `so_luong` int(11) NOT NULL,
+  `gia` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `gio_hang`
+--
+
+INSERT INTO `gio_hang` (`id`, `id_sp`, `so_luong`, `gia`) VALUES
+(1, 1, 2, 500000.00),
+(2, 2, 1, 150000.00),
+(3, 3, 3, 300000.00);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hinh_anh_chi_tiet`
 --
 
 CREATE TABLE `hinh_anh_chi_tiet` (
@@ -206,7 +228,7 @@ CREATE TABLE `hinh_anh_chi_tiet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `hinh_anh_chi_tiet`
+-- Đang đổ dữ liệu cho bảng `hinh_anh_chi_tiet`
 --
 
 INSERT INTO `hinh_anh_chi_tiet` (`id`, `id_sp`, `hinh_url`) VALUES
@@ -322,20 +344,20 @@ INSERT INTO `hinh_anh_chi_tiet` (`id`, `id_sp`, `hinh_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ma_giam_gia`
+-- Cấu trúc bảng cho bảng `ma_giam_gia`
 --
 
 CREATE TABLE `ma_giam_gia` (
-  `id_gg` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `code_giam_gia` varchar(50) NOT NULL,
   `so_tien_giam` decimal(15,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ma_giam_gia`
+-- Đang đổ dữ liệu cho bảng `ma_giam_gia`
 --
 
-INSERT INTO `ma_giam_gia` (`id_gg`, `code_giam_gia`, `so_tien_giam`) VALUES
+INSERT INTO `ma_giam_gia` (`id`, `code_giam_gia`, `so_tien_giam`) VALUES
 (1, 'Giảm 10%', 10.00),
 (2, 'Giảm 20%', 20.00),
 (3, 'Giảm 30%', 30.00),
@@ -344,7 +366,7 @@ INSERT INTO `ma_giam_gia` (`id_gg`, `code_giam_gia`, `so_tien_giam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `san_pham`
+-- Cấu trúc bảng cho bảng `san_pham`
 --
 
 CREATE TABLE `san_pham` (
@@ -362,7 +384,7 @@ CREATE TABLE `san_pham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `san_pham`
+-- Đang đổ dữ liệu cho bảng `san_pham`
 --
 
 INSERT INTO `san_pham` (`id`, `id_dm`, `ten_sp`, `gia_sp`, `giamgia_sp`, `hinh_sp`, `dacbiet_sp`, `ngay_nhap`, `mo_ta`, `thong_tin_sp`, `an_hien`) VALUES
@@ -421,7 +443,34 @@ INSERT INTO `san_pham` (`id`, `id_dm`, `ten_sp`, `gia_sp`, `giamgia_sp`, `hinh_s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `thanh_toan`
+--
+
+CREATE TABLE `thanh_toan` (
+  `id` int(11) NOT NULL,
+  `id_gio_hang` int(11) NOT NULL,
+  `id_sp` int(11) NOT NULL,
+  `don_gia` decimal(10,2) NOT NULL,
+  `so_luong` int(11) NOT NULL,
+  `ten_nguoi_nhan` varchar(100) NOT NULL,
+  `dia_chi` varchar(255) NOT NULL,
+  `sdt` varchar(15) NOT NULL,
+  `id_gg` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thanh_toan`
+--
+
+INSERT INTO `thanh_toan` (`id`, `id_gio_hang`, `id_sp`, `don_gia`, `so_luong`, `ten_nguoi_nhan`, `dia_chi`, `sdt`, `id_gg`) VALUES
+(1, 1, 1, 250000.00, 2, 'Nguyen Van A', '123 Đường ABC, TP.HCM', '0901234567', NULL),
+(2, 2, 2, 150000.00, 1, 'Tran Thi B', '456 Đường DEF, TP.HCM', '0902345678', NULL),
+(3, 3, 3, 100000.00, 3, 'Le Van C', '789 Đường GHI, TP.HCM', '0903456789', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -436,7 +485,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`, `role`, `ten`) VALUES
@@ -450,33 +499,34 @@ INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`, `role`, `te
 (8, 'anpham160420e05@gmail.com', '1', '1', NULL, '1', 0, ''),
 (11, 'z@gmail.com', '$2y$10$KxGnD/ZdQbMjykiRghonSulbZaMlJL0JPjrwZWmx5sFO3DTY4JATa', NULL, NULL, NULL, 0, ''),
 (12, 'q@gmail.com', '$2y$10$xJ.fxorSl7wV8caUl7Y0Mu.CO3Wx9dZ6mARQgupFDQOGeyEKh53SW', 'a', NULL, 'a', 0, 'a'),
-(13, 'e@gmail.com', '$2y$10$qK1fZcVXm0qdpJmW6G..huLiLgNdFIzAJEvDXgFfpvVZRKc0usMx.', 'f', NULL, 'f', 0, 'a');
+(13, 'e@gmail.com', '$2y$10$qK1fZcVXm0qdpJmW6G..huLiLgNdFIzAJEvDXgFfpvVZRKc0usMx.', 'f', NULL, 'f', 0, 'a'),
+(14, 'nkocbabie2707@gmail.com', '$2y$10$QhEeKznUE1Rde7Gxkz4qLuW8QRdhTL/0x3Aly51BRatTK6il12awm', '12', NULL, 'qưeqw', 0, 'dsfsfefes');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bai_viet`
+-- Chỉ mục cho bảng `bai_viet`
 --
 ALTER TABLE `bai_viet`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banner`
+-- Chỉ mục cho bảng `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banner_mini`
+-- Chỉ mục cho bảng `banner_mini`
 --
 ALTER TABLE `banner_mini`
   ADD PRIMARY KEY (`id`),
   ADD KEY `banner_id` (`banner_id`);
 
 --
--- Indexes for table `binh_luan`
+-- Chỉ mục cho bảng `binh_luan`
 --
 ALTER TABLE `binh_luan`
   ADD PRIMARY KEY (`id`),
@@ -484,7 +534,7 @@ ALTER TABLE `binh_luan`
   ADD KEY `id_sp` (`id_sp`);
 
 --
--- Indexes for table `chitiet_don_hang`
+-- Chỉ mục cho bảng `chitiet_don_hang`
 --
 ALTER TABLE `chitiet_don_hang`
   ADD PRIMARY KEY (`id`),
@@ -492,13 +542,13 @@ ALTER TABLE `chitiet_don_hang`
   ADD KEY `id_dh` (`id_dh`);
 
 --
--- Indexes for table `danh_muc`
+-- Chỉ mục cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `don_hang`
+-- Chỉ mục cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
   ADD PRIMARY KEY (`id`),
@@ -506,145 +556,187 @@ ALTER TABLE `don_hang`
   ADD KEY `id_gg` (`id_gg`);
 
 --
--- Indexes for table `hinh_anh_chi_tiet`
+-- Chỉ mục cho bảng `gio_hang`
+--
+ALTER TABLE `gio_hang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sp` (`id_sp`);
+
+--
+-- Chỉ mục cho bảng `hinh_anh_chi_tiet`
 --
 ALTER TABLE `hinh_anh_chi_tiet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_sp` (`id_sp`);
 
 --
--- Indexes for table `ma_giam_gia`
+-- Chỉ mục cho bảng `ma_giam_gia`
 --
 ALTER TABLE `ma_giam_gia`
-  ADD PRIMARY KEY (`id_gg`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `code_giam_gia` (`code_giam_gia`);
 
 --
--- Indexes for table `san_pham`
+-- Chỉ mục cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_dm` (`id_dm`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `thanh_toan`
+--
+ALTER TABLE `thanh_toan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_gio_hang` (`id_gio_hang`),
+  ADD KEY `id_sp` (`id_sp`),
+  ADD KEY `id_gg` (`id_gg`);
+
+--
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bai_viet`
+-- AUTO_INCREMENT cho bảng `bai_viet`
 --
 ALTER TABLE `bai_viet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `banner`
+-- AUTO_INCREMENT cho bảng `banner`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `banner_mini`
+-- AUTO_INCREMENT cho bảng `banner_mini`
 --
 ALTER TABLE `banner_mini`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `binh_luan`
+-- AUTO_INCREMENT cho bảng `binh_luan`
 --
 ALTER TABLE `binh_luan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `chitiet_don_hang`
+-- AUTO_INCREMENT cho bảng `chitiet_don_hang`
 --
 ALTER TABLE `chitiet_don_hang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `danh_muc`
+-- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `don_hang`
+-- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `hinh_anh_chi_tiet`
+-- AUTO_INCREMENT cho bảng `gio_hang`
+--
+ALTER TABLE `gio_hang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `hinh_anh_chi_tiet`
 --
 ALTER TABLE `hinh_anh_chi_tiet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
--- AUTO_INCREMENT for table `ma_giam_gia`
+-- AUTO_INCREMENT cho bảng `ma_giam_gia`
 --
 ALTER TABLE `ma_giam_gia`
-  MODIFY `id_gg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `san_pham`
+-- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `thanh_toan`
+--
+ALTER TABLE `thanh_toan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `banner_mini`
+-- Các ràng buộc cho bảng `banner_mini`
 --
 ALTER TABLE `banner_mini`
   ADD CONSTRAINT `banner_mini_ibfk_1` FOREIGN KEY (`banner_id`) REFERENCES `banner` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `binh_luan`
+-- Các ràng buộc cho bảng `binh_luan`
 --
 ALTER TABLE `binh_luan`
   ADD CONSTRAINT `binh_luan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `binh_luan_ibfk_2` FOREIGN KEY (`id_sp`) REFERENCES `san_pham` (`id`);
 
 --
--- Constraints for table `chitiet_don_hang`
+-- Các ràng buộc cho bảng `chitiet_don_hang`
 --
 ALTER TABLE `chitiet_don_hang`
   ADD CONSTRAINT `chitiet_don_hang_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `san_pham` (`id`),
   ADD CONSTRAINT `chitiet_don_hang_ibfk_2` FOREIGN KEY (`id_dh`) REFERENCES `don_hang` (`id`);
 
 --
--- Constraints for table `don_hang`
+-- Các ràng buộc cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
   ADD CONSTRAINT `don_hang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `don_hang_ibfk_2` FOREIGN KEY (`id_gg`) REFERENCES `ma_giam_gia` (`id_gg`);
+  ADD CONSTRAINT `don_hang_ibfk_2` FOREIGN KEY (`id_gg`) REFERENCES `ma_giam_gia` (`id`);
 
 --
--- Constraints for table `hinh_anh_chi_tiet`
+-- Các ràng buộc cho bảng `gio_hang`
+--
+ALTER TABLE `gio_hang`
+  ADD CONSTRAINT `gio_hang_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `san_pham` (`id`);
+
+--
+-- Các ràng buộc cho bảng `hinh_anh_chi_tiet`
 --
 ALTER TABLE `hinh_anh_chi_tiet`
   ADD CONSTRAINT `hinh_anh_chi_tiet_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `san_pham` (`id`);
 
 --
--- Constraints for table `san_pham`
+-- Các ràng buộc cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
   ADD CONSTRAINT `san_pham_ibfk_1` FOREIGN KEY (`id_dm`) REFERENCES `danh_muc` (`id`);
+
+--
+-- Các ràng buộc cho bảng `thanh_toan`
+--
+ALTER TABLE `thanh_toan`
+  ADD CONSTRAINT `thanh_toan_ibfk_1` FOREIGN KEY (`id_gio_hang`) REFERENCES `gio_hang` (`id`),
+  ADD CONSTRAINT `thanh_toan_ibfk_2` FOREIGN KEY (`id_sp`) REFERENCES `san_pham` (`id`),
+  ADD CONSTRAINT `thanh_toan_ibfk_3` FOREIGN KEY (`id_gg`) REFERENCES `ma_giam_gia` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
