@@ -75,7 +75,7 @@ if (isset($_GET['logout'])) {
                         echo '<a style="background-color:white;" href="index.php?trang=user">
                                 <img src="Public/img/avt.jpg" style="width: 40px; height: 40px; border-radius: 50%;"/>
                               </a>';
-                        echo '<a style="color: white;" class="log-out" href="?logout=true">Đăng xuất</a>';
+                        echo '<a style="color: white; font-size: 15px" class="log-out" href="?logout=true">Đăng xuất</a>';
                     } else {
                         echo '<a class="log-in" href="#">Log in</a>';
                     }

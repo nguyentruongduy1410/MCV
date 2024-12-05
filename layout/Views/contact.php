@@ -39,7 +39,7 @@
                     <p><strong>Địa chỉ:</strong> Công Viên Phần Mềm, Quang Trung Đ. Tô Ký, Tân Hưng Thuận, Quận 12, Hồ
                         Chí
                         Minh</p>
-                    <p><strong>Email:</strong> <a href="mailto:Pet0309@gmail.com">shop@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:classicalmusicvnn@gmail.com">classicalmusicvnn@gmail.com</a></p>
                     <p><strong>Điện thoại:</strong> <a href="">0xxxxxxxxxx</a></p>
                 </div>
             </div>

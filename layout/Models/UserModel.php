@@ -23,7 +23,7 @@ function checkEmail($email) {
     return $stmt->rowCount() > 0;
 }
 
-function registerUser($email, $password) {
+function registerUser($email, $password, $name) {
     $connect = new ConnectModel();
     $conn = $connect->ketnoi();
 
@@ -31,9 +31,10 @@ function registerUser($email, $password) {
         return false;
     }
 
-    $sql = "INSERT INTO users (email, mk) VALUES (:sEmail, :sPassword)";
+    $sql = "INSERT INTO users (email, mk, ten) VALUES (:sEmail, :sPassword, :sName)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':sEmail', $email);
+    $stmt->bindParam(':sName', $name);
     $stmt->bindParam(':sPassword', $password);
 
     return $stmt->execute();
@@ -88,11 +89,16 @@ function updatePassword($email, $newPassword)
         $stmt->bindParam(':email', $email);
         return $stmt->execute(); 
     }
-function setResetToken($email, $token) {
-        $conn = connect();
-        $stmt = $conn->prepare("UPDATE users SET reset_token = :token WHERE email = :email");
-        $stmt->bindParam(':token', $token);
+function updatePasswordInDatabase($email, $newPassword)
+    {
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $connect = new ConnectModel();
+        $conn = $connect->ketnoi();
+    
+        $stmt = $conn->prepare("UPDATE users SET mk = :password WHERE email = :email");
+        $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':email', $email);
-        return $stmt->execute(); // Trả về true nếu thành công
+    
+        return $stmt->execute();
     }
 ?>
