@@ -109,41 +109,28 @@
 
         </div> -->
 
-        
+
 <div class="box-all-news">
-    <h1><?php echo htmlspecialchars($newsDetail['ten_bv']); ?></h1>
-    <p class="news-detail-date">Ngày xuất bản: <?php echo htmlspecialchars($newsDetail['ngay_dang']); ?></p>
-    <div class="news-detail-content">
-        <p><?php echo nl2br(htmlspecialchars($newsDetail['noi_dung'])); ?></p>
-        <?php if (!empty($newsDetail['hinh_anh'])): ?>
-            <img src="./Public/img/<?php echo htmlspecialchars($newsDetail['hinh_anh']); ?>" alt="Hình ảnh bài viết">
-        <?php endif; ?>
-    </div>
-    <p><strong>PHONG VÂN – UY TÍN TẠO NÊN THƯƠNG HIỆU</strong></p>
-</div>
-
-
-<!-- <div class="box-all-news">
-<?php
+    <?php
     $ch = '';
-    foreach ($newsList as $news => $value) {
+    foreach ($newsDetail as $news => $value) {
         $ch .= '
         <h1>' . $value['ten_bv'] . '</h1>
-    <p class="news-detail-date">Ngày xuất bản:' . $value['ngay_dang'].'</p>
+    <p class="news-detail-date">Ngày xuất bản:' . $value['ngay_dang'] . '</p>
     <div class="news-detail-content">
-        <p>' . $value['noi_dung'].'</p>
-            <img src="./Public/img/' . $value['hinh_anh'].'" alt="Hình ảnh bài viết">
+        <p>' . $value['noi_dung'] . '</p>
+            <img src="./Public/img/' . $value['hinh_anh'] . '" alt="Hình ảnh bài viết">
     </div>
     <p><strong>PHONG VÂN – UY TÍN TẠO NÊN THƯƠNG HIỆU</strong></p>    
             ';
     }
     echo $ch;
     ?>
-    </div> -->
-    <script>
+</div>
+<script>
     var menu_icon = document.getElementById('mm')
     var menu_hide = document.querySelector('#menu-hide');
-    menu_icon.onclick = function () {
+    menu_icon.onclick = function() {
 
         if (menu_hide.style.display === 'none') {
             menu_hide.style.display = 'block';
@@ -156,22 +143,20 @@
     let tools = document.getElementById('tools');
     let tools_menu = document.getElementById('tools-menu');
 
-    tools.addEventListener('mouseover', function () {
+    tools.addEventListener('mouseover', function() {
         tools_menu.style.display = 'block';
     })
-    tools.addEventListener('mouseout', function () {
-        setTimeout(function () {
+    tools.addEventListener('mouseout', function() {
+        setTimeout(function() {
             if (!tools_menu.matches(':hover')) {
                 tools_menu.style.display = 'none';
             }
         }, 200);
     });
-    tools_menu.addEventListener('mouseleave', function () {
+    tools_menu.addEventListener('mouseleave', function() {
         tools_menu.style.display = 'none';
     })
-    tools_menu.addEventListener('mouseout', function () {
+    tools_menu.addEventListener('mouseout', function() {
         tools_menu.style.display = 'block';
     })
 </script>
-
-

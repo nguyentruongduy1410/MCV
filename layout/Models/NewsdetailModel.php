@@ -10,7 +10,7 @@ class NewsdetailModel {
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $this->newsDetail = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->newsDetail = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $data->conn = null;
     }
 }
