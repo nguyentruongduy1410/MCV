@@ -61,7 +61,14 @@
                                             <p>Tổng tiền:</p>
                                             <span id="ttgh">'.$tong.'</span>
                                         </div>
-                                        <button>Thanh toán</button>
+                                   <form action="index.php?trang=thanhtoan" method="post">
+                                <input type="hidden" name="id" value="' . $value['id'] . '">
+                                <input type="hidden" name="price" value="' . $value['gia_sp'] . '">
+                                <input type="hidden" name="img" value="' . $value['hinh_sp'] . '">
+                                <input type="hidden" name="name" value="' . $value['ten_sp'] . '"> 
+                            <button class="mua" name="thanhtoan" type="submit">Thanh toán</button>
+                        
+                        </form>
                                     </div>
                                 </div>';
                 

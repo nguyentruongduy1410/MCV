@@ -4,9 +4,11 @@ ob_start();
 if (!isset($_SESSION['giohang'])) {
     $_SESSION['giohang'] = array();
 }
+ob_start();
 if (!isset($_SESSION['thanhtoan'])) {
     $_SESSION['thanhtoan'] = array();
 }
+
 include_once './Views/header.php';
 
 // Lấy tham số từ URL

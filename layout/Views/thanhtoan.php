@@ -6,9 +6,5 @@ $html_thanhtoan = $ThanhToanController->showthanhtoan_html();
     
 </style>
 <div class="container" id="thanhtoan">
-    
-        <?php
-        echo $html_thanhtoan;
-        ?>
-    
+    <?php echo $html_thanhtoan; ?>
 </div>
