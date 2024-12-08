@@ -81,8 +81,8 @@
                     <img src="./Public/img/p.svg" alt="">
                     <img src="./Public/img/in.svg" alt="">
                     <img src="./Public/img/tiktok.svg" alt="">
-                    <img src="./Public/img/youtubesvg.svg" alt="">
+                    <img src="./Public/img/youtubesvg.svg" alt="">                    
                 </div>
-            </div>
+            </div> 
         </footer>
     </div>

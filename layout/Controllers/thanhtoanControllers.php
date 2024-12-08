@@ -22,7 +22,7 @@
                 $tong = 0;
                 $html_thanhtoan = '
 
-    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
             <div class="form-section">
                 <h2>Thông tin nhận hàng</h2>
@@ -41,9 +41,10 @@
                         <option value="">Chọn tỉnh/thành</option>
                     </select>
 
-                    <label for="district">Quận huyện</label>
+                    <label name="huyen" for="district">Quận huyện</label>
                     <select id="district" disabled>
                         <option value="">Chọn quận/huyện</option>
+                       
                     </select>
 
                     <label for="ward">Phường xã</label>
@@ -61,6 +62,7 @@
                 foreach ($_SESSION['thanhtoan'] as $key => $value) {
                     $tt = intval($value['price']) * intval($value['soluong']);
                     $tong += $tt;
+                    $ttv =intval($value['price']) * intval($value['soluong']-intval($value['.check_voucher.']));
                     $html_thanhtoan .= '
             
                 <div class="order-item">
@@ -85,7 +87,7 @@
                 <div class="total">
                     <p>Tạm tính: <span>' . $tong . '</span></p>
                     <p>Phí vận chuyển: <span>-</span></p>
-                    <p><strong>Tổng cộng: <span>' . $tong . '</span></strong></p>
+                    <p><strong>Tổng cộng: <span>' . $ttv . '</span></strong></p>
                 </div>
                 <button class="order-btn">ĐẶT HÀNG</button>
             </div>
