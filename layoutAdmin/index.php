@@ -9,19 +9,12 @@ $email = isset($_POST['email']) ? $_POST['email'] : '';
 $mk = isset($_POST['mk']) ? $_POST['mk'] : '';
 $sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
 $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
-$id = isset($_GET['id']) ? $_GET['id'] : '';
-$lenh = isset($_GET['lenh']) ? $_GET['lenh'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
 $role = isset($_POST['role']) ? $_POST['role'] : ''; 
-$mk = isset($_POST['mk']) ? $_POST['mk'] : '';
-$sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
-$diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
 $ten_bv = isset($_POST['ten_bv']) ? $_POST['ten_bv'] : '';
 $noi_dung = isset($_POST['noi_dung']) ? $_POST['noi_dung'] : '';
 $hinh_anh = isset($_POST['hinh_anh']) ? $_POST['hinh_anh'] : '';
 $ngay_dang = isset($_POST['ngay_dang']) ? $_POST['ngay_dang'] : '';
 $mo_ta = isset($_POST['mo_ta']) ? $_POST['mo_ta'] : '';
-$id = isset($_GET['id']) ? $_GET['id'] : null;
 $ten_sp = isset($_POST['ten_sp']) ? $_POST['ten_sp'] : '';
 $id_dm = isset($_POST['id_dm']) ? $_POST['id_dm'] : '';
 $gia_sp = isset($_POST['gia_sp']) ? $_POST['gia_sp'] : '';
@@ -29,7 +22,10 @@ $giamgia_sp = isset($_POST['giamgia_sp']) ? $_POST['giamgia_sp'] : '';
 $hinh_sp = isset($_FILES['hinh_sp']['name']) ? $_FILES['hinh_sp']['name'] : '';
 $thong_tin_sp = isset($_POST['thong_tin_sp']) ? $_POST['thong_tin_sp'] : '';
 
-// In giá trị của các biến để kiểm tra (tùy chọn)
+$trangthai_dh = isset($_POST['trangthai_dh']) ? $_POST['trangthai_dh'] : '';
+$trangthai_tt = isset($_POST['trangthai_tt']) ? $_POST['trangthai_tt'] : '';
+
+
 
 switch ($page) {
     case 'home':
@@ -66,8 +62,9 @@ switch ($page) {
         break;
     case 'qldonhang':
         include_once('Controller/QldonhangController.php');
-        $QldonhangController = new QldonhangController();
-        break;
+        $QldonhangController = new QldonhangController(lenh: $lenh, id: $id,trangthai_dh: $trangthai_dh, trangthai_tt: $trangthai_tt);
+        $QldonhangController->index();
+        break; 
     case 'baivietsp':
         include_once 'Views/baivietsp.php';
         break;

@@ -5,11 +5,13 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Ảnh</th>
+                        <th>Đơn hàng</th>
                         <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Địa chỉ khách hàng</th>
+                        <th>Trạng thái đơn hàng</th>
+                        <th>Trạng thái thanh toán</th>
+                        <th>Hành động</th>
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -19,17 +21,20 @@
                             $ch .= '
                                     <tr>
                                         <td>'.$value['id'].'</td>
-                                        <td>'.$value['id_sp'].'</td>
-                                        <td><img src="./Public/img/'.$value['id_sp'].'" alt=""></td>
+                                        <td>'.$value['ten_sp'].'</td>
                                         <td>'.$value['so_luong'].'</td>
-                                        <td>'.$value['gia'].'</td>
-
-                                        <td><textarea class="admin-note" placeholder="Thêm ghi chú..."></textarea></td>
-                                        <td>123 Đường ABC, Phường XYZ, Thành phố H</td>
+                                        <td>'.$value['trang_thai'].'</td>
+                                        <td>'.$value['trang_thai_tt'].'</td>
+                                        <td>
+                                            <a href="index.php?trang=qldonhang&lenh=chitietdh&id='.$value['id'].'">Xem thêm</a>
+                                            <a href="index.php?trang=qldonhang&lenh=suatrangthai&id='.$value['id'].'">Sửa trạng thái</a>
+                                        </td>
+                                        
                                     </tr>
 
                             ';
                         }
+                        echo $ch;
                     ?>
                    
                     
