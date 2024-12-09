@@ -132,6 +132,12 @@ switch ($page) {
         include_once 'Controllers/HistoryController.php';
         $HistoryController = new HistoryController($userId);
         break;
+    case 'get_address':
+        include_once 'Controllers/thanhtoanControllers.php';
+        $ThanhToanController = new ThanhToanController();
+        $ThanhToanController->getaddress();
+
+        break;
 
         case 'thanhtoan':
             if (isset($_GET['key']) && isset($_SESSION['thanhtoan'][$_GET['key']])) {
