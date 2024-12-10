@@ -10,14 +10,13 @@
     margin-bottom: 20px;
 }
 #cart-gh .table-cart{
-    width: 100%;
+    width: 50%;
     height: auto;
     border: 1px solid #99999944;
     margin-bottom: 20px;
 }
 .table-cart .title-cart{
-    width: 100%;
-    border: 1px solid #99999944;
+    width: 50%;
     height: auto;
 }
 .title-cart ul{

@@ -30,7 +30,7 @@
            
             
             <div class="pttt">
-                <h3>Phương thức thanh toán</h3>
+                <h4>Phương thức thanh toán</h4>
                 <div>
                 <input type="radio" id="cod" name="payment" checked value="cod">
                 <label for="cod">Chuyển khoản ngân hàng (COD)</label><br>

@@ -105,5 +105,5 @@ class ThanhToanController
         return '<p>Không có sản phẩm trong giỏ hàng</p>';
     }
 }
-var_dump($_SESSION['thanhtoan'])
+
 ?>
