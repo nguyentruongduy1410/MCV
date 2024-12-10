@@ -26,8 +26,8 @@
                                         <td>'.$value['trang_thai'].'</td>
                                         <td>'.$value['trang_thai_tt'].'</td>
                                         <td>
-                                            <a href="index.php?trang=qldonhang&lenh=chitietdh&id='.$value['id'].'">Xem thêm</a>
-                                            <a href="index.php?trang=qldonhang&lenh=suatrangthai&id='.$value['id'].'">Sửa trạng thái</a>
+                                            <a href="index.php?trang=qldonhang&lenh=chitietdh&id='.$value['id'].'" class="nutxem">Xem thêm</a>
+                                            <a href="index.php?trang=qldonhang&lenh=suatrangthai&id='.$value['id'].'"class="nutsua">Sửa trạng thái</a>
                                         </td>
                                         
                                     </tr>
@@ -36,7 +36,7 @@
                         }
                         echo $ch;
                     ?>
-                   
+                   <a href="" class="nutxem"></a>
                     
                 </tbody>
             </table>

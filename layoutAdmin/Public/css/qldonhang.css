@@ -57,3 +57,56 @@ body {
     font-size: 14px;
     box-sizing: border-box;
 }
+.nutxem{
+    background-color:gray;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.nutsua{
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+/* .content {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 400px;
+}
+a {
+    text-decoration: none;
+    font-size: 24px;
+    color: red;
+    display: block;
+    text-align: right;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+    color: #555;
+}
+select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} */

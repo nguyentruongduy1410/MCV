@@ -98,8 +98,8 @@
                                     <div class="text-sp">
                                         <h3>' . $value['ten_sp'] . '</h3>
                                         <div class="price-sp">
-                                            <p>' . $value['giamgia_sp'] . 'đ</p>
-                                            <p class="sale-sp">' . $value['gia_sp'] . 'đ</p>
+                                            <p>' . number_format($value['giamgia_sp']) . 'đ</p>
+                                            <p class="sale-sp">' . number_format($value['gia_sp']) . 'đ</p>
                                         </div>
                                     </div>
                                 </div>

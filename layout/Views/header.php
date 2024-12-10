@@ -69,6 +69,10 @@ if (isset($_GET['logout'])) {
 
                     <a class="cart" href="index.php?trang=cart"><i class='bx bx-cart'></i>
                     <span id="number-cart"><?= isset($_SESSION['so_luong']) ? $_SESSION['so_luong'] : 0 ?></span>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3565aa58de022258cca55f1cb4c567ec1062a576
                     </a>
                     <?php
                     if (isset($_SESSION['email'])) {

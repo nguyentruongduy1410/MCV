@@ -15,7 +15,7 @@ class UserController
             $oldPasswordFromDb = getOldPassword($email);
 
             if ($oldPasswordFromDb && password_verify($oldPassword, $oldPasswordFromDb)) {
-                if (strlen($newPassword) >= 8) { // Kiểm tra độ dài mật khẩu mới
+                if (strlen($newPassword) >= 8) {
                     if ($newPassword === $confirmPassword) {
                         if (updatePassword($email, $newPassword)) {
                             $_SESSION['error_pass'] = "Mật khẩu đã được thay đổi thành công!";

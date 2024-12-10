@@ -3,7 +3,7 @@ class QlsanphamController
 {
     public $lenh;
     public $id;
-    public $ten_sp;
+    public $ten_sp; 
     public $id_dm;
     public $gia_sp;
     public $giamgia_sp;

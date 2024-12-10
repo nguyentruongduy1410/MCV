@@ -8,7 +8,10 @@ class QlsanphamModel
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
         $data->ketnoi();
-        $sql = "SELECT * FROM san_pham";
+        $sql = "SELECT san_pham.*, danh_muc.ten_dm 
+                FROM san_pham
+                JOIN danh_muc ON san_pham.id_dm = danh_muc.id;
+                ";
         $this->tcsp = $data->selectall($sql) ?? []; // Nếu không có sản phẩm, gán mảng rỗng
     }
 
@@ -18,11 +21,11 @@ class QlsanphamModel
         $data = new ConnectModel();
         $data->ketnoi();
 
-        $sql = "INSERT INTO san_pham (ten_sp, id_dm, gia_sp, giamgia_sp, hinh_sp, thong_tin_sp) 
-                VALUES (:ten_sp, :id_dm, :gia_sp, :giamgia_sp, :hinh_sp, :thong_tin_sp)";
+        $sql = "INSERT INTO san_pham (ten_sp, id_$id_dm$id_dm, gia_sp, giamgia_sp, hinh_sp, thong_tin_sp) 
+                VALUES (:ten_sp, :id_$id_dm$id_dm, :gia_sp, :giamgia_sp, :hinh_sp, :thong_tin_sp)";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":ten_sp", $ten_sp);
-        $stmt->bindParam(":id_dm", $id_dm);
+        $stmt->bindParam(":id_$id_dm$id_dm", $id_dm);
         $stmt->bindParam(":gia_sp", $gia_sp);
         $stmt->bindParam(":giamgia_sp", $giamgia_sp);
         $stmt->bindParam(":hinh_sp", $hinh_sp);
@@ -49,11 +52,11 @@ class QlsanphamModel
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
         $data->ketnoi();
-        $sql = "UPDATE san_pham SET ten_sp = :ten_sp, id_dm = :id_dm, gia_sp = :gia_sp, giamgia_sp = :giamgia_sp,
+        $sql = "UPDATE san_pham SET ten_sp = :ten_sp, id_$id_dm$id_dm = :id_$id_dm$id_dm, gia_sp = :gia_sp, giamgia_sp = :giamgia_sp,
                 hinh_sp = :hinh_sp, thong_tin_sp = :thong_tin_sp WHERE id = :id";
         $stmt = $data->conn->prepare($sql);
         $stmt->bindParam(":ten_sp", $ten_sp);
-        $stmt->bindParam(":id_dm", $id_dm);
+        $stmt->bindParam(":id_$id_dm$id_dm", $id_dm);
         $stmt->bindParam(":gia_sp", $gia_sp);
         $stmt->bindParam(":giamgia_sp", $giamgia_sp);
         $stmt->bindParam(":hinh_sp", $hinh_sp);

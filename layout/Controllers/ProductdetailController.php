@@ -10,6 +10,7 @@ class ProductdetailController {
 
 
         }
+        $productdetailmodel->view($id);
         $productdetailmodel->onesp($id);
         $productdetailmodel->splienquan($id, $iddm);
         $productdetailmodel->chitiethinhanh($id);
