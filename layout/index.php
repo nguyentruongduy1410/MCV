@@ -83,8 +83,6 @@ switch ($page) {
         include_once './Views/cart.php';
         break;
 
-
-<<<<<<< HEAD
     case 'contact':
         include_once 'Controllers/ContactController.php';
         $ContactController = new ContactController();
@@ -95,7 +93,6 @@ switch ($page) {
             include_once './Views/contact.php'; // Hiển thị form liên hệ
         }
         break;
-=======
         case 'contact':
 include_once 'Controllers/ContactController.php';
             $ContactController = new ContactController();
@@ -106,7 +103,6 @@ include_once 'Controllers/ContactController.php';
                 include_once './Views/contact.php'; // Hiển thị form liên hệ
             }
             break;
->>>>>>> 5b3f765d51398179066fc846f765f4d7a4b57b6f
 
     case 'news':
         include_once 'Controllers/NewsController.php';
@@ -149,8 +145,6 @@ include_once 'Controllers/ContactController.php';
         $HistoryController = new HistoryController($userId);
         break;
 
-
-<<<<<<< HEAD
     case 'thanhtoan':
         if (isset($_GET['key']) && isset($_SESSION['thanhtoan'][$_GET['key']])) {
             unset($_SESSION['thanhtoan'][$_GET['key']]);
@@ -192,8 +186,6 @@ include_once 'Controllers/ContactController.php';
             include_once 'Controllers/ActivityController.php';
             $ActivityController = new ActivityController();
             break;
-}
-=======
         case 'thanhtoan':
         
   
@@ -215,8 +207,6 @@ include_once 'Controllers/ContactController.php';
 
         include_once './Views/thanhtoan.php';     
     }
->>>>>>> 5b3f765d51398179066fc846f765f4d7a4b57b6f
-
 include_once './Views/footer.php';
 include_once './Views/login.php';
 ?>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2024 lúc 03:56 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Thời gian đã tạo: Th12 10, 2024 lúc 06:22 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1284,26 +1284,28 @@ CREATE TABLE `users` (
   `vaitro` varchar(50) DEFAULT NULL,
   `diachi` text DEFAULT NULL,
   `role` tinyint(1) NOT NULL DEFAULT 0,
-  `ten` varchar(50) NOT NULL
+  `ten` varchar(50) NOT NULL,
+  `activation_status` tinyint(1) DEFAULT 0,
+  `activation_code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`, `role`, `ten`) VALUES
-(1, 'a@gmail.com', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '0123456789', 'customer', 'Địa chỉ Aaa', 1, 'nguyen van aaa'),
-(2, 'b@gmail.com', 'password2', '34454', 'customer', 'nhà an', 0, 'nguyen a'),
-(3, 'anpham16042005@gmail.com', 'a', '098766', NULL, 'Địa chỉ g', 0, 'an'),
-(4, 'dsf@s', 's', NULL, NULL, NULL, 0, ''),
-(5, 'anphams16042005@gmail.com', 'a', NULL, NULL, NULL, 0, ''),
-(6, 'dsf@ss', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '190010', NULL, 'nhà tao', 0, 'ma hóaa'),
-(7, 'dsf@sa', '$2y$10$.k82nGscI/SIvwCbbBlmr.CsJm6NxJnMeswBchTgJUJD9BHYcx9iu', NULL, NULL, NULL, 0, ''),
-(8, 'anpham160420e05@gmail.com', '1', '1', NULL, '1', 0, ''),
-(11, 'z@gmail.com', '$2y$10$KxGnD/ZdQbMjykiRghonSulbZaMlJL0JPjrwZWmx5sFO3DTY4JATa', NULL, NULL, NULL, 0, ''),
-(12, 'q@gmail.com', '$2y$10$xJ.fxorSl7wV8caUl7Y0Mu.CO3Wx9dZ6mARQgupFDQOGeyEKh53SW', 'a', NULL, 'a', 0, 'a'),
-(13, 'e@gmail.com', '$2y$10$qK1fZcVXm0qdpJmW6G..huLiLgNdFIzAJEvDXgFfpvVZRKc0usMx.', 'f', NULL, 'f', 0, 'a'),
-(14, 'nkocbabie2707@gmail.com', '$2y$10$QhEeKznUE1Rde7Gxkz4qLuW8QRdhTL/0x3Aly51BRatTK6il12awm', '12', NULL, 'qưeqw', 0, 'dsfsfefes');
+INSERT INTO `users` (`id`, `email`, `mk`, `sdt`, `vaitro`, `diachi`, `role`, `ten`, `activation_status`, `activation_code`) VALUES
+(1, 'a@gmail.com', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '0123456789', 'customer', 'Địa chỉ Aaa', 1, 'nguyen van aaa', 1, ''),
+(2, 'b@gmail.com', 'password2', '34454', 'customer', 'nhà an', 0, 'nguyen a', 0, ''),
+(4, 'dsf@s', 's', NULL, NULL, NULL, 0, '', 0, ''),
+(5, 'anphams16042005@gmail.com', 'a', NULL, NULL, NULL, 0, '', 0, ''),
+(6, 'dsf@ss', '$2y$10$.fTmqY.79PfsuyGvFv4z8OA14kZO7iTaY10o/QKzpsTSeUT1IQVS6', '190010', NULL, 'nhà tao', 0, 'ma hóaa', 0, ''),
+(7, 'dsf@sa', '$2y$10$.k82nGscI/SIvwCbbBlmr.CsJm6NxJnMeswBchTgJUJD9BHYcx9iu', NULL, NULL, NULL, 0, '', 0, ''),
+(8, 'anpham160420e05@gmail.com', '1', '1', NULL, '1', 0, '', 0, ''),
+(11, 'z@gmail.com', '$2y$10$KxGnD/ZdQbMjykiRghonSulbZaMlJL0JPjrwZWmx5sFO3DTY4JATa', NULL, NULL, NULL, 0, '', 0, ''),
+(12, 'q@gmail.com', '$2y$10$xJ.fxorSl7wV8caUl7Y0Mu.CO3Wx9dZ6mARQgupFDQOGeyEKh53SW', 'a', NULL, 'a', 0, 'a', 0, ''),
+(13, 'e@gmail.com', '$2y$10$qK1fZcVXm0qdpJmW6G..huLiLgNdFIzAJEvDXgFfpvVZRKc0usMx.', 'f', NULL, 'f', 0, 'a', 0, ''),
+(24, 'quoctuyen2103@gmail.com', '$2y$10$nFW/noaAfjdD1.u.2b/22OobO3ZJimsly7zLqUSlX3KnXlck2xDce', NULL, NULL, NULL, 0, 'An Phạm', 0, 'd401419328d0132b3c0a09cc711f934e'),
+(27, 'anpham16042005@gmail.com', '$2y$10$clCYKbPu1HatjGgdRgH3Y.acUkP1davAYRh0U0pLedGnRfHo08ywe', NULL, NULL, NULL, 0, 'An Phạm', 1, 'ec88f81b78ddbed4ced264d2bc1ebac9');
 
 -- --------------------------------------------------------
 
@@ -12095,7 +12097,7 @@ ALTER TABLE `thanh_toan`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

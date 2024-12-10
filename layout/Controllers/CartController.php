@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 class CartController {
     public function __construct() {
         // Include model if necessary (you can uncomment this later)
@@ -95,7 +94,6 @@ $cart_checkout[] = [
             }
         } else {
             $html_cart = "Giỏ hàng rỗng";
-=======
     class CartController {
         
         public function __construct() {
@@ -205,12 +203,10 @@ $cart_checkout[] = [
                 }
                 $_SESSION['so_luong'] = count($_SESSION['giohang']);
             }
->>>>>>> 3565aa58de022258cca55f1cb4c567ec1062a576
         }
 
         return $html_cart;
     }
-<<<<<<< HEAD
     
     public function showcart_html_tomtat() {
         if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
@@ -246,6 +242,3 @@ $cart_checkout[] = [
 
 
 ?>
-=======
-?>
->>>>>>> 3565aa58de022258cca55f1cb4c567ec1062a576

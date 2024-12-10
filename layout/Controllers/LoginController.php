@@ -100,7 +100,7 @@ if (isset($_POST['signup'])) {
                     $activation_code = bin2hex(random_bytes(16));
                     if (registerUser($sEmail, $hashedPassword, $sName, $activation_code)) {
                         if (sendActivationEmail($sEmail, $activation_code)) {
-                            $_SESSION['signup_success'] = "Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.";
+                            $_SESSION['signup_error'] = "Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.";
                         } else {
                             $_SESSION['signup_error'] = "Lỗi gửi email kích hoạt.";
                         }
