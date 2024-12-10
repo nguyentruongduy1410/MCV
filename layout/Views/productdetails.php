@@ -49,6 +49,7 @@ foreach ($productdetailmodel -> chitiet as $key => $value) {
                 </div>
                 <div class="contents">' . $value['thong_tin_sp'] . '</div>
                 <div class="quantity">
+
                     <p>Số lượng</p>
                     <form action="index.php?trang=cart" method="post">
                     <div class="button-quantity">
@@ -57,6 +58,7 @@ foreach ($productdetailmodel -> chitiet as $key => $value) {
                         <button type="button" class="up">+</button>
                     </div>
                 </div>
+                <div class="view">Số lượt xem: '.$value['luot_xem'].'</div>
                 <div class="btn-mua">
                     
                         <input type="hidden" name="id" value="' . $value['id'] . '">

@@ -90,6 +90,15 @@ class ProductdetailModel {
             $stmt->execute();
             $data->conn = null;
         }
+        public function view($id){
+            include_once 'Models/connectmodel.php';
+            $data = new ConnectModel();
+            $sql = "UPDATE san_pham SET luot_xem = luot_xem + 1 WHERE id = :id";            $data->ketnoi();
+            $stmt = $data->conn->prepare($sql);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $data->conn = null; // Đóng kết nối
+        }
         
     
 }

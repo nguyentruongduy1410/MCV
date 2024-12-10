@@ -85,6 +85,7 @@
 
         <div class="box-all-news">
     <h2>Bài viết lưu trữ</h2>
+    <div class="news-box">
     <?php
     $ch = '';
     foreach ($newsList as $news => $value) {
@@ -104,6 +105,7 @@
     }
     echo $ch;
     ?>
+    </div>
 </div>
 
 
