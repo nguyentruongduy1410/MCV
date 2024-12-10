@@ -41,14 +41,20 @@ switch ($page) {
 
     case 'cart':
         if (isset($_GET['delcart']) && is_numeric($_GET['delcart']) && ($_GET['delcart'] == 1)) {
-            unset($_SESSION['giohang']);
+            unset($_SESSION['giohang']); 
+            $_SESSION['so_luong'] = 0;
+            header('location: index.php?trang=cart');
         }
+        
         if (isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)) {
-            if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
+            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                 unset($_SESSION['giohang'][$_GET['key']]);
+                $_SESSION['giohang'] = array_values($_SESSION['giohang']);
+                $_SESSION['so_luong'] = count($_SESSION['giohang']);
                 header('location: index.php?trang=cart');
             }
         }
+        
         if (isset($_POST['btnaddcart'])) {
             $id = $_POST['id'];
             $name = $_POST['name'];

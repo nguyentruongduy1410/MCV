@@ -24,10 +24,7 @@
                     <input type="text" id="role" name="sdt" required>
                 </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="mk" required>
-                </div>
+               
                 <div class="form-group">
                     <label for="sdt">Số điện thoại</label>
                     <input type="text" id="sdt" name="sdt" required>
@@ -50,7 +47,7 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Vai Trò</th>
-                <th>Mật Khẩu</th>
+                
                 <th>Số Điện Thoại</th>
                 <th>Địa Chỉ</th>
                 <th>Hành Động</th>
@@ -65,7 +62,6 @@
                 <td>'.($key+1).'</td>
                 <td>' . $value['email'] . '</td>
                 <td>' . $value['role'] . '</td>
-                <td>' . $value['mk'] . '</td>
                 <td>' . $value['sdt'] . '</td>
                 <td>' . $value['diachi'] . '</td>
                 <td>
@@ -100,10 +96,7 @@
                 <label for="editRole">Vai Trò</label>
                 <input type="text" id="editRole" name="sdt" value="<?php echo $userInfo['role']; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="editPassword">Mật khẩu</label>
-                <input type="password" id="editPassword" name="mk" value="<?php echo $userInfo['mk']; ?>" required>
-            </div>
+         
             <div class="form-group">
                 <label for="editSdt">Số điện thoại</label>
                 <input type="text" id="editSdt" name="sdt" value="<?php echo $userInfo['sdt']; ?>" required>

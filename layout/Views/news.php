@@ -83,7 +83,7 @@
 
 
 
-        <div class="box-all-news">
+    <div class="box-all-news">
     <h2>Bài viết lưu trữ</h2>
     <div class="news-box">
     <?php
