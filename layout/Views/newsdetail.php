@@ -111,6 +111,7 @@
 
 
 <div class="box-all-news">
+<div class="new-detail-box">
     <?php
     $ch = '';
     foreach ($newsDetail as $news => $value) {
@@ -126,6 +127,7 @@
     }
     echo $ch;
     ?>
+    </div>
 </div>
 <script>
     var menu_icon = document.getElementById('mm')

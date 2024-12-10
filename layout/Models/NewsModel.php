@@ -6,7 +6,7 @@ class NewsModel {
     public function getAllNews($page) {
         include_once 'Models/connectmodel.php';
         $data = new ConnectModel();
-        $newsPerPage = 5; // Số bài viết mỗi trang
+        $newsPerPage = 6; // Số bài viết mỗi trang
         $start = ($page - 1) * $newsPerPage;
         $sql = "SELECT * FROM bai_viet LIMIT $start, $newsPerPage";
         $this->newsList = $data->selectall($sql);
