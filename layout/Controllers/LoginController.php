@@ -48,7 +48,7 @@ require '../PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
 function generateActivationLink($email, $activation_code) {
-    return "http://localhost/trungmat/MCV/layout/index.php?trang=activity&email=$email&code=$activation_code";
+    return "https://webdesign2707.id.vn/layout/index.php?trang=activity&email=$email&code=$activation_code";
 } 
 
 // Hàm gửi email kích hoạt
