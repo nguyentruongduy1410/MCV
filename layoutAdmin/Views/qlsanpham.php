@@ -26,9 +26,9 @@ foreach ($productList as $key => $value) {
     <tr data-id="' . $value['id'] . '">
         <td>' . $value['id'] . '</td>
         <td>' . $value['ten_sp'] . '</td>
-        <td>' . $value['id_dm'] . '</td>
-        <td>' . $value['gia_sp'] . '</td>
-        <td>' . $value['giamgia_sp'] . '</td>
+        <td>' . $value['ten_dm'] . '</td>
+        <td>' . number_format($value['gia_sp']) . '</td>
+        <td>' . number_format($value['giamgia_sp']) . '</td>
         <td><img src="./Public/img/' . $value['hinh_sp'] . '" alt="Đàn Tranh" class="product-image"></td>
         <td>' . $value['thong_tin_sp'] . '</td>
         <td >

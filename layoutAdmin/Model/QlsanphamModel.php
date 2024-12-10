@@ -8,7 +8,10 @@ class QlsanphamModel
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
         $data->ketnoi();
-        $sql = "SELECT * FROM san_pham";
+        $sql = "SELECT san_pham.*, danh_muc.ten_dm 
+                FROM san_pham
+                JOIN danh_muc ON san_pham.id_dm = danh_muc.id;
+                ";
         $this->tcsp = $data->selectall($sql) ?? []; // Nếu không có sản phẩm, gán mảng rỗng
     }
 

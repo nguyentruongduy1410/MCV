@@ -19,8 +19,8 @@
                     <tr>
                         <td>' . $value['id'] . '</td>
                         <td>' . $value['noi_dung'] . '</td>
-                        <td>' . $value['id_user'] . '</td>
-                        <td>' . $value['id_sp'] . '</td>
+                        <td>' . $value['ten'] . '</td>
+                        <td>' . $value['ten_sp'] . '</td>
                         <td>' . $value['ngay_bl'] . '</td>
                         <td>
                             <a href="index.php?trang=qlbinhluan&lenh=sua&id=' . $value['id'] . '"><button class="btn edit">Sửa</button></a>

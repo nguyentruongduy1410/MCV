@@ -7,7 +7,13 @@ class QlbinhluanModel
     {
         include_once 'Model/connectmodel.php';
         $data = new ConnectModel();
-        $sql = "SELECT * FROM binh_luan";
+        $sql = "SELECT binh_luan.*,
+                    users.ten,
+                    san_pham.ten_sp
+                FROM binh_luan
+                JOIN users ON binh_luan.id_user = users.id
+                JOIN san_pham ON binh_luan.id_sp = san_pham.id";
+
         $this->dsbl = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
     }
 
