@@ -1,30 +1,56 @@
 <?php
 class ThanhToanController
 {
-    public $html_thanhtoan = '';
     public function __construct()
     {
-        include_once 'Models/thanhtoanModel.php';
-        $thanhtoanModel = new thanhtoanModel();
+        // Khởi tạo session nếu chưa được khởi tạo
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
     public function addthanhtoan($id, $name, $img, $price, $soluong)
     {
-        if (isset($_SESSION['thanhtoan'])) {
-            $item = array('id' => $id, 'name' => $name, 'img' => $img, 'price' => $price, 'soluong' => $soluong);
-            array_push($_SESSION['thanhtoan'], $item);
+        if (!isset($_SESSION['thanhtoan'])) {
+            $_SESSION['thanhtoan'] = []; 
+        }
+
+        $item = array('id' => $id, 'name' => $name, 'img' => $img, 'price' => $price, 'soluong' => $soluong);
+
+        // Kiểm tra nếu sản phẩm đã có trong $_SESSION['thanhtoan']
+        $found = false;
+        foreach ($_SESSION['thanhtoan'] as $key => $value) {
+            if ($value['id'] == $id) {
+                $_SESSION['thanhtoan'][$key]['soluong'] += $soluong; 
+                $found = true;
+                break;
+            }
+        }
+
+        // Nếu sản phẩm chưa có trong giỏ, thêm mới
+        if (!$found) {
+            array_push($_SESSION['thanhtoan'], $item); 
         }
     }
+    public function addVoucher($voucherCode) {
+        // Giả sử bạn có danh sách các voucher trong database hoặc mảng
+        $validVouchers = ['DISCOUNT10', 'SALE20']; // Ví dụ mã giảm giá hợp lệ
+        if (in_array($voucherCode, $validVouchers)) {
+            // Thực hiện giảm giá hoặc thêm voucher vào session
+            $_SESSION['voucher'] = $voucherCode;
+            return "Mã giảm giá đã được áp dụng!";
+        } else {
+            return "Mã giảm giá không hợp lệ!";
+        }
+    }
+    
     public function showthanhtoan_html()
     {
-
-
-        if (isset($_SESSION['thanhtoan']) && (count($_SESSION['thanhtoan']) > 0)) {
-            $tong = 0;
+        
+        if (isset($_SESSION['thanhtoan']) && count($_SESSION['thanhtoan']) > 0) {
+            $tong = 0; 
+            $ttv = 0;  
             $html_thanhtoan = '
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
             <div class="form-section">
                 <h2>Thông tin nhận hàng</h2>
                 <form>
@@ -37,147 +63,47 @@ class ThanhToanController
                     <label for="address">Địa chỉ</label>
                     <input type="text" id="address" placeholder="Nhập địa chỉ">
 
-                  
-                    <label for="province">Tỉnh thành</label>
-                    <select id="province" >
-                        <option value="">Chọn tỉnh/thành</option>
-                    </select>
-
-                    <label name="huyen" for="district">Quận huyện</label>
-                    <select id="district" disabled>
-                        <option value="">Chọn quận/huyện</option>
-                       
-                    </select>
-
-                    <label for="ward">Phường xã</label>
-                    <select id="ward" disabled>
-                        <option value="">Chọn phường/xã</option>
-                    </select>
-
                     <label for="note">Ghi chú (tùy chọn)</label>
                     <textarea id="note" placeholder="Nhập ghi chú"></textarea>
                 </form>
-                </div>
-                <div class="summary-section">
+            </div>
+            <div class="summary-section">
                 <h2>Đơn hàng</h2>';
 
             foreach ($_SESSION['thanhtoan'] as $key => $value) {
-                $tt = intval($value['price']) * intval($value['soluong']);
+                $tt = $value['price'] * $value['soluong']; 
                 $tong += $tt;
-                $check_voucher = isset($value['check_voucher']) ? intval($value['check_voucher']) : 0;
-                $ttv = intval($value['price']) * (intval($value['soluong']) - $check_voucher);
+
                 $html_thanhtoan .= '
-            
                 <div class="order-item">
-                <img src="Public/img/' . $value['img'] . '" alt="" width="60px">
+                    <img src="Public/img/' . htmlspecialchars($value['img']) . '" alt="" width="60px">
                     <div class="item-info">
-                  
-                        <p><strong>' . $value['name'] . '</strong></p>
-                    
+                        <p><strong>' . htmlspecialchars($value['name']) . '</strong></p>
                     </div>
-                    <p>' . $value['price'] . '</p>
-                    <p>x' . $value['soluong'] . '</p>
-                 <p>  <a href="index.php?trang=thanhtoan&key=' . $key . '">
-                                                    <button>Xóa</button>
-                                                </a></p>
+                    <p>' . number_format($value['price'], 0, ',', '.') . '</p>
+           
+                    <p><a href="index.php?trang=thanhtoan&key=' . $key . '"><button>Xóa</button></a></p>
                 </div>';
             }
+
             $html_thanhtoan .= '
-                <div class="promo-code  ">
-                    <input type="text" placeholder="Nhập mã giảm giá">
-                    <button>Áp dụng</button>
-                </div>
-                <div class="total">
-                    <p>Tạm tính: <span>' . $tong . '</span></p>
-                    <p>Phí vận chuyển: <span>-</span></p>
-                    <p><strong>Tổng cộng: <span>' . $ttv . '</span></strong></p>
-                </div>
-                <button class="order-btn">ĐẶT HÀNG</button>
+            <div class="promo-code">
+                <input type="text" placeholder="Nhập mã giảm giá">
+                <button>Áp dụng</button>
             </div>
+            <div class="total">
+                <p>Tạm tính: <span>' . number_format($tong, 0, ',', '.') . '</span></p>
+                <p>Phí vận chuyển: <span>-</span></p>
+                <p><strong>Tổng cộng: <span>' . number_format($tong, 0, ',', '.') . '</span></strong></p>
+            </div>
+            <button class="order-btn">ĐẶT HÀNG</button>
+        </div>';
 
-    
-
-
-
-    ';
             return $html_thanhtoan;
         }
-        return '<p>không có sp</p>';
+
+        return '<p>Không có sản phẩm trong giỏ hàng</p>';
     }
-    public function getaddress() {
-        $type = $_GET['type'] ?? '';
-        $id = $_GET['id'] ?? 0;
-    
-        include_once 'Models/connectmodel.php';
-        $connectModel = new ConnectModel();
-        $pdo = $connectModel->ketnoi();
-    
-        $result = [];
-    
-        if ($type === 'province') {
-            $stmt = $pdo->query("SELECT * FROM provinces");
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }elseif ($type === 'district' && $id) {
-            $stmt = $pdo->prepare("SELECT * FROM districts WHERE province_id = ?");
-            $stmt->execute([$id]);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }elseif ($type === 'ward' && $id) {
-            $stmt = $pdo->prepare("SELECT * FROM wards WHERE district_id = ?");
-            $stmt->execute([$id]);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        
-    
-        header('Content-Type: application/json');
-        echo json_encode($result);
-        exit;
-    }
-    
 }
+var_dump($_SESSION['thanhtoan'])
 ?>
-
-<script>
-   $(document).ready(function () {
-
-$.get('index.php?trang=thanhtoan&action=getaddress&type=province', function (data) {
-    if (data.length > 0) {
-        data.forEach(province => {
-            $('#province').append(`<option value="${province.province_id}">${province.name}</option>`);
-        });
-    } else {
-        console.log("Không có dữ liệu tỉnh thành.");
-    }
-});
-
-$('#province').change(function () {
-    const provinceId = $(this).val();  
-    $('#district').html('<option value="">Chọn quận/huyện</option>').prop('disabled', provinceId === '');
-    $('#ward').html('<option value="">Chọn phường/xã</option>').prop('disabled', true);
-
-    if (provinceId) {
-        $.get(`index.php?trang=thanhtoan&action=getaddress&type=district&id=${provinceId}`, function (data) {
-            data.forEach(district => {
-                $('#district').append(`<option value="${district.id}">${district.name}</option>`);
-            });
-            $('#district').prop('disabled', false);
-        });
-    }
-});
-
-$('#district').change(function () {
-    const districtId = $(this).val();  
-    $('#ward').html('<option value="">Chọn phường/xã</option>').prop('disabled', districtId === '');
-
-    if (districtId) {
-        $.get(`index.php?trang=thanhtoan&action=getaddress&type=ward&id=${districtId}`, function (data) {
-            data.forEach(ward => {
-                $('#ward').append(`<option value="${ward.id}">${ward.name}</option>`);
-            });
-            $('#ward').prop('disabled', false);
-        });
-    }
-});
-});
-
-
-</script>
