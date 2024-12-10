@@ -9,24 +9,22 @@
 
 <body>
 <a href="index.php?trang=qldonhang" style="text-decoration: none; font-size: 24px; color: red;">&times;</a>
-    <form action="index.php?trang=qldonhang&lenh=capnhat&id=<?php echo $don_hang[0]['id']; ?>" method="POST"
-        enctype="multipart/form-data">
-        <label for="trangthai_dh">Trạng Thái Đơn Hàng:</label>
+    <form action="index.php?trang=qldonhang&lenh=capnhat&id=<?php echo $don_hang[0]['id']; ?>" method="POST" enctype="multipart/form-data">
+        <label>Trạng Thái Đơn Hàng:</label>
         <select name="trangthai_dh" id="">
-            <option value="Đang xử lý" <?php echo ($don_hang[0]['trangthai_dh'] === "Đang xử lý") ? 'selected' : ''; ?>>
-                Đang xử lý</option>
-            <option value="Đã giao hàng" <?php echo ($don_hang[0]['trangthai_dh'] === "Đã giao hàng") ? 'selected' : ''; ?>>Đã giao hàng</option>
-            <option value="Đã hủy" <?php echo ($don_hang[0]['trangthai_dh'] === "Đã hủy") ? 'selected' : ''; ?>>Đã hủy
+            <option value=""><?php echo $don_hang[0]['trangthai_dh']; ?></option>
+            <option>Đang xử lý</option>
+            <option>Đang đóng gói sản phẩm</option>
+            <option>Đang giao hàng</option>
+            <option>Đã giao hàng</option>
             </option>
         </select>
-
-
         <br><br>
 
-        <label for="trangthai_tt">Trạng Thái Thanh Toán:</label>
+        <label>Trạng Thái Thanh Toán:</label>
         <select name="trangthai_tt" id="">
-            <option value="Chưa thanh toán" <?php echo ($don_hang[0]['trangthai_thanhtoan'] === "Chưa thanh toán") ? 'selected' : ''; ?>>Chưa thanh toán</option>
-            <option value="Đã thanh toán" <?php echo ($don_hang[0]['trangthai_thanhtoan'] === "Đã thanh toán") ? 'selected' : ''; ?>>Đã thanh toán</option>
+            <option>Chưa thanh toán</option>
+            <option>Đã thanh toán</option>
         </select>
 
 

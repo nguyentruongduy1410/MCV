@@ -10,7 +10,7 @@
             SELECT 
                 chitiet_don_hang.*,
                 san_pham.ten_sp AS ten_sp,
-                don_hang.trangthai_dh AS trang_thai,
+                don_hang.trangthai_dh AS trang_thai_dh,
                 don_hang.trangthai_thanhtoan AS trang_thai_tt
 
             FROM 
@@ -36,8 +36,7 @@
                         users.sdt AS sdt,
                         users.diachi AS diachi,
                         don_hang.ngay_dat_hang AS ngay_dat,
-                        don_hang.tong_tien AS tong_tien
-
+                        (so_luong*gia) AS tong_tien
                     FROM 
                         chitiet_don_hang
                     JOIN 
@@ -53,7 +52,7 @@
                         chitiet_don_hang.id_dh = :id
                 ";
         
-                    $this->ctdh = $data->selectone($sql, $id);
+                $this->ctdh = $data->selectone($sql, $id);
 
     
         }
@@ -64,7 +63,7 @@
             $this->suatt = $data->selectone($sql, $id);
             
         }
-        public function capnhattt($id, $trangthai_tt, $trangthai_dh) {
+        public function capnhattt($id, $trangthai_dh, $trangthai_tt) {
             include_once 'Model/connectmodel.php';
             $tt = new ConnectModel();
             $sql = "
@@ -78,7 +77,7 @@
             $tt->ketnoi();
             $stmt = $tt->conn->prepare($sql); 
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $stmt->bindParam(":trangthai_dh", $trangthai_dh, PDO::PARAM_STR); // Truyền tham số từ form
+            $stmt->bindParam(":trangthai_dh", $trangthai_dh, PDO::PARAM_STR);
             $stmt->bindParam(":trangthai_tt", $trangthai_tt, PDO::PARAM_STR);
             $stmt->execute();
             $tt->conn = null;
