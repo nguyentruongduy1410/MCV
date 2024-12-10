@@ -9,8 +9,6 @@
 
 <body>
 <a href="index.php?trang=qldonhang" style="text-decoration: none; font-size: 24px; color: red;">&times;</a>
-
-    <h2>Sửa Trạng Thái Đơn Hàng</h2>
     <form action="index.php?trang=qldonhang&lenh=capnhat&id=<?php echo $don_hang[0]['id']; ?>" method="POST"
         enctype="multipart/form-data">
         <label for="trangthai_dh">Trạng Thái Đơn Hàng:</label>
