@@ -110,11 +110,7 @@
         </div> -->
 
 
-<<<<<<< HEAD
         <div class="box-all-news">
-=======
-<div class="box-all-news">
->>>>>>> 668d474c0ad02c4e85e8ce315022cec9bd9bf95d
 <div class="new-detail-box">
     <?php
     $ch = '';

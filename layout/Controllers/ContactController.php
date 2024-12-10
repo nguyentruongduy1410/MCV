@@ -1,8 +1,8 @@
 <?php
 
-require '../PHPMailer-master/src/PHPMailer.php';
-require '../PHPMailer-master/src/SMTP.php';
-require '../PHPMailer-master/src/Exception.php';
+require_once '../PHPMailer-master/src/PHPMailer.php';
+require_once '../PHPMailer-master/src/SMTP.php';
+require_once '../PHPMailer-master/src/Exception.php';
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -21,11 +21,14 @@ class ContactController
             $mail = new PHPMailer(true);
             try {
                 // Cấu hình SMTP
+                $mail->SMTPDebug = 0;  // 0,1,2: chế độ debug
                 $mail->isSMTP();
+                $mail->CharSet  = "utf-8";
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'classicalmusicvnn@gmail.com'; // Email của bạn
                 $mail->Password = 'elzz tppy mkgb saav'; // Mật khẩu ứng dụng
+                $mail->SMTPSecure = 'ssl';    
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
