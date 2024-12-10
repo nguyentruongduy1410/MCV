@@ -2,6 +2,7 @@
 class QlbaivietModel
 {
     public $PostList;
+    public $xem;
 
     // Lấy danh sách bài viết
     public function dsPost()
@@ -10,6 +11,13 @@ class QlbaivietModel
         $data = new ConnectModel();
         $sql = "SELECT * FROM bai_viet";
         $this->PostList = $data->selectall($sql) ?? []; // Gán mảng rỗng nếu không có dữ liệu
+    }
+    public function xem($id){
+        include_once 'Model/connectmodel.php';
+            $data = new ConnectModel();
+        $sql = "SELECT * FROM bai_viet WHERE id =:id";
+        $this->xem = $data->selectone($sql, $id);
+
     }
 
     // Thêm bài viết mới

@@ -1,8 +1,13 @@
 <?php
+<<<<<<< HEAD
+class CartController {
+    public function __construct() {
+=======
 class CartController
 {
     public function __construct()
     {
+>>>>>>> 915e1c361cdb2cb90b1671fc4d9903577dade690
         // Include model if necessary (you can uncomment this later)
         // include_once 'Models/CartModel.php';
         // $cartmodel = new CartModel();
@@ -110,9 +115,14 @@ class CartController
 
         return $html_cart;
     }
+<<<<<<< HEAD
+    
+    public function showcart_html_tomtat() {
+=======
 
     public function showcart_html_tomtat()
     {
+>>>>>>> 915e1c361cdb2cb90b1671fc4d9903577dade690
         if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
             $tong = 0;
             $html_cart = '<div class="table-cart">
@@ -125,13 +135,31 @@ class CartController
 
             foreach ($_SESSION['giohang'] as $key => $value) {
                 $tt = intval($value['price']) * intval($value['soluong']);
+<<<<<<< HEAD
+                
+                $tong += $tt;
+    
+=======
 
                 $tong += $tt;
 
+>>>>>>> 915e1c361cdb2cb90b1671fc4d9903577dade690
                 $html_cart .= '
                   <div class="title-cart">
                                         <ul>
                                             <li class="ttsp">
+<<<<<<< HEAD
+                 <img src="Public/img/'.$value['img'].'" alt=""  width="40px">
+                                                <div class="ttsp-content">
+                                                    <a href="">'.$value['name'].'</a>      x'.$value['soluong'].' '.$tt.'</a></li>
+                                                </div>
+                                            </li>
+                                        
+                                            <li>
+          
+          ';    
+             
+=======
                  <img src="Public/img/' . $value['img'] . '" alt=""  width="40px">
                                                 <div class="ttsp-content">
                                                     <a href="">' . $value['name'] . '</a>      x' . $value['soluong'] . ' ' . $tt . '</a></li>
@@ -141,6 +169,7 @@ class CartController
           
           ';
 
+>>>>>>> 915e1c361cdb2cb90b1671fc4d9903577dade690
             }
             $html_cart .= '</div>
             <h3>Tạm tính: ' . $tong . '</h3>';
@@ -151,9 +180,17 @@ class CartController
 
         return $html_cart;
     }
+    
 
+<<<<<<< HEAD
+}
+
+
+?>
+=======
 
 }
 
 
 ?>
+>>>>>>> 915e1c361cdb2cb90b1671fc4d9903577dade690

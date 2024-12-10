@@ -188,7 +188,10 @@ include_once 'Controllers/ContactController.php';
             break;
         case 'thanhtoan':
         
-  
+  if(isset($_SESSION['user'])){
+header('location:index.php?trang=thanhtoan#');
+
+  }
     
             if (isset($_GET['key']) && is_numeric($_GET['key']) && ($_GET['key'] >= 0)) {
                 if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {

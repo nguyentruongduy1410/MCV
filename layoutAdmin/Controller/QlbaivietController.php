@@ -33,7 +33,10 @@ class QlbaivietController
                     $PostList = $post->PostList; // Sử dụng tên mới
                     include_once 'Views/qlbaiviet.php';
                     break;
-
+                case 'xem':
+                    $post->xem($this->id);
+                    include_once 'Views/chitietbaiviet.php';
+                    break;
                 case 'them':
                     // Thêm bài viết mới
                     $post->themPost($this->ten_bv, $this->noi_dung, $this->hinh_anh, $this->ngay_dang, $this->mo_ta);

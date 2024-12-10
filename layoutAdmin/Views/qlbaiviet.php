@@ -18,10 +18,6 @@
                     <textarea id="noi_dung" name="noi_dung" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="hinh_anh">Hình Ảnh</label>
-                    <input type="test" id="hinh_an" name="hinh_anh" required>
-                </div>
-                <div class="form-group">
                     <label for="ngay_dang">Ngày Đăng</label>
                     <input type="date" id="ngay_dang" name="ngay_dang" required>
                 </div>
@@ -39,8 +35,6 @@
             <tr>
                 <th>ID</th>
                 <th>Tiêu Đề</th>
-                <th>Nội Dung</th>
-                <th >Hình Ảnh</th>
                 <th>Ngày Đăng</th>
                 <th>Mô Tả</th>
                 <th>Hành Động</th>
@@ -54,11 +48,11 @@
                     <tr>
                         <td>' . $value['id'] .'</td>
                         <td>' . $value['ten_bv'] . '</td>
-                        <td class="">' . $value['noi_dung'] . '</td>
-                          <td><img src="public/img/'.$value['hinh_anh'].'" alt="" width="100px"></td>
                         <td>' . $value['ngay_dang'] . '</td>
                         <td>' . $value['mo_ta'] . '</td>
                         <td>
+                            <a href="index.php?trang=qlbaiviet&lenh=xem&id=' . $value['id'] . '"><button class="btn edit">Xem chi tiết</button></a>
+
                             <a href="index.php?trang=qlbaiviet&lenh=sua&id=' . $value['id'] . '"><button class="btn edit">Sửa</button></a>
                             <a href="index.php?trang=qlbaiviet&lenh=xoa&id=' . $value['id'] . '"><button class="btn delete">Xóa</button></a>
                         </td>
@@ -83,10 +77,6 @@
             <div class="form-group">
                 <label for="noi_dung">Nội Dung</label>
                 <textarea id="noi_dung" name="noi_dung" required><?php echo $postInfo['noi_dung']; ?></textarea>
-            </div>
-            <div class="form-group">
-                <label for="hinh_anh">Hình Ảnh</label>
-                <input type="file" id="hinh_anh" name="hinh_anh" value="<?php echo $postInfo['hinh_anh']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="ngay_dang">Ngày Đăng</label>
