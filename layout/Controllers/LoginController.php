@@ -7,23 +7,29 @@ if (isset($_POST["login"])) {
     $user = $_POST['email'];
     $pass = $_POST['password'];
     $role = checkuser($user, $pass);
-
     if ($role !== null) {
         $user_info = getCustomerInfo($user);
         if ($user_info) {
+            if ($user_info['activation_status'] == 0) {
+                $err = 'Tài khoản của bạn chưa được kích hoạt. Vui lòng kiểm tra email.';
+                $_SESSION['login_error'] = $err;
+                header('Location: index.php?trang=home');
+                exit();
+            }
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $user;
             $_SESSION['user_id'] = $user_info['id'];
             $_SESSION['user_name'] = $user_info['ten'];
             $_SESSION['user_address'] = $user_info['diachi'];
             $_SESSION['user_phone'] = $user_info['sdt'];
+
+            if ($role == 1) {
+                header('Location: ../layoutAdmin/index.php');
+            } else if ($role == 0) {
+                header('Location: index.php?trang=home');
+            }
+            exit();
         }
-        if ($role == 1) {
-            header('Location: ../layoutAdmin/index.php');
-        } else if ($role == 0) {
-            header('Location: index.php?trang=home');
-        }
-        exit();
     } else {
         $err = 'Thông tin đăng nhập không chính xác!';
         $_SESSION['login_error'] = $err;
@@ -32,56 +38,93 @@ if (isset($_POST["login"])) {
 
 
 
+
 // Đăng ký
-$error_message = '';
+include_once 'Models/UserModel.php';
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
+require '../PHPMailer-master/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+function generateActivationLink($email, $activation_code) {
+    return "http://localhost/trungmat/MCV/layout/index.php?trang=activity&email=$email&code=$activation_code";
+}
+
+// Hàm gửi email kích hoạt
+function sendActivationEmail($email, $activation_code) {
+    $activation_link = generateActivationLink($email, $activation_code);
+    
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'classicalmusicvnn@gmail.com'; // Đảm bảo đây là email chính xác
+        $mail->Password = 'elzz tppy mkgb saav'; // Mật khẩu ứng dụng Gmail
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        $mail->setFrom('classicalmusicvnn@gmail.com', 'Classical Music');
+        $mail->addAddress($email);
+
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Kích hoạt tài khoản của bạn';
+        $mail->Body = "Chào bạn, <br>Vui lòng kích hoạt tài khoản của bạn bằng cách nhấn vào liên kết sau: <br><a href='$activation_link'>$activation_link</a>";
+
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
+// Đăng ký người dùng
 if (isset($_POST['signup'])) {
     $sEmail = $_POST['sEmail'];
     $sName = $_POST['sName'];
     $sPassword = $_POST['sPassword'];
     $sRPassword = $_POST['sRPassword'];
-
     if (strlen($sPassword) >= 8) {
         if ($sPassword === $sRPassword) {
             try {
                 include_once 'Models/UserModel.php';
-                $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
-                if (registerUser($sEmail, $hashedPassword, $sName)) {
-                    $user_info = getCustomerInfo($sEmail);
-                    if ($user_info) {
-                        $_SESSION['role'] = $role;
-                        $_SESSION['email'] = $sEmail;
-                        $_SESSION['name'] = $sName;
-                        $_SESSION['user_id'] = $user_info['id'];
-                        $_SESSION['user_name'] = $user_info['ten'];
-                        $_SESSION['user_address'] = $user_info['diachi'];
-                        $_SESSION['user_phone'] = $user_info['sdt'];
-                    }
-                    header('Location: index.php');
-                    exit();
-                } else {
+                if (checkEmail($sEmail)) {
                     $error_message = "Email đã được đăng ký!";
                     $_SESSION['signup_error'] = $error_message;
+                } else {
+                    $hashedPassword = password_hash($sPassword, PASSWORD_DEFAULT);
+                    $activation_code = bin2hex(random_bytes(16));
+                    if (registerUser($sEmail, $hashedPassword, $sName, $activation_code)) {
+                        if (sendActivationEmail($sEmail, $activation_code)) {
+                            $_SESSION['signup_success'] = "Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.";
+                        } else {
+                            $_SESSION['signup_error'] = "Lỗi gửi email kích hoạt.";
+                        }
+                        header('Location: index.php');
+                        exit();
+                    } else {
+                        $error_message = "Lỗi đăng ký người dùng!";
+                        $_SESSION['signup_error'] = $error_message;
+                    }
                 }
             } catch (PDOException $e) {
-                $error_message = "Lỗi kết nối: " . $e->getMessage();
+                $error_message = "Lỗi kết nối cơ sở dữ liệu: " . $e->getMessage();
                 $_SESSION['signup_error'] = $error_message;
             }
         } else {
-            $error_message = "Mật khẩu không khớp!";
-            $_SESSION['signup_error'] = $error_message;
+            $_SESSION['signup_error'] = "Mật khẩu không khớp!";
         }
     } else {
-        $error_message = "Mật khẩu phải có ít nhất 8 ký tự!";
-        $_SESSION['signup_error'] = $error_message;
+        $_SESSION['signup_error'] = "Mật khẩu phải có ít nhất 8 ký tự!";
     }
 }
 
 // Khôi phục mật khẩu
-require_once '../PHPMailer-master/src/PHPMailer.php';
-require_once '../PHPMailer-master/src/SMTP.php';
-require_once '../PHPMailer-master/src/Exception.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
 
 function generateRandomPassword($length = 8)
 {
