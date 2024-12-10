@@ -23,7 +23,7 @@
                                         <td>'.$value['id'].'</td>
                                         <td>'.$value['ten_sp'].'</td>
                                         <td>'.$value['so_luong'].'</td>
-                                        <td>'.$value['trang_thai'].'</td>
+                                        <td>'.$value['trang_thai_dh'].'</td>
                                         <td>'.$value['trang_thai_tt'].'</td>
                                         <td>
                                             <a href="index.php?trang=qldonhang&lenh=chitietdh&id='.$value['id'].'" class="nutxem">Xem thêm</a>
