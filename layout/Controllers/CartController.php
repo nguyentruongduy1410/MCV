@@ -1,9 +1,17 @@
 <?php
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
 class CartController
 {
     public function __construct()
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
         // Include model if necessary (you can uncomment this later)
         // include_once 'Models/CartModel.php';
         // $cartmodel = new CartModel();
@@ -111,8 +119,17 @@ class CartController
 
         return $html_cart;
     }
+<<<<<<< HEAD
     public function showcart_html_tomtat()
     {
+=======
+
+
+
+    public function showcart_html_tomtat()
+    {
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
         if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
             $tong = 0;
             $html_cart = '<div class="table-cart">
@@ -126,23 +143,43 @@ class CartController
             foreach ($_SESSION['giohang'] as $key => $value) {
                 $tt = intval($value['price']) * intval($value['soluong']);
 
+<<<<<<< HEAD
 
                 $tong += $tt;
 
+=======
+    
+
+
+                $tong += $tt;
+
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
                 $html_cart .= '
                   <div class="title-cart">
                                         <ul>
                                             <li class="ttsp">
+<<<<<<< HEAD
 
                  <img src="Public/img/' . $value['img'] . '" alt=""  width="40px">
                                                 <div class="ttsp-content">
                                                     <a href="">' . $value['name'] . '</a>      x' . $value['soluong'] . ' ' . $tt . '</a></li>
                                                 </div>/-strong/-heart:>:o:-((:-h </li>
+=======
+                 <img src="Public/img/' . $value['img'] . '" alt=""  width="30px">
+                                                <div class="ttsp-content">
+                                                    <a href="">' . $value['name'] . '</a>  <div class="ttt">    x' . $value['soluong'] . ' ' . $tt . '</div></a></li>
+                                                </div></li>
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
                                         
                                             <li>
           
           ';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb
             }
             $html_cart .= '</div>
             <h3>Tạm tính: ' . $tong . '</h3>';
@@ -155,9 +192,17 @@ class CartController
     }
     
 
+<<<<<<< HEAD
 
 
 }
 
 
 ?>
+=======
+}
+
+
+?>
+
+>>>>>>> ce4dd199ff2e431e4f007c155f6c50262f6b01bb

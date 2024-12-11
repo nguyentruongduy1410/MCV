@@ -32,17 +32,7 @@ class ThanhToanController
             array_push($_SESSION['thanhtoan'], $item); 
         }
     }
-    public function addVoucher($voucherCode) {
-        // Giả sử bạn có danh sách các voucher trong database hoặc mảng
-        $validVouchers = ['DISCOUNT10', 'SALE20']; // Ví dụ mã giảm giá hợp lệ
-        if (in_array($voucherCode, $validVouchers)) {
-            // Thực hiện giảm giá hoặc thêm voucher vào session
-            $_SESSION['voucher'] = $voucherCode;
-            return "Mã giảm giá đã được áp dụng!";
-        } else {
-            return "Mã giảm giá không hợp lệ!";
-        }
-    }
+
     
     public function showthanhtoan_html()
     {
