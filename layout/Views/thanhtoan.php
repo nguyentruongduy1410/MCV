@@ -22,8 +22,7 @@
             <div class="summary-section">
                 <h2>Đơn hàng</h2>
 
-            
-                <?=$html_cart_tomtat;?>
+            <?=$html_cart_tomtat;?>
                
                
 
