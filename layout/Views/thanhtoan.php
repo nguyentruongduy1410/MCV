@@ -1,7 +1,7 @@
 <div class="container" id="thanhtoan">
     
     <?php //echo $html_thanhtoan; ?>
-    <form method="post">
+    <form action="index.php?trang=thanhtoan" method="post">
 
         <div class="form-section">
                 <h2>Thông tin nhận hàng</h2>
@@ -46,7 +46,7 @@
             </div>
 
           
-            <button class="btn order-btn" name="btn_dathang">ĐẶT HÀNG</button>
+            <button class="order-btn" name="btn_dathang" type="submit">ĐẶT HÀNG</button>
         </div>
     </form>
 </div>
